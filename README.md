@@ -1,4 +1,49 @@
-# MyGithubPages
+# 목표
+* Nuxt.js로 SPA 개인 페이지를 만듭니다.
+
+# 제작
+## 기초 세팅
+> ref: https://ko.nuxtjs.org/docs/2.x/deployment/github-pages/
+1. nuxt project 시작
+```bash
+$ yarn create nuxt-app <project name>
+```
+1. Git remote 연결
+```bash
+$ git remote add origin <repo>
+# git init 등 기초 세팅
+```
+1. deploy 기초 세팅
+```javascript
+// nuxt.config.js
+export default {
+  target: 'static',
+  router: {
+    base: '/<repository-name>/'
+  }
+}
+```
+1. push-dir 설치
+```bash
+yarn add --dev push-dir
+```
+1. `deploy` scripts 추가 (in `package.json`)
+```json
+"scripts": {
+  "dev": "nuxt",
+  "generate": "nuxt generate",
+  "start": "nuxt start",
+  "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+},
+```
+1. dist 생성 및 배포
+```bash
+# dist 생성
+npm run generate
+
+# 배포
+npm run deploy
+```
 
 ## Build Setup
 
@@ -15,6 +60,11 @@ $ yarn start
 
 # generate static project
 $ yarn generate
+
+# deploy
+$ yarn deploy
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+# 참조
+* For detailed explanation on how things work
+* check out [Nuxt.js docs](https://nuxtjs.org).
