@@ -7,13 +7,13 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    base: '/t-mook.github.io/',
+    base: '/',
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - MyGithubPages',
-    title: 'MyGithubPages',
+    titleTemplate: '%s - TMook Page',
+    title: 'TMook Page',
     htmlAttrs: {
       lang: 'en',
     },
