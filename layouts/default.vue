@@ -1,8 +1,5 @@
 <template>
-  <v-app light>
-    <v-app-bar fixed app>
-      <v-btn to="/" text> Home </v-btn>
-    </v-app-bar>
+  <v-app>
     <v-container>
       <nuxt />
     </v-container>
