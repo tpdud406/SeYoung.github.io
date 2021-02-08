@@ -30,10 +30,9 @@ export default {
       {
         rel: 'stylesheet',
         type: 'text/css',
-        href:
-          '//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
+        href: '//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css',
       },
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
   },
 
