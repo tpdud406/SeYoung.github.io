@@ -75,7 +75,7 @@ export default {
   },
   computed: {
     colsPositioning() {
-      const cols = this.$vuetify.breakpoint.xsOnly ? 12 : 4
+      const cols = this.$vuetify.breakpoint.smAndDown ? 12 : 4
       return cols
     },
     printTitle() {

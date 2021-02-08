@@ -3,6 +3,7 @@
     <v-card :max-width="mainCardMaxWidth" flat tile color="rgba(0,0,0,0)">
       <top class="mb-8"></top>
       <skills class="mb-8" />
+      <main-project class="mb-8" />
       <carreer />
     </v-card>
   </v-row>
@@ -11,12 +12,14 @@
 <script>
 import Top from '@/components/index/Top.vue'
 import Carreer from '@/components/index/Carreer.vue'
+import MainProject from '@/components/index/MainProject.vue'
 import Skills from '@/components/index/Skills.vue'
 
 export default {
   components: {
     Top,
     Carreer,
+    MainProject,
     Skills,
   },
   data() {

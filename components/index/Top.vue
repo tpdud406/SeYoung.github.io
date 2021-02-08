@@ -56,7 +56,7 @@ export default {
       },
       color: {
         backgroundGradient:
-          'to right bottom, rgba(0,0,0,.1), rgba(255,255,255,.1)',
+          'to right bottom, rgba(0,0,0,.1), rgba(11,12,23,.8)',
       },
     }
   },

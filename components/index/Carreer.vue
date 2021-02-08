@@ -1,9 +1,6 @@
 <template>
   <v-card tile flat>
-    <p
-      class="main-title d-flex justify-center mb-8 px-6"
-      v-html="title"
-    ></p>
+    <p class="main-title d-flex justify-center mb-8 px-6" v-html="title"></p>
     <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="mx-4">
       <v-timeline-item
         v-for="(item, index) in items"
