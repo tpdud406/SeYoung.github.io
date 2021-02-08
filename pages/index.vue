@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center" align="center">
-    <v-card :max-width="mainCardMaxWidth" flat color="rgba(0,0,0,0)">
+    <v-card :max-width="mainCardMaxWidth" flat tile color="rgba(0,0,0,0)">
       <top class="mb-8"></top>
       <skills class="mb-8" />
       <carreer />

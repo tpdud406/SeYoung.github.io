@@ -80,8 +80,8 @@ export default {
     },
     printTitle() {
       const title = this.$vuetify.breakpoint.xsOnly
-        ? '신속한 행동,<br />신규 시장/기술 이해 및 설명 특화'
-        : '신속한 행동, 신규 시장/기술 이해 및 설명 특화'
+        ? '신속한 착수,<br />신규 시장/기술 이해 및 설명 특화'
+        : '신속한 착수, 신규 시장/기술 이해 및 설명 특화'
       return title
     },
   },

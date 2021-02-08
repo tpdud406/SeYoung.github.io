@@ -1,5 +1,5 @@
 <template>
-  <v-card :height="height" :width="width" flat>
+  <v-card :height="height" :width="width" flat tile>
     <v-img
       src="/background/starry-night-1149815_vertical.jpg"
       :gradient="color.backgroundGradient"
