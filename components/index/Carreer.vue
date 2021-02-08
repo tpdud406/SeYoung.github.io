@@ -143,7 +143,7 @@ export default {
           time: '2014.7 - 2017.7',
           content: 'PB(지점영업), Retail전략팀 근무',
           color: 'red lighten-1',
-          src: '/carreer/agreement-3489902_1920.jpg',
+          src: '/carreer/stock-1863880_1920.jpg',
           left: true,
           hideDot: false,
         },

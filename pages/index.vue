@@ -1,22 +1,16 @@
 <template>
   <v-row justify="center" align="center">
     <!-- ### Start: LinkedIn Embeding Code ### -->
+    <!--
     <script
       type="text/javascript"
       src="https://platform.linkedin.com/badges/js/profile.js"
       async
       defer
     ></script>
+    -->
     <v-card :max-width="mainCardMaxWidth" flat color="rgba(0,0,0,0)">
-      <v-row class="mt-0">
-        <v-col cols="12" class="py-0">
-          <v-img src="/background/stock-1863880_1920.jpg" class="align-center">
-            <v-card-title class="justify-center white--text"
-              >Read The World, Lead The World</v-card-title
-            >
-          </v-img>
-        </v-col>
-      </v-row>
+      <top></top>
       <!-- LinkedIn Badge -->
       <!--
       <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="ko_KR" data-type="vertical" data-theme="dark" data-vanity="성묵-박-34a0a2135"><a class="LI-simple-link" href=\'https://kr.linkedin.com/in/%EC%84%B1%EB%AC%B5-%EB%B0%95-34a0a2135?trk=profile-badge\'>박성묵</a></div>'
@@ -79,11 +73,13 @@
 </template>
 
 <script>
+import Top from '@/components/index/Top.vue'
 import Carreer from '@/components/index/Carreer.vue'
 import Skills from '@/components/index/Skills.vue'
 
 export default {
   components: {
+    Top,
     Carreer,
     Skills,
   },
