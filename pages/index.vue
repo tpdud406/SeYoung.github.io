@@ -53,7 +53,7 @@
       </v-row>
       -->
       <v-row
-        :justify="$vuetify.breakpoint.smAndDown ? 'start' : 'center'"
+        :justify="$vuetify.breakpoint.xsOnly ? 'start' : 'center'"
         class="mt-7 mx-5"
       >
         <v-btn

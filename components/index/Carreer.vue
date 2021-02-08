@@ -1,5 +1,5 @@
 <template>
-  <v-timeline :dense="$vuetify.breakpoint.smAndDown" class="mx-4">
+  <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="mx-4">
     <v-timeline-item
       v-for="(item, index) in items"
       :key="index"
@@ -31,7 +31,7 @@
         <v-card-text v-if="item.content.length !== 0">
           {{ item.content }}
         </v-card-text>
-        <v-card-text v-if="$vuetify.breakpoint.smAndDown" class="mt-0 pt-0">
+        <v-card-text v-if="$vuetify.breakpoint.xsOnly" class="mt-0 pt-0">
           <small>{{ item.time }}</small>
         </v-card-text>
       </v-card>
