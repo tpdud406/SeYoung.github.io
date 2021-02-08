@@ -40,7 +40,7 @@ export default {
       width: '100%',
       text: {
         subtitle: 'Read the world, Lead the world',
-        title: '첫 걸음을 디딜 줄 아는 사람',
+        title: '첫 걸음이라도, 내딛습니다',
       },
       btns: {
         skills: {
