@@ -22,7 +22,19 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      /* How to use Web Font (Spoka Sans) in Nuxt
+      ref: https://ichi.pro/ko/vuetify-js-mich-nuxt-jseseo-gibon-geulkkol-byeongyeong-62212184407824
+      ref2 (font Official): https://spoqa.github.io/spoqa-han-sans/ko-KR/
+      */
+      {
+        rel: 'stylesheet',
+        type: 'text/css',
+        href:
+          '//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
+      },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -47,7 +59,9 @@ export default {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
+    treeShake: true,
     customVariables: ['~/assets/variables.scss'],
+    defaultAssets: false,
     theme: {
       dark: false,
       themes: {
