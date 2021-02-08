@@ -1,56 +1,56 @@
 <template>
-  <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="mx-4">
-    <v-timeline-item
-      v-for="(item, index) in items"
-      :key="index"
-      :color="item.color"
-      :left="item.left"
-      :right="!item.left"
-      :hide-dot="item.hideDot"
-      small
-    >
-      <template #opposite>
-        <span>{{ item.time }}</span>
-      </template>
-      <v-card outlined flat>
-        <v-img
-          v-if="!!item.src"
-          :src="item.src"
-          max-width="640"
-          contain
-        ></v-img>
-        <template #placeholder>
-          <v-row class="fill-height ma-0" align="center" justify="center">
-            <v-progress-circular
-              indeterminate
-              color="grey lighten-5"
-            ></v-progress-circular>
-          </v-row>
+  <v-card tile flat>
+    <p
+      class="main-title d-flex justify-center mb-8 px-6"
+      v-html="title"
+    ></p>
+    <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="mx-4">
+      <v-timeline-item
+        v-for="(item, index) in items"
+        :key="index"
+        :color="item.color"
+        :left="item.left"
+        :right="!item.left"
+        :hide-dot="item.hideDot"
+        small
+      >
+        <template #opposite>
+          <span>{{ item.time }}</span>
         </template>
-        <v-card-title class="headline">{{ item.title }}</v-card-title>
-        <v-card-text v-if="item.content.length !== 0">
-          {{ item.content }}
-        </v-card-text>
-        <v-card-text v-if="$vuetify.breakpoint.xsOnly" class="mt-0 pt-0">
-          <small>{{ item.time }}</small>
-        </v-card-text>
-      </v-card>
-    </v-timeline-item>
-  </v-timeline>
+        <v-card outlined flat>
+          <v-img
+            v-if="!!item.src"
+            :src="item.src"
+            max-width="640"
+            contain
+          ></v-img>
+          <template #placeholder>
+            <v-row class="fill-height ma-0" align="center" justify="center">
+              <v-progress-circular
+                indeterminate
+                color="grey lighten-5"
+              ></v-progress-circular>
+            </v-row>
+          </template>
+          <v-card-title class="headline">{{ item.title }}</v-card-title>
+          <v-card-text v-if="item.content.length !== 0">
+            {{ item.content }}
+          </v-card-text>
+          <v-card-text v-if="$vuetify.breakpoint.xsOnly" class="mt-0 pt-0">
+            <small>{{ item.time }}</small>
+          </v-card-text>
+        </v-card>
+      </v-timeline-item>
+    </v-timeline>
+  </v-card>
 </template>
 
 <script>
 export default {
   data() {
     return {
+      title: '전체 타임라인',
       items: [
-        // {
-        //   title: '「EASYTREND」서비스 개발',
-        //   time: '2020.7',
-        //   content:
-        //     '사이드 프로젝트로 사람들이 특정 검색어에 대한 정보를 쉽게 얻고 저장할 수 있게 만드는 서비스 개발',
-        //   color: 'blue lighten-1',
-        // },
         {
           title: '「쉬운지식 유한책임회사」 설립',
           time: '2020.7',
@@ -154,6 +154,10 @@ export default {
 </script>
 
 <style scoped>
+.main-title {
+  font-size: 1.6rem !important;
+  font-weight: 500;
+}
 .v-card__title.headline {
   font-size: 1rem !important;
   font-weight: 600;
