@@ -28,9 +28,9 @@ export default {
   computed: {
     mainCardMaxWidth() {
       const maxWidth =
-        this.$vuetify.breakpoint.width < 1280
+        this.$vuetify.breakpoint.width < 860
           ? this.$vuetify.breakpoint.width
-          : 1280
+          : 860
       return maxWidth
     },
   },

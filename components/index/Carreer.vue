@@ -51,7 +51,7 @@ export default {
         {
           title: '「쉬운지식 유한책임회사」 설립',
           time: '2020.7',
-          content: '지식의 저주를 해소하는 서비스들의 집합을 위한 회사 설립',
+          content: '지식의 저주를 해소하는 서비스 집합을 위한 회사 설립',
           color: 'red lighten-1',
           left: true,
           hideDot: false,
