@@ -3,18 +3,24 @@
     <v-img
       src="/background/starry-night-1149815_vertical.jpg"
       :gradient="color.backgroundGradient"
-      contain
+      :height="heightInXS"
+      :contain="containInXS"
       class="align-center"
     >
-      <v-card-subtitle class="main-subtitle blue--text text--lighten-1">
-        {{ text.subtitle }}
+      <v-card-subtitle
+        class="main-subtitle blue--text text--lighten-1"
+        v-html="text.subtitle"
+      >
       </v-card-subtitle>
-      <v-card-title class="main-title white--text">{{
-        text.title
-      }}</v-card-title>
+      <v-card-title
+        class="main-title white--text"
+        v-html="text.title"
+      ></v-card-title>
       <v-btn
         :color="btns.skills.color"
         :to="btns.skills.to"
+        :href="btns.skills.href"
+        :small="this.$vuetify.breakpoint.xsOnly"
         class="mt-5 ml-5"
         dark
       >
@@ -23,6 +29,8 @@
       <v-btn
         :color="btns.youtube.color"
         :to="btns.youtube.to"
+        :href="btns.youtube.href"
+        :small="this.$vuetify.breakpoint.xsOnly"
         class="mt-5 ml-2"
         outlined
       >
@@ -39,18 +47,22 @@ export default {
       height: undefined,
       width: '100%',
       text: {
-        subtitle: 'Read the world, Lead the world',
-        title: '첫 걸음이라도, 내딛습니다',
+        subtitle: 'READ AND LEAD THE WORLD',
+        title:
+          '희망하기 보다' +
+          '<span class="ml-2" style="font-weight: 500;">행동하는 매니저</span>',
       },
       btns: {
         skills: {
           name: 'CHECK ▼',
           to: '/#skills',
+          href: undefined,
           color: 'blue darken-3',
         },
         youtube: {
           name: 'MY YOUTUBE ▶',
-          to: 'https://youtube.com/c/TMook',
+          to: undefined,
+          href: 'https://youtube.com/c/TMook',
           color: 'white',
         },
       },
@@ -60,16 +72,28 @@ export default {
       },
     }
   },
+  computed: {
+    heightInXS() {
+      const height = this.$vuetify.breakpoint.xsOnly ? 500 : undefined
+      return height
+    },
+    containInXS() {
+      const contain = !this.$vuetify.breakpoint.xsOnly
+      return contain
+    },
+  },
 }
 </script>
 
 <style scoped>
 .main-subtitle {
-  font-size: 1.2rem !important;
+  font-size: 1.1rem !important;
+  font-weight: 500;
   padding-bottom: 4px;
 }
 .main-title {
   font-size: 2rem !important;
+  font-weight: 300;
   padding-top: 0px;
 }
 </style>

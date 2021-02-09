@@ -14,7 +14,8 @@
         :key="index"
         :src="project.src"
         :gradient="project.color.backgroundGradient"
-        contain
+        :height="heightInXS"
+        :contain="containInXS"
         class="align-center"
       >
         <v-card-subtitle class="project-subtitle white--text">
@@ -28,7 +29,13 @@
           v-html="project.text.content"
         >
         </v-card-text>
-        <v-btn outlined depressed :color="project.btn.color" class="mt-6 ml-5">
+        <v-btn
+          outlined
+          depressed
+          :color="project.btn.color"
+          :href="project.btn.href"
+          class="mt-6 ml-5"
+        >
           {{ project.btn.name }}
         </v-btn>
       </v-img>
@@ -60,7 +67,7 @@ export default {
           src: '/background/office-1209640_1920.jpg',
           btn: {
             name: 'Alpha Test (End)',
-            to: undefined,
+            href: undefined,
             color: 'red lighten-3',
           },
           cardClass: 'align-center',
@@ -80,13 +87,23 @@ export default {
           src: '/background/radio-2722271_1920.jpg',
           btn: {
             name: 'Go Youtube ▶',
-            to: 'https://youtube.com/c/TMook',
+            href: 'https://youtube.com/c/TMook',
             color: 'white',
           },
           cardClass: 'justify-end align-center',
         },
       ],
     }
+  },
+  computed: {
+    heightInXS() {
+      const height = this.$vuetify.breakpoint.xsOnly ? 500 : undefined
+      return height
+    },
+    containInXS() {
+      const contain = !this.$vuetify.breakpoint.xsOnly
+      return contain
+    },
   },
 }
 </script>
