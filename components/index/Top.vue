@@ -50,7 +50,7 @@ export default {
         subtitle: 'READ AND LEAD THE WORLD',
         title:
           '희망하기 보다' +
-          '<span class="ml-2" style="font-weight: 500;">행동하는 매니저</span>',
+          '<span class="ml-sm-2" style="font-weight: 500;">행동하는 매니저</span>',
       },
       btns: {
         skills: {

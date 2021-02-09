@@ -65,7 +65,7 @@ export default {
         {
           title: '업무 자동화 & 코딩 경험',
           text:
-            '- 전지점 직원 실적보고서 출력 자동화<br />' +
+            '- 전지점 실적 정보 원페이지 출력 자동화<br />' +
             '- Python, Javascript, MySQL 경험<br />' +
             '- (지금 보고계신 이 곳도 직접 제작)',
           src: '/skills/dual-screen-1745705_640.png',
