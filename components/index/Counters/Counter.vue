@@ -13,7 +13,7 @@
           <v-icon x-small color="white">mdi-check-circle</v-icon>
         </v-toolbar-items>
       </v-toolbar>
-      <v-card-title class="d-flex justify-center main-number pb-0">
+      <v-card-title class="d-flex justify-center main-number mt-2 pb-0">
         {{ item.number }}
       </v-card-title>
       <v-card-title class="d-flex justify-center number-title pt-3 pb-1">
