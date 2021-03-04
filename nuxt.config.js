@@ -40,10 +40,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    // Doc : https://ko.nuxtjs.org/faq/google-analytics/
-    { src: '~plugins/ga.js', mode: 'client' },
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -54,10 +51,17 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    // ref : https://google-analytics.nuxtjs.org/setup
+    '@nuxtjs/google-analytics',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
+
+  // Modules: https://google-analytics.nuxtjs.org/
+  googleAnalytics: {
+    id: 'UA-121779163-2',
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
