@@ -11,7 +11,7 @@
       <p
         class="main-title d-flex justify-center mb-8 px-6"
         v-html="printTitle"
-      ></p>
+      />
       <v-container>
         <v-row justify="center">
           <v-col
@@ -27,11 +27,9 @@
               flat
               class="justify-center"
             >
-              <v-img :src="item.src"></v-img>
-              <v-card-title class="justify-center" v-html="item.title">
-              </v-card-title>
-              <v-card-text class="d-flex justify-center" v-html="item.text">
-              </v-card-text>
+              <v-img :src="item.src" />
+              <v-card-title class="justify-center" v-html="item.title" />
+              <v-card-text class="d-flex justify-center" v-html="item.text" />
             </v-card>
           </v-col>
         </v-row>

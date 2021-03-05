@@ -53,6 +53,8 @@ export default {
     '@nuxtjs/vuetify',
     // ref : https://google-analytics.nuxtjs.org/setup
     '@nuxtjs/google-analytics',
+    // ref : https://typescript.nuxtjs.org/guide/setup
+    '@nuxt/typescript-build',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

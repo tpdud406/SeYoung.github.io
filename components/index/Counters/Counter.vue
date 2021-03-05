@@ -10,14 +10,16 @@
     <v-card outlined flat max-width="350" :min-height="handlingMinHeight">
       <v-toolbar height="20" flat :color="item.color">
         <v-toolbar-items>
-          <v-icon x-small color="white">mdi-check-circle</v-icon>
+          <v-icon x-small color="white"> mdi-check-circle </v-icon>
         </v-toolbar-items>
       </v-toolbar>
       <v-card-title class="d-flex justify-center main-number mt-3 mt-sm-2 pb-0">
         {{ item.number }}
       </v-card-title>
       <v-card-title class="d-flex justify-center number-title pt-3 pb-1">
-        <v-icon :color="item.color" class="mr-2">{{ item.icon }}</v-icon>
+        <v-icon :color="item.color" class="mr-2">
+          {{ item.icon }}
+        </v-icon>
         {{ item.title }}
       </v-card-title>
       <v-card-text class="detail-text mt-5 mt-sm-0 mb-1 mb-sm-5">

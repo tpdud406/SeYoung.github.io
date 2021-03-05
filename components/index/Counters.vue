@@ -1,6 +1,6 @@
 <template>
   <v-card flat tile>
-    <p class="main-title d-flex justify-center mb-8 px-6" v-html="title"></p>
+    <p class="main-title d-flex justify-center mb-8 px-6" v-html="title" />
     <v-container class="px-10" fluid>
       <v-row justify="center">
         <v-col

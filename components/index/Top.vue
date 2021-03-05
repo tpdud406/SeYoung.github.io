@@ -10,12 +10,8 @@
       <v-card-subtitle
         class="main-subtitle blue--text text--lighten-1"
         v-html="text.subtitle"
-      >
-      </v-card-subtitle>
-      <v-card-title
-        class="main-title white--text"
-        v-html="text.title"
-      ></v-card-title>
+      />
+      <v-card-title class="main-title white--text" v-html="text.title" />
       <v-btn
         :color="btns.skills.color"
         :to="btns.skills.to"

@@ -8,7 +8,7 @@
     transition="fade-transition"
   >
     <v-card :height="height" :width="width" flat tile>
-      <p class="main-title d-flex justify-center mb-8 px-6" v-html="title"></p>
+      <p class="main-title d-flex justify-center mb-8 px-6" v-html="title" />
       <v-img
         v-for="(project, index) in projects"
         :key="index"
@@ -21,14 +21,13 @@
         <v-card-subtitle class="project-subtitle white--text">
           {{ project.text.subtitle }}
         </v-card-subtitle>
-        <v-card-title class="project-title white--text">{{
-          project.text.title
-        }}</v-card-title>
+        <v-card-title class="project-title white--text">
+          {{ project.text.title }}
+        </v-card-title>
         <v-card-text
           class="project-content white--text"
           v-html="project.text.content"
-        >
-        </v-card-text>
+        />
         <v-btn
           outlined
           depressed

@@ -1,6 +1,6 @@
 <template>
   <v-card tile flat>
-    <p class="main-title d-flex justify-center mb-8 px-6" v-html="title"></p>
+    <p class="main-title d-flex justify-center mb-8 px-6" v-html="title" />
     <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="mx-4">
       <v-timeline-item
         v-for="(item, index) in items"
@@ -15,21 +15,15 @@
           <span>{{ item.time }}</span>
         </template>
         <v-card outlined flat>
-          <v-img
-            v-if="!!item.src"
-            :src="item.src"
-            max-width="640"
-            contain
-          ></v-img>
+          <v-img v-if="!!item.src" :src="item.src" max-width="640" contain />
           <template #placeholder>
             <v-row class="fill-height ma-0" align="center" justify="center">
-              <v-progress-circular
-                indeterminate
-                color="grey lighten-5"
-              ></v-progress-circular>
+              <v-progress-circular indeterminate color="grey lighten-5" />
             </v-row>
           </template>
-          <v-card-title class="headline">{{ item.title }}</v-card-title>
+          <v-card-title class="headline">
+            {{ item.title }}
+          </v-card-title>
           <v-card-text v-if="item.content.length !== 0">
             {{ item.content }}
           </v-card-text>

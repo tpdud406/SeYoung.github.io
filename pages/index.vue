@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center" align="center">
     <v-card :max-width="mainCardMaxWidth" flat tile color="rgba(0,0,0,0)">
-      <top class="mb-12"></top>
+      <top class="mb-12" />
       <skills class="mb-4" />
       <counters class="mb-12" />
       <main-project class="mb-12" />
