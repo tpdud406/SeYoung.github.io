@@ -46,6 +46,7 @@
    ```
 
 ## Build Setup
+### 기초
 ```bash
 # install dependencies
 $ yarn install
@@ -63,6 +64,108 @@ $ yarn generate
 # deploy
 $ yarn deploy
 ```
+### TypeScript for Nuxt 세팅
+* Nuxt 2.9 이후 외부모듈로 공식 지원 (코어 분리)
+#### 기본
+   1. 필요 모듈 설치
+      ```bash
+      yarn add --dev @nuxt/typescript-build @nuxt/types
+      ```
+   1. 적용
+      ```javascript
+      // nuxt.config.js
+
+      export default {
+        buildModules: ['@nuxt/typescript-build']
+      }
+      ```
+   1. tsconfig.json 만들기 (`root/`)
+      ```json
+      {
+        "compilerOptions": {
+          "target": "ES2018",
+          "module": "ESNext",
+          "moduleResolution": "Node",
+          "lib": [
+            "ESNext",
+            "ESNext.AsyncIterable",
+            "DOM"
+          ],
+          "esModuleInterop": true,
+          "allowJs": true,
+          "sourceMap": true,
+          "strict": true,
+          "noEmit": true,
+          "baseUrl": ".",
+          "paths": {
+            "~/*": [
+              "./*"
+            ],
+            "@/*": [
+              "./*"
+            ]
+          },
+          "types": [
+            "@types/node",
+            "@nuxt/types"
+          ]
+        },
+        "exclude": [
+          "node_modules"
+        ]
+      }
+      ```
+   1. vue-shim.d.ts 만들기 (`root/`)
+      ```typescript
+      declare module "*.vue" {
+        import Vue from 'vue'
+        export default Vue
+      }
+      ```
+#### Runtime (optional)
+   > TypeScript runtime is needed for files not compiled by Webpack, such as nuxt.config file, local modules and serverMiddlewares.
+   1. 설치
+      ```bash
+      yarn add @nuxt/typescript-runtime
+      ```
+   1. 아래 참고하여 package.json 수정 (`nuxt` -> `nuxt-ts`)
+      ```json
+      "scripts": {
+        "dev": "nuxt-ts",
+        "build": "nuxt-ts build",
+        "generate": "nuxt-ts generate",
+        "start": "nuxt-ts start"
+      },
+      "dependencies": {
+        "@nuxt/typescript-runtime": "latest",
+        "nuxt": "latest"
+      },
+      "devDependencies": {
+        "@nuxt/types": "latest",
+        "@nuxt/typescript-build": "latest"
+      }
+      ```
+#### Lint
+   1. 설치
+      ```bash
+      yarn add -D @nuxtjs/eslint-config-typescript
+      ```
+   1. `.eslintrc.js` 수정
+      > 주의 : If you were using babel-eslint as parser, just remove it from your .eslintrc.js and your dependencies.
+      ```javascript
+      module.exports = {
+        extends: [
+          '@nuxtjs/eslint-config-typescript'
+        ]
+      }
+      ```
+   1. package.json 수정
+      ```json
+      "lint": "eslint --ext .ts,.js,.vue ."
+      ```
+#### 참조
+* [TypeScript/Nuxt 공식](https://typescript.nuxtjs.org/)
+* [TypeScript로 Nuxt 개발하기](https://jhyeok.com/nuxt-with-typescript/)
 
 ## Font
 ### 웹 폰트 적용

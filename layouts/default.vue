@@ -14,19 +14,19 @@
   </v-app>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
 import MainFooter from '@/components/default/MainFooter.vue'
-export default {
+
+@Component({
   components: {
     MainFooter,
   },
-  data() {
-    return {
-      appBar: {
-        title: 'TMook',
-        color: 'rgba(21,31,32,1)',
-      },
-    }
-  },
+})
+export default class extends Vue {
+  appBar: object = {
+    title: 'TMook',
+    color: 'rgba(21,31,32,1)',
+  }
 }
 </script>
