@@ -23,10 +23,12 @@ import MainFooter from '@/components/default/MainFooter.vue'
     MainFooter,
   },
 })
-export default class extends Vue {
+class Default extends Vue {
   appBar: object = {
     title: 'TMook',
     color: 'rgba(21,31,32,1)',
   }
 }
+
+export default Default
 </script>

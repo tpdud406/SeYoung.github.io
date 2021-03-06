@@ -145,7 +145,7 @@ $ yarn deploy
         "@nuxt/typescript-build": "latest"
       }
       ```
-#### Lint
+#### Lint(Optional)
    1. 설치
       ```bash
       yarn add -D @nuxtjs/eslint-config-typescript
@@ -163,9 +163,16 @@ $ yarn deploy
       ```json
       "lint": "eslint --ext .ts,.js,.vue ."
       ```
+#### Nuxt Property Decorator(Optional)
+   1. 설치
+      ```bash
+      yarn add nuxt-property-decorator
+      ```
+   2. 참조 : [Nuxt Property Decorator](https://github.com/nuxt-community/nuxt-property-decorator)
 #### 참조
 * [TypeScript/Nuxt 공식](https://typescript.nuxtjs.org/)
 * [TypeScript로 Nuxt 개발하기](https://jhyeok.com/nuxt-with-typescript/)
+* [Nuxt에서 TypeScript로 개발하기(git)](https://github.com/ChoDragon9/create-nuxt-ts)
 
 ## Font
 ### 웹 폰트 적용
