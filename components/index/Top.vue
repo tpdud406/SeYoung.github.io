@@ -1,5 +1,5 @@
 <template>
-  <v-card :height="height" :width="width" flat tile>
+  <v-card :width="width" flat tile>
     <v-img
       src="/background/starry-night-1149815_vertical.jpg"
       :gradient="color.backgroundGradient"
@@ -16,7 +16,7 @@
         :color="btns.skills.color"
         :to="btns.skills.to"
         :href="btns.skills.href"
-        :small="this.$vuetify.breakpoint.xsOnly"
+        :small="$vuetify.breakpoint.xsOnly"
         class="mt-5 ml-5"
         dark
       >
@@ -26,7 +26,7 @@
         :color="btns.youtube.color"
         :to="btns.youtube.to"
         :href="btns.youtube.href"
-        :small="this.$vuetify.breakpoint.xsOnly"
+        :small="$vuetify.breakpoint.xsOnly"
         class="mt-5 ml-2"
         outlined
       >
@@ -36,49 +36,63 @@
   </v-card>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      height: undefined,
-      width: '100%',
-      text: {
-        subtitle: 'READ AND LEAD THE WORLD',
-        title:
-          '희망하기 보다' +
-          '<span class="ml-sm-2" style="font-weight: 500;">행동하는 매니저</span>',
-      },
-      btns: {
-        skills: {
-          name: 'CHECK ▼',
-          to: '/#skills',
-          href: undefined,
-          color: 'blue darken-3',
-        },
-        youtube: {
-          name: 'MY YOUTUBE ▶',
-          to: undefined,
-          href: 'https://youtube.com/c/TMook',
-          color: 'white',
-        },
-      },
-      color: {
-        backgroundGradient:
-          'to right bottom, rgba(0,0,0,.1), rgba(11,12,23,.8)',
-      },
-    }
+<script lang="ts">
+import { Component, Provide, Vue } from 'nuxt-property-decorator'
+import MainFooter from '@/components/default/MainFooter.vue'
+
+@Component({
+  components: {
+    MainFooter,
   },
   computed: {
-    heightInXS() {
+    heightInXS(): any {
       const height = this.$vuetify.breakpoint.xsOnly ? 500 : undefined
       return height
     },
-    containInXS() {
+    containInXS(): boolean {
       const contain = !this.$vuetify.breakpoint.xsOnly
       return contain
     },
   },
+})
+class ComponentsIndexTop extends Vue {
+  @Provide() width: string = '100%'
+  @Provide() text: { subtitle: string; title: string } = {
+    subtitle: 'READ AND LEAD THE WORLD',
+    title:
+      '희망하기 보다' +
+      '<span class="ml-sm-2" style="font-weight: 500;">행동하는 매니저</span>',
+  }
+
+  @Provide() appBar: { title: string; color: string } = {
+    title: 'TMook',
+    color: 'rgba(21,31,32,1)',
+  }
+
+  @Provide() btns: {
+    skills: { name: string; to: string; href: undefined; color: string }
+    youtube: { name: string; to: undefined; href: string; color: string }
+  } = {
+    skills: {
+      name: 'CHECK ▼',
+      to: '/#skills',
+      href: undefined,
+      color: 'blue darken-3',
+    },
+    youtube: {
+      name: 'MY YOUTUBE ▶',
+      to: undefined,
+      href: 'https://youtube.com/c/TMook',
+      color: 'white',
+    },
+  }
+
+  @Provide() color: { backgroundGradient: string } = {
+    backgroundGradient: 'to right bottom, rgba(0,0,0,.1), rgba(11,12,23,.8)',
+  }
 }
+
+export default ComponentsIndexTop
 </script>
 
 <style scoped>
