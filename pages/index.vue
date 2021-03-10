@@ -10,14 +10,15 @@
   </v-row>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
 import Top from '@/components/index/Top.vue'
 import Counters from '@/components/index/Counters.vue'
 import Carreer from '@/components/index/Carreer.vue'
 import MainProject from '@/components/index/MainProject.vue'
 import Skills from '@/components/index/Skills.vue'
 
-export default {
+@Component({
   components: {
     Top,
     Counters,
@@ -25,19 +26,19 @@ export default {
     MainProject,
     Skills,
   },
-  data() {
-    return {}
-  },
   computed: {
-    mainCardMaxWidth() {
-      const maxWidth =
+    mainCardMaxWidth(): number {
+      const maxWidth: number =
         this.$vuetify.breakpoint.width < 860
           ? this.$vuetify.breakpoint.width
           : 860
       return maxWidth
     },
   },
-}
+})
+class PagesIndex extends Vue {}
+
+export default PagesIndex
 </script>
 
 <style scoped>

@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, Provide, Vue } from 'nuxt-property-decorator'
 import MainFooter from '@/components/default/MainFooter.vue'
 
 @Component({
@@ -23,12 +23,12 @@ import MainFooter from '@/components/default/MainFooter.vue'
     MainFooter,
   },
 })
-class Default extends Vue {
-  appBar: object = {
+class LayoutDefault extends Vue {
+  @Provide() appBar: { title: string; color: string } = {
     title: 'TMook',
     color: 'rgba(21,31,32,1)',
   }
 }
 
-export default Default
+export default LayoutDefault
 </script>
