@@ -29,24 +29,33 @@
   </v-lazy>
 </template>
 
-<script>
-export default {
-  props: {
-    upperItem: { type: Object, default: null },
-  },
-  data() {
-    return {
-      isActive: false,
-      item: this.upperItem,
-    }
-  },
+<script lang="ts">
+import { Component, Prop, Provide, Vue } from 'nuxt-property-decorator'
+
+@Component({
   computed: {
-    handlingMinHeight() {
-      const height = this.$vuetify.breakpoint.xsOnly ? 250 : undefined
+    handlingMinHeight(): number | undefined {
+      const height: number | undefined = this.$vuetify.breakpoint.xsOnly
+        ? 250
+        : undefined
       return height
     },
   },
+})
+class ComponentIndexCountersCounter extends Vue {
+  @Prop({ type: Object, default: null }) upperItem!: {
+    color: string
+    number: number
+    icon: string
+    title: string
+    text: string
+  }
+
+  @Provide() isActive: boolean = false
+  @Provide() item: Object = this.upperItem
 }
+
+export default ComponentIndexCountersCounter
 </script>
 
 <style scoped>
