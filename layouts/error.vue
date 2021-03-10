@@ -17,33 +17,20 @@ import { Component, Prop, Provide, Vue } from 'nuxt-property-decorator'
   layout: 'empty',
 })
 class LayoutError extends Vue {
-  @Prop({ type: Object, default: null }) error!: object
+  @Prop({ type: Object, default: null }) error!: { statusCode: number }
 
-  @Provide() pageNotFound = '404 Not Found'
-  @Provide() otherError = 'An error occurred'
+  @Provide() pageNotFound: string = '존재하지 않는 페이지'
+  @Provide() otherError: string = '알 수 없는 에러'
+
+  head(): object {
+    const title: string =
+      this.error.statusCode === 404 ? this.pageNotFound : this.otherError
+    return {
+      title,
+    }
+  }
 }
-// export default {
-//   layout: 'empty',
-//   props: {
-//     error: {
-//       type: Object,
-//       default: null,
-//     },
-//   },
-//   data() {
-//     return {
-//       pageNotFound: '404 Not Found',
-//       otherError: 'An error occurred',
-//     }
-//   },
-//   head() {
-//     const title =
-//       this.error.statusCode === 404 ? this.pageNotFound : this.otherError
-//     return {
-//       title,
-//     }
-//   },
-// }
+
 export default LayoutError
 </script>
 
