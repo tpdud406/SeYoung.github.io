@@ -88,7 +88,7 @@ class ComponentsIndexMainProject extends Vue {
         title: '쉬운 설명을 제공하거나, 얻으세요',
         content:
           "사람들이 작성하는 용어 설명 및 가이드, 이곳에서 그 평가기준은 오직 '쉽다'는 것. " +
-          '쉽게 설명하는 능력을 인정받는 공간이기도 합니다',
+          '<br>쉽게 설명하는 능력을 인정받는 공간이기도 합니다',
       },
       color: {
         backgroundGradient:
@@ -108,7 +108,7 @@ class ComponentsIndexMainProject extends Vue {
         title: '금융/경제/IT 설명 쉽게 듣고 보세요',
         content:
           '실시간 소통 또는 편집영상을 통해 관심있는, 또는 화제의 어려운 용어들을 다룹니다. ' +
-          '매주 수요일 저녁 9시 LIVE 진행됩니다',
+          '<br>매주 수요일 저녁 9시 LIVE 진행됩니다',
       },
       color: {
         backgroundGradient:

@@ -85,7 +85,7 @@ class ComponentsIndexCarreer extends Vue {
       hideDot: false,
       btn: {
         bool: true,
-        href: '',
+        href: 'https://knowease-inc.github.io',
         text: '회사 소개 →',
         color: 'blue lighten-2',
       },
