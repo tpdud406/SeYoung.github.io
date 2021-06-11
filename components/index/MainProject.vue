@@ -19,11 +19,11 @@
         :contain="containInXS"
         class="align-center"
       >
-        <v-card-subtitle class="project-subtitle white--text">
+        <v-card-subtitle class="project-subtitle">
           {{ project.text.subtitle }}
         </v-card-subtitle>
 
-        <v-card-title class="project-title white--text">
+        <v-card-title class="project-title">
           {{ project.text.title }}
         </v-card-title>
 
@@ -84,7 +84,7 @@ class ComponentsIndexMainProject extends Vue {
   }> = [
     {
       text: {
-        subtitle: 'Web Service, EASYXPLAIN',
+        subtitle: '「EASYXPLAIN」 - Web Service',
         title: '쉬운 설명을 제공하거나, 얻으세요',
         content:
           "사람들이 작성하는 용어 설명 및 가이드, 이곳에서 그 평가기준은 오직 '쉽다'는 것. " +
@@ -98,13 +98,13 @@ class ComponentsIndexMainProject extends Vue {
       btn: {
         name: '서비스 소개 ▶',
         href: 'https://knowease-inc.github.io/service/easyxplain/introduce',
-        color: 'blue lighten-3',
+        color: 'blue lighten-4',
       },
       cardClass: 'align-center',
     },
     {
       text: {
-        subtitle: 'Youtube Channel, TMook ',
+        subtitle: '「TMook」 - Youtube Channel',
         title: '금융/경제/IT 설명 쉽게 듣고 보세요',
         content:
           '실시간 소통 또는 편집영상을 통해 관심있는, 또는 화제의 어려운 용어들을 다룹니다. ' +
@@ -116,7 +116,7 @@ class ComponentsIndexMainProject extends Vue {
       },
       src: '/background/radio-2722271_1920.jpg',
       btn: {
-        name: 'Go Youtube ▶',
+        name: 'Youtube ▶',
         href: 'https://youtube.com/c/TMook',
         color: 'red lighten-2',
       },
@@ -134,17 +134,19 @@ export default ComponentsIndexMainProject
   font-weight: 500;
 }
 .project-subtitle {
-  font-size: 1.2rem !important;
+  font-size: 1.1rem !important;
   font-weight: 400;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  color: rgba(235, 235, 235, 1) !important;
 }
 .project-title {
   font-size: 1.5rem !important;
   padding-top: 0px;
   font-weight: 500;
+  color: white !important;
 }
 .project-content {
-  font-size: 1rem !important;
+  font-size: 0.9rem !important;
   font-weight: 300;
 }
 </style>
