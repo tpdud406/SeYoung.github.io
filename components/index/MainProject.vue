@@ -9,6 +9,7 @@
   >
     <v-card :width="width" flat tile>
       <p class="main-title d-flex justify-center mb-8 px-6" v-html="title" />
+
       <v-img
         v-for="(project, index) in projects"
         :key="index"
@@ -21,13 +22,16 @@
         <v-card-subtitle class="project-subtitle white--text">
           {{ project.text.subtitle }}
         </v-card-subtitle>
+
         <v-card-title class="project-title white--text">
           {{ project.text.title }}
         </v-card-title>
+
         <v-card-text
           class="project-content white--text"
           v-html="project.text.content"
         />
+
         <v-btn
           outlined
           depressed
@@ -48,11 +52,11 @@ import { Component, Provide, Vue } from 'nuxt-property-decorator'
 @Component({
   computed: {
     heightInXS(): number | undefined {
-      const height = this.$vuetify.breakpoint.xsOnly ? 500 : undefined
+      const height = this.$vuetify.breakpoint.xsOnly ? 500 : 400
       return height
     },
     containInXS(): boolean {
-      const contain = !this.$vuetify.breakpoint.xsOnly
+      const contain = false
       return contain
     },
   },
@@ -83,8 +87,8 @@ class ComponentsIndexMainProject extends Vue {
         subtitle: 'Web Service, EASYXPLAIN',
         title: '쉬운 설명을 제공하거나, 얻으세요',
         content:
-          "사람들이 작성하는 용어 설명 및 가이드, 그에 대한 평가지표는 오직 '쉽다는 것' 뿐입니다. " +
-          '쉽게 설명하는 능력을 인정받는 공간이 될 수도 있습니다',
+          "사람들이 작성하는 용어 설명 및 가이드, 이곳에서 그 평가기준은 오직 '쉽다'는 것. " +
+          '쉽게 설명하는 능력을 인정받는 공간이기도 합니다',
       },
       color: {
         backgroundGradient:
@@ -92,9 +96,9 @@ class ComponentsIndexMainProject extends Vue {
       },
       src: '/background/office-1209640_1920.jpg',
       btn: {
-        name: 'Alpha Test (End)',
-        href: undefined,
-        color: 'red lighten-3',
+        name: '서비스 소개 ▶',
+        href: 'https://knowease-inc.github.io/service/easyxplain/introduce',
+        color: 'blue lighten-3',
       },
       cardClass: 'align-center',
     },
@@ -114,7 +118,7 @@ class ComponentsIndexMainProject extends Vue {
       btn: {
         name: 'Go Youtube ▶',
         href: 'https://youtube.com/c/TMook',
-        color: 'white',
+        color: 'red lighten-2',
       },
       cardClass: 'justify-end align-center',
     },
