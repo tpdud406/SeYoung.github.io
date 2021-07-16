@@ -44,7 +44,13 @@
           </v-card-text>
 
           <v-card-actions v-if="item.btn.bool" class="d-flex justify-end pr-3">
-            <v-btn text small :color="item.btn.color" :href="item.btn.href">
+            <v-btn
+              text
+              small
+              :color="item.btn.color"
+              :href="item.btn.href"
+              :disabled="item.btn.href === ''"
+            >
               {{ item.btn.text }}
             </v-btn>
           </v-card-actions>
@@ -76,9 +82,25 @@ class ComponentsIndexCarreer extends Vue {
     }
   }> = [
     {
+      title: '「디지털 지구, 뜨는 것들의 세상 | 메타버스」 출연',
+      time: '2021.7',
+      content: '현대C&R 주관, 진행 및 내용전문가 참여 8차시',
+      color: 'blue lighten-1',
+      src: '/carreer/20210716_metaverse.png',
+      left: false,
+      hideDot: false,
+      btn: {
+        bool: true,
+        href: '',
+        text: '(공개 예정)',
+        color: 'grey',
+      },
+    },
+    {
       title: '「쉬운지식 유한책임회사」 설립',
       time: '2020.7',
-      content: '지식의 저주를 해소하는 서비스 집합을 위한 회사 설립',
+      content:
+        '지식의 저주를 해소하는 서비스 집합을 위한 회사 설립. 쉬운지식의 서비스로써 <EASYXPLAIN> 지속 개발 및 관련 서비스 준비',
       color: 'red lighten-1',
       src: null,
       left: true,
