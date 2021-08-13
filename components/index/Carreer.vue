@@ -1,5 +1,5 @@
 <template>
-  <v-card tile flat>
+  <v-card id="carreer" tile flat>
     <!-- ### Start : title name ### -->
     <p class="main-title d-flex justify-center mb-8 px-6" v-html="title" />
 
@@ -65,7 +65,7 @@ import { Component, Provide, Vue } from 'nuxt-property-decorator'
 
 @Component({})
 class ComponentsIndexCarreer extends Vue {
-  @Provide() title: string = '전체 타임라인'
+  @Provide() title: string = '전체 이력'
   @Provide() items: Array<{
     src: null | string
     title: string
@@ -82,18 +82,49 @@ class ComponentsIndexCarreer extends Vue {
     }
   }> = [
     {
+      title: '『디지털 시대에 살아남는 IT 지식』, 정보문화사',
+      time: '2021.8',
+      content: '전공불문 잇(IT)세계 입문서 내용으로 책 집필 및 발간',
+      color: 'blue lighten-1',
+      src: '/carreer/mybook_musthaveit_20210813.jpg',
+      left: true,
+      hideDot: false,
+      btn: {
+        bool: true,
+        href: '',
+        text: '(2021.8 중순 출간 예정)',
+        color: 'grey',
+      },
+    },
+    {
+      title: '「비전문가에게 전문지가 필요한 때」, 전기신문',
+      time: '2021.8',
+      content: '전기신문 오피니언 <금요아침> 필진 참여',
+      color: 'blue lighten-1',
+      src: null,
+      left: true,
+      hideDot: true,
+      btn: {
+        bool: true,
+        href: 'https://electimes.com/article.php?aid=1628558190221243050',
+        text: '읽기 →',
+        color: 'blue lighten-2',
+      },
+    },
+    {
       title: '「디지털 지구, 뜨는 것들의 세상 | 메타버스」 출연',
       time: '2021.7',
       content: '현대C&R 주관, 진행 및 내용전문가 참여 8차시',
       color: 'blue lighten-1',
       src: '/carreer/20210716_metaverse.png',
-      left: false,
+      left: true,
       hideDot: false,
       btn: {
         bool: true,
-        href: '',
-        text: '(공개 예정)',
-        color: 'grey',
+        href:
+          'https://hrd.hihrd.co.kr/usrs/eduRegMgnt/crsInfoDetailForm.do?p_crscd=8875',
+        text: '확인 →',
+        color: 'blue lighten-2',
       },
     },
     {
@@ -103,7 +134,7 @@ class ComponentsIndexCarreer extends Vue {
         '지식의 저주를 해소하는 서비스 집합을 위한 회사 설립. 쉬운지식의 서비스로써 <EASYXPLAIN> 지속 개발 및 관련 서비스 준비',
       color: 'red lighten-1',
       src: null,
-      left: true,
+      left: false,
       hideDot: false,
       btn: {
         bool: true,
@@ -132,7 +163,7 @@ class ComponentsIndexCarreer extends Vue {
       title: '「EASYXPLAIN」 웹서비스 개발(중)',
       time: '2019.7',
       content: '쉬운 지식을 모으는 웹서비스 직접 개발 시작',
-      color: 'blue lighten-2',
+      color: 'red lighten-1',
       src: '/carreer/easyxplain_og.png',
       left: false,
       hideDot: false,
@@ -191,7 +222,7 @@ class ComponentsIndexCarreer extends Vue {
       },
     },
     {
-      title: '『보면 아는 블록체인』, 정보문화사 발간',
+      title: '『보면 아는 블록체인』, 정보문화사',
       time: '2018.7',
       content:
         '블록체인에 대해 쉽게 설명하는 내용으로 책 집필 및 발간 (photo by Doori Kim)',
