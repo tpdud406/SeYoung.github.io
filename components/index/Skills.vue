@@ -44,7 +44,7 @@ import { Component, Provide, Vue } from 'nuxt-property-decorator'
 @Component({
   computed: {
     colsPositioning(): number {
-      const cols: number = this.$vuetify.breakpoint.smAndDown ? 12 : 4
+      const cols: number = this.$vuetify.breakpoint.xsOnly ? 12 : 4
       return cols
     },
     printTitle(): string {
