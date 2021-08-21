@@ -84,16 +84,17 @@ class ComponentsIndexCarreer extends Vue {
     {
       title: '『디지털 시대에 살아남는 IT 지식』, 정보문화사',
       time: '2021.8',
-      content: '전공불문 잇(IT)세계 입문서 내용으로 책 집필 및 발간',
+      content: '전공/직무 무관 잇(IT)세계 입문서 내용의 책 집필 및 발간',
       color: 'blue lighten-1',
       src: '/carreer/mybook_musthaveit_20210813.jpg',
       left: true,
       hideDot: false,
       btn: {
         bool: true,
-        href: '',
-        text: '(2021.8 중순 출간 예정)',
-        color: 'grey',
+        href:
+          'http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&linkClass=330201&barcode=9788956749112',
+        text: '확인 →',
+        color: 'blue lighten-2',
       },
     },
     {
