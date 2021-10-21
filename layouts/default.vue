@@ -3,7 +3,7 @@
     <v-app-bar :color="appBar.color" dense flat>
       <v-spacer />
       <v-app-bar-title class="white--text">
-        <small>{{ appBar.title }}</small>
+        <small class="font-weight-bold">{{ appBar.title }}</small>
       </v-app-bar-title>
       <v-spacer />
     </v-app-bar>
