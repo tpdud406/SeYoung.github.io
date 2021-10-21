@@ -82,12 +82,27 @@ class ComponentsIndexCarreer extends Vue {
     }
   }> = [
     {
+      title: '「한글을 향할 때, 코인도 돈도 보인다」, 전기신문',
+      time: '2021.10',
+      content: '전기신문 오피니언 <금요아침> 2회',
+      color: 'blue lighten-1',
+      src: null,
+      left: true,
+      hideDot: true,
+      btn: {
+        bool: true,
+        href: 'http://www.electimes.com/article.php?aid=1634703205224009050',
+        text: '읽기 →',
+        color: 'blue lighten-2',
+      },
+    },
+    {
       title: '『디지털 시대에 살아남는 IT 지식』, 정보문화사',
       time: '2021.8',
       content: '전공/직무 무관 잇(IT)세계 입문서 내용의 책 집필 및 발간',
       color: 'blue lighten-1',
       src: '/carreer/mybook_musthaveit_20210813.jpg',
-      left: true,
+      left: false,
       hideDot: false,
       btn: {
         bool: true,
@@ -100,7 +115,7 @@ class ComponentsIndexCarreer extends Vue {
     {
       title: '「비전문가에게 전문지가 필요한 때」, 전기신문',
       time: '2021.8',
-      content: '전기신문 오피니언 <금요아침> 필진 참여',
+      content: '전기신문 오피니언 <금요아침> 1회',
       color: 'blue lighten-1',
       src: null,
       left: true,
