@@ -113,6 +113,22 @@ class ComponentsIndexCarreer extends Vue {
       },
     },
     {
+      title: '「문과/비개발자에게 코딩을 추천하는 이유」, 특강',
+      time: '2021.8',
+      content:
+        "'디지털 트랜스포메이션(DT) 세미나' 일환으로 (주)현대해상 사내강연 제공",
+      color: 'blue lighten-1',
+      src: null,
+      left: true,
+      hideDot: true,
+      btn: {
+        bool: false,
+        href: '',
+        text: '읽기 →',
+        color: 'blue lighten-2',
+      },
+    },
+    {
       title: '「비전문가에게 전문지가 필요한 때」, 전기신문',
       time: '2021.8',
       content: '전기신문 오피니언 <금요아침> 1회',
