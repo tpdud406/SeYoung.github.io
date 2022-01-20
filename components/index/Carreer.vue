@@ -82,6 +82,52 @@ class ComponentsIndexCarreer extends Vue {
     }
   }> = [
     {
+      title: '「디지털 화폐의 유형과 원리」 출연',
+      time: '2022.1',
+      content: '케이브레인 주관, 진행 및 내용전문가 참여 8차시',
+      color: 'blue lighten-1',
+      src: null,
+      left: true,
+      hideDot: false,
+      btn: {
+        bool: true,
+        href: '',
+        text: '(예정)',
+        color: 'grey lighten-2',
+      },
+    },
+    {
+      title: '「코딩 교육이 디지털 전환은 아니다」, 전기신문',
+      time: '2022.1',
+      content: '전기신문 오피니언 <금요아침> 3회',
+      color: 'blue lighten-1',
+      src: null,
+      left: true,
+      hideDot: true,
+      btn: {
+        bool: true,
+        href: 'https://electimes.com/article.php?aid=1641165264227348050',
+        text: '읽기 →',
+        color: 'blue lighten-2',
+      },
+    },
+    {
+      title: '「새로운 시장을 성공으로 이끄는 판교의 젊은 기획자들」 출연',
+      time: '2021.12',
+      content: '현대C&R 주관, 진행 및 내용전문가 참여 4차시',
+      color: 'blue lighten-1',
+      src: '/carreer/pangyo_2021.jpeg',
+      left: true,
+      hideDot: false,
+      btn: {
+        bool: true,
+        href:
+          'https://www.hihrd.co.kr/usrs/eduRegMgnt/crsInfoDetailForm.do;jsessionid=Gpu1FTByGHBTRRrDsXOeP0FCDPaVEa37tHt2n0NYPamUJEAwp0avVbR2kH7kWlFM.LMS_WAS_002_servlet_engine2?p_crscd=9782&CRSCD=9782&p_hmpgcd=38&p_listType=N&mkey=6442',
+        text: '확인 →',
+        color: 'blue lighten-2',
+      },
+    },
+    {
       title: '「한글을 향할 때, 코인도 돈도 보인다」, 전기신문',
       time: '2021.10',
       content: '전기신문 오피니언 <금요아침> 2회',
