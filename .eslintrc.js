@@ -22,5 +22,6 @@ module.exports = {
     'vue/no-v-html': 'off', // This rule reports all uses of v-html directive in order to reduce the risk of injecting potentially unsafe / unescaped html into the browser leading to Cross-Site Scripting (XSS) attacks.
     'comma-dangle': ['error', 'always-multiline'], // *conlict prettier, ref : https://eslint.org/docs/rules/comma-dangle
     'space-before-function-paren': ['error', 'never'], // *conlict prettier, ref : https://eslint.org/docs/rules/space-before-function-paren
+    'prettier/prettier': ['error', { endOfLine: 'auto' }], // ref: https://velog.io/@realsong/VS-Delete-prettierprettier-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95
   },
 }

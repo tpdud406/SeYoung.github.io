@@ -1,13 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar :color="appBar.color" dense flat>
-      <v-spacer />
-      <v-app-bar-title class="white--text">
-        <small class="font-weight-bold">{{ appBar.title }}</small>
-      </v-app-bar-title>
-      <v-spacer />
-    </v-app-bar>
-    <v-container class="mb-4">
+    <v-container class="mb-4 pa-0">
       <nuxt />
     </v-container>
     <main-footer />
@@ -15,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Provide, Vue } from 'nuxt-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import MainFooter from '@/components/default/MainFooter.vue'
 
 @Component({
@@ -23,12 +16,7 @@ import MainFooter from '@/components/default/MainFooter.vue'
     MainFooter,
   },
 })
-class LayoutDefault extends Vue {
-  @Provide() appBar: { title: string; color: string } = {
-    title: 'TMook',
-    color: 'rgba(21,31,32,1)',
-  }
-}
+class LayoutDefault extends Vue {}
 
 export default LayoutDefault
 </script>
