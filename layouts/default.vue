@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-container class="mb-4 pa-0">
+    <v-container :id="ids.containerOfTop" fluid class="pa-0">
       <nuxt />
     </v-container>
     <main-footer />
@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, Provide, Vue } from 'nuxt-property-decorator'
 import MainFooter from '@/components/default/MainFooter.vue'
 
 @Component({
@@ -16,7 +16,11 @@ import MainFooter from '@/components/default/MainFooter.vue'
     MainFooter,
   },
 })
-class LayoutDefault extends Vue {}
+class LayoutDefault extends Vue {
+  @Provide() ids: { containerOfTop: string } = {
+    containerOfTop: 'containerOfTop',
+  }
+}
 
 export default LayoutDefault
 </script>
