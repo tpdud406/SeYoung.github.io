@@ -1,8 +1,6 @@
 <template>
   <v-app>
-    <v-container :id="ids.containerOfTop" fluid class="pa-0">
-      <nuxt />
-    </v-container>
+    <nuxt />
     <main-footer />
   </v-app>
 </template>

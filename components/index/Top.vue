@@ -1,154 +1,161 @@
 <template>
-  <v-card :width="width" flat tile>
-    <v-img
-      src="/background/starry-night-1149815_vertical.jpg"
-      :gradient="color.backgroundGradient"
-      :height="heightInXS"
-      :contain="containInXS"
-      class="align-center"
-    >
-      <v-card-subtitle
-        class="main-subtitle blue--text text--lighten-1"
-        v-html="text.subtitle"
-      />
-      <v-card-title class="main-title white--text" v-html="text.title" />
-      <v-menu offset-x rounded :close-on-click="closeOnClick">
-        <template #activator="{ on, attrs }">
-          <v-btn
-            color="blue darken-1"
-            class="mt-0 ml-5"
-            dark
-            rounded
-            v-bind="attrs"
-            v-on="on"
-          >
-            <span>목록 ▼</span>
-          </v-btn>
-        </template>
+  <v-container :id="ids.total">
+    <v-row :id="ids.top" no-gutters>
+      <!-- Start : Text -->
+      <v-col cols="9" class="d-flex justify-left align-center">
+        <v-card flat tile>
+          <v-card-title>
+            <p
+              class="text-left text-h4 font-weight-black"
+              v-html="introduceOnTop.head"
+            />
+          </v-card-title>
 
-        <v-list dense>
-          <v-list-item v-for="(menu, index) in menus" :key="index" class="pa-0">
-            <v-list-item-content class="pa-0">
-              <v-btn :to="menu.to" :href="menu.href" tile flat text>
-                <span>{{ menu.name }}</span>
-              </v-btn>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+          <v-card-subtitle>
+            <p
+              class="text-left text-subtitle-1 pl-2"
+              v-html="introduceOnTop.body"
+            />
 
-      <v-btn
-        :color="btns.youtube.color"
-        :to="btns.youtube.to"
-        :href="btns.youtube.href"
-        :small="$vuetify.breakpoint.xsOnly"
-        class="mt-0 ml-2"
-        icon
-      >
-        <v-icon>mdi-youtube</v-icon>
-      </v-btn>
-    </v-img>
-  </v-card>
+            <!-- Start : Examples -->
+            <p class="text-left pl-2" v-html="introduceOnTop.bodyExample" />
+          </v-card-subtitle>
+
+          <!-- Start : Page Move Buttons -->
+          <v-card-actions>
+            <v-container fluid class="py-0">
+              <v-row>
+                <v-col cols="4" class="d-flex justify-center">
+                  <!-- Start : Quick Buttons Menu -->
+                  <v-menu :rounded="'xl'" offset-y>
+                    <!-- menu btn -->
+                    <template #activator="{ on, attrs }">
+                      <v-btn
+                        v-bind="attrs"
+                        id="no-background-hover"
+                        color="black"
+                        :rounded="false"
+                        text
+                        :ripple="false"
+                        v-on="on"
+                      >
+                        {{ 'Menu ▼' }}
+                      </v-btn>
+                    </template>
+
+                    <!-- menu contents -->
+                    <v-list>
+                      <v-list-item
+                        v-for="(quickBtn, index) in quickBtns"
+                        :key="index"
+                      >
+                        <v-list-item-title
+                          :color="quickBtn.color"
+                          :block="true"
+                          :large="false"
+                        >
+                          <v-icon v-if="!!quickBtn.icon !== false">
+                            {{ quickBtn.icon }}
+                          </v-icon>
+                          {{ quickBtn.name }}
+                        </v-list-item-title>
+                      </v-list-item>
+                    </v-list>
+                  </v-menu>
+                </v-col>
+
+                <!-- End : Quick Buttons -->
+
+                <!-- Start : Link Buttons -->
+                <v-col
+                  v-for="(linkBtn, index) in linkBtns"
+                  :key="index"
+                  cols="1"
+                  class="d-flex justify-center"
+                >
+                  <v-btn
+                    :href="linkBtn.url"
+                    :color="linkBtn.color"
+                    icon
+                    target="_blank"
+                  >
+                    <v-icon>{{ linkBtn.icon }}</v-icon>
+                  </v-btn>
+                </v-col>
+                <!-- End : Link Buttons -->
+              </v-row>
+            </v-container>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+
+      <!-- Start : Image -->
+      <v-col cols="3" class="d-flex justify-end align-end">
+        <v-img :src="images.imageOfTop" max-height="60%" contain />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
-import { Component, Provide, Vue } from 'nuxt-property-decorator'
-import MainFooter from '@/components/default/MainFooter.vue'
+import { Component, Vue } from 'nuxt-property-decorator'
 
-@Component({
-  components: {
-    MainFooter,
-  },
-  computed: {
-    heightInXS(): any {
-      const height = this.$vuetify.breakpoint.xsOnly ? 500 : undefined
-      return height
-    },
-    containInXS(): boolean {
-      const contain = !this.$vuetify.breakpoint.xsOnly
-      return contain
-    },
-  },
-})
+@Component({})
 class ComponentsIndexTop extends Vue {
-  @Provide() width: string = '100%'
-  @Provide() text: { subtitle: string; title: string } = {
-    subtitle: 'READ AND LEAD THE WORLD',
-    title:
-      '희망하기 보다' +
-      '<span class="ml-sm-2" style="font-weight: 500;">행동하는 매니저</span>',
+  /* data() */
+  private ids: { total: string; key: string; quickBtns: string } = {
+    total: 'top',
+    key: 'key',
+    quickBtns: 'quick-buttons',
   }
 
-  @Provide() appBar: { title: string; color: string } = {
-    title: 'TMook',
-    color: 'rgba(21,31,32,1)',
+  private images: { imageOfTop: string; imageOfTop2: string } = {
+    imageOfTop: '/index/mygithubpages_img_20220528.png',
+    imageOfTop2: '/index/pangyo_image.jpg',
   }
 
-  @Provide() menus: Array<{
-    name: string
-    to: string
-    href: undefined
-    color: string
-  }> = [
+  private introduceOnTop: {
+    head: string
+    body: string
+    bodyExample: string
+  } = {
+    head:
+      '<span style="color: #2979FF;">쉽게,</span><br />어려운 개념<small class="mr-1">을</small> 설명<small>합니다</small>',
+    body:
+      '경제/금융, 정보기술(IT) 분야에서<br />어려운 개념과 구조들을 이해하기 쉽게 설명하고 있습니다',
+    bodyExample: '예시. 채권, 가상화폐, 블록체인, 디지털 전환, 마이데이터 등',
+  }
+
+  private linkBtns: Array<{ url: string; color: string; icon: string }> = [
     {
-      name: '특징',
-      to: '/#skills',
-      href: undefined,
-      color: 'blue darken-3',
+      url: 'https://www.youtube.com/c/TMook',
+      color: 'black',
+      icon: 'mdi-youtube',
     },
     {
-      name: '주요 숫자',
-      to: '/#skills',
-      href: undefined,
-      color: 'blue darken-3',
-    },
-    {
-      name: '진행 프로젝트',
-      to: '/#skills',
-      href: undefined,
-      color: 'blue darken-3',
-    },
-    {
-      name: '이력',
-      to: '/#carreer',
-      href: undefined,
-      color: 'blue darken-3',
+      url: 'https://www.linkedin.com/in/mook-t-34a0a2135/',
+      color: 'black',
+      icon: 'mdi-linkedin',
     },
   ]
 
-  @Provide() btns: {
-    youtube: { name: string; to: undefined; href: string; color: string }
-  } = {
-    youtube: {
-      name: 'YOUTUBE 채널 ▶',
-      to: undefined,
-      href: 'https://youtube.com/c/TMook',
-      color: 'red',
+  private quickBtns: Array<{ name: string; color: string; icon: string }> = [
+    {
+      name: '핵심 역량',
+      color: '#2979FF',
+      icon: 'mdi-checkbox-multiple-marked-circle',
     },
-  }
-
-  @Provide() color: { backgroundGradient: string } = {
-    backgroundGradient: 'to right bottom, rgba(0,0,0,.1), rgba(11,12,23,.8)',
-  }
+    { name: '주요 영상', color: 'black', icon: 'mdi-video' },
+    { name: '개발/분석 관련', color: 'black', icon: 'mdi-code-tags' },
+    { name: '타임라인', color: 'black', icon: 'mdi-calendar-multiple' },
+  ]
 }
 
 export default ComponentsIndexTop
 </script>
 
-<style scoped>
-.main-subtitle {
-  font-size: 1.1rem !important;
-  font-weight: 500;
-  padding-bottom: 4px;
-}
-.main-title {
-  font-size: 2rem !important;
-  font-weight: 300;
-  padding-top: 0px;
-}
-
-/* menu */
-.v-application .rounded {
-  border-radius: 40px !important;
+<style lang="scss">
+#no-background-hover::before {
+  background-color: transparent !important;
 }
 </style>
