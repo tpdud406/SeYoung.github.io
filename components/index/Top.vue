@@ -6,19 +6,16 @@
         <v-card flat tile>
           <v-card-title>
             <p
-              class="text-left text-h4 font-weight-black"
+              class="text-left text-h3 font-weight-black"
               v-html="introduceOnTop.head"
             />
           </v-card-title>
 
           <v-card-subtitle>
-            <p
-              class="text-left text-subtitle-1 pl-2"
-              v-html="introduceOnTop.body"
-            />
+            <p class="text-left pl-1" v-html="introduceOnTop.body" />
 
             <!-- Start : Examples -->
-            <p class="text-left pl-2" v-html="introduceOnTop.bodyExample" />
+            <p class="text-left pl-1" v-html="introduceOnTop.bodyExample" />
           </v-card-subtitle>
 
           <!-- Start : Page Move Buttons -->
@@ -123,7 +120,7 @@ class ComponentsIndexTop extends Vue {
       '<span style="color: #2979FF;">쉽게,</span><br />어려운 개념<small class="mr-1">을</small> 설명<small>합니다</small>',
     body:
       '경제/금융, 정보기술(IT) 분야에서<br />어려운 개념과 구조들을 이해하기 쉽게 설명하고 있습니다',
-    bodyExample: '예시. 채권, 가상화폐, 블록체인, 디지털 전환, 마이데이터 등',
+    bodyExample: '(예시. 채권, 가상화폐, 블록체인, 디지털 전환, 마이데이터 등)',
   }
 
   private linkBtns: Array<{ url: string; color: string; icon: string }> = [
