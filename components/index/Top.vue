@@ -1,97 +1,94 @@
 <template>
-  <v-container :id="ids.total">
-    <v-row :id="ids.top" no-gutters>
-      <!-- Start : Text -->
-      <v-col cols="9" class="d-flex justify-left align-center">
-        <v-card flat tile>
-          <v-card-title>
-            <p
-              class="text-left text-h3 font-weight-black"
-              v-html="introduceOnTop.head"
-            />
-          </v-card-title>
+  <v-sheet :color="$vuetify.theme.themes.light.primary" flat tile dark>
+    <v-container :id="ids.total">
+      <v-row :id="ids.top" no-gutters>
+        <!-- Start : Text -->
+        <v-col cols="9" class="d-flex justify-left align-center">
+          <v-card flat tile :color="$vuetify.theme.themes.light.primary" dark>
+            <v-card-title>
+              <p
+                class="text-left text-xl-h1 text-sm-h3 font-weight-black"
+                v-html="introduceOnTop.head"
+              />
+            </v-card-title>
 
-          <v-card-subtitle>
-            <p class="text-left pl-1" v-html="introduceOnTop.body" />
+            <v-card-subtitle>
+              <p class="text-left pl-1" v-html="introduceOnTop.body" />
 
-            <!-- Start : Examples -->
-            <p class="text-left pl-1" v-html="introduceOnTop.bodyExample" />
-          </v-card-subtitle>
+              <!-- Start : Examples -->
+              <p class="text-left pl-1" v-html="introduceOnTop.bodyExample" />
+            </v-card-subtitle>
 
-          <!-- Start : Page Move Buttons -->
-          <v-card-actions>
-            <v-container fluid class="py-0">
-              <v-row>
-                <v-col cols="4" class="d-flex justify-center">
-                  <!-- Start : Quick Buttons Menu -->
-                  <v-menu :rounded="'xl'" offset-y>
-                    <!-- menu btn -->
-                    <template #activator="{ on, attrs }">
-                      <v-btn
-                        v-bind="attrs"
-                        id="no-background-hover"
-                        color="black"
-                        :rounded="false"
-                        text
-                        :ripple="false"
-                        v-on="on"
-                      >
-                        {{ 'Menu ▼' }}
-                      </v-btn>
-                    </template>
-
-                    <!-- menu contents -->
-                    <v-list>
-                      <v-list-item
-                        v-for="(quickBtn, index) in quickBtns"
-                        :key="index"
-                      >
-                        <v-list-item-title
-                          :color="quickBtn.color"
-                          :block="true"
-                          :large="false"
+            <!-- Start : Page Move Buttons -->
+            <v-card-actions>
+              <v-container fluid class="py-0">
+                <v-row>
+                  <v-col cols="4" class="d-flex justify-center">
+                    <!-- Start : Quick Buttons Menu -->
+                    <v-menu :rounded="'xl'" offset-y>
+                      <!-- menu btn -->
+                      <template #activator="{ on, attrs }">
+                        <v-btn
+                          v-bind="attrs"
+                          id="no-background-hover"
+                          dark
+                          :rounded="false"
+                          text
+                          :ripple="false"
+                          v-on="on"
                         >
-                          <v-icon v-if="!!quickBtn.icon !== false">
-                            {{ quickBtn.icon }}
-                          </v-icon>
-                          {{ quickBtn.name }}
-                        </v-list-item-title>
-                      </v-list-item>
-                    </v-list>
-                  </v-menu>
-                </v-col>
+                          {{ 'Menu ▼' }}
+                        </v-btn>
+                      </template>
 
-                <!-- End : Quick Buttons -->
+                      <!-- menu contents -->
+                      <v-list>
+                        <v-list-item
+                          v-for="(quickBtn, index) in quickBtns"
+                          :key="index"
+                        >
+                          <v-list-item-title
+                            :color="quickBtn.color"
+                            :block="true"
+                            :large="false"
+                          >
+                            <v-icon v-if="!!quickBtn.icon !== false">
+                              {{ quickBtn.icon }}
+                            </v-icon>
+                            {{ quickBtn.name }}
+                          </v-list-item-title>
+                        </v-list-item>
+                      </v-list>
+                    </v-menu>
+                  </v-col>
 
-                <!-- Start : Link Buttons -->
-                <v-col
-                  v-for="(linkBtn, index) in linkBtns"
-                  :key="index"
-                  cols="1"
-                  class="d-flex justify-center"
-                >
-                  <v-btn
-                    :href="linkBtn.url"
-                    :color="linkBtn.color"
-                    icon
-                    target="_blank"
+                  <!-- End : Quick Buttons -->
+
+                  <!-- Start : Link Buttons -->
+                  <v-col
+                    v-for="(linkBtn, index) in linkBtns"
+                    :key="index"
+                    cols="1"
+                    class="d-flex justify-center"
                   >
-                    <v-icon>{{ linkBtn.icon }}</v-icon>
-                  </v-btn>
-                </v-col>
-                <!-- End : Link Buttons -->
-              </v-row>
-            </v-container>
-          </v-card-actions>
-        </v-card>
-      </v-col>
+                    <v-btn :href="linkBtn.url" icon dark target="_blank">
+                      <v-icon>{{ linkBtn.icon }}</v-icon>
+                    </v-btn>
+                  </v-col>
+                  <!-- End : Link Buttons -->
+                </v-row>
+              </v-container>
+            </v-card-actions>
+          </v-card>
+        </v-col>
 
-      <!-- Start : Image -->
-      <v-col cols="3" class="d-flex justify-end align-end">
-        <v-img :src="images.imageOfTop" max-height="60%" contain />
-      </v-col>
-    </v-row>
-  </v-container>
+        <!-- Start : Image -->
+        <v-col cols="3" class="d-flex justify-end align-end">
+          <v-img :src="images.imageOfTop" max-height="95%" contain />
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-sheet>
 </template>
 
 <script lang="ts">
@@ -117,7 +114,7 @@ class ComponentsIndexTop extends Vue {
     bodyExample: string
   } = {
     head:
-      '<span style="color: #2979FF;">쉽게,</span><br />어려운 개념<small class="mr-1">을</small> 설명<small>합니다</small>',
+      '<span>쉽게</span> <small>풀어서,</small><br />중요한 개념<small class="mr-1">을</small> 설명<small>합니다</small>',
     body:
       '경제/금융, 정보기술(IT) 분야에서<br />어려운 개념과 구조들을 이해하기 쉽게 설명하고 있습니다',
     bodyExample: '(예시. 채권, 가상화폐, 블록체인, 디지털 전환, 마이데이터 등)',

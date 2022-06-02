@@ -1,16 +1,16 @@
 <template>
   <div>
     <!-- Start : Key Point -->
-    <index-top />
+    <index-top :class="marginBtwComponents" />
     <!-- End : Key Point -->
 
-    <!-- Start : Component Description -->
-    <index-component-description :parent-items="youtubeDescItems" />
-    <!-- End : Component Description -->
+    <!-- Start : Skills -->
+    <index-skills :class="marginBtwComponents" />
+    <!-- End : Skills -->
 
-    <!-- Start : Key Point -->
-    <index-main-youtube-video />
-    <!-- End : Key Point -->
+    <!-- Start : Best Video -->
+    <index-main-youtube-video :class="marginBtwComponents" />
+    <!-- End : Best Video -->
 
     <!--
     <v-divider class="my-2" />
@@ -21,21 +21,19 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import IndexTop from '@/components/index/Top.vue'
-import IndexComponentDescription from '@/components/index/ComponentDescription.vue'
+import IndexSkills from '@/components/index/Skills.vue'
 import IndexMainYoutubeVideo from '@/components/index/MainYoutubeVideo.vue'
 
 @Component({
   components: {
     IndexTop,
-    IndexComponentDescription,
+    IndexSkills,
     IndexMainYoutubeVideo,
   },
 })
 class PagesIndex extends Vue {
-  private youtubeDescItems: { title: string; desc: string } = {
-    title: '인기 영상',
-    desc: 'Youtube를 통해서 많은 분들이<br />시청해주신 영상들 중 일부입니다',
-  }
+  /* data */
+  private marginBtwComponents: string = 'mb-4'
 }
 
 export default PagesIndex

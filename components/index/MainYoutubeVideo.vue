@@ -1,5 +1,12 @@
 <template>
-  <v-container :id="tagid">
+  <v-card :id="tagid" flat tile>
+    <v-card-title class="d-flex justify-center">
+      <p class="text-center text-h4 font-weight-black" v-html="parentTitle" />
+    </v-card-title>
+
+    <v-card-subtitle class="text-center">
+      <p class="text-center" v-html="parentDesc" />
+    </v-card-subtitle>
     <v-carousel
       cycle
       interval="8000"
@@ -32,7 +39,7 @@
         </v-sheet>
       </v-carousel-item>
     </v-carousel>
-  </v-container>
+  </v-card>
 </template>
 
 <script lang="ts">
@@ -41,6 +48,10 @@ import { Component, Vue } from 'nuxt-property-decorator'
 @Component({})
 class ComponentsIndexMainYoutubeVideo extends Vue {
   /* data */
+  private parentTitle: string = '인기 영상'
+  private parentDesc: string =
+    'Youtube를 통해서 많은 분들이<br>시청해주신 영상들 중 일부입니다'
+
   private tagid: string = 'top-view-youtube'
   private videoInfos: Array<Array<{ vid: string; desc: string }>> = [
     [
