@@ -1,5 +1,6 @@
 <template>
   <v-card :id="tagid" flat tile>
+    <!-- Start : Title & Description -->
     <v-card-title class="d-flex justify-center">
       <p class="text-center text-h4 font-weight-black" v-html="parentTitle" />
     </v-card-title>
@@ -7,6 +8,8 @@
     <v-card-subtitle class="text-center">
       <p class="text-center" v-html="parentDesc" />
     </v-card-subtitle>
+
+    <!-- Start : Contents -->
     <v-carousel
       cycle
       interval="8000"
@@ -14,7 +17,7 @@
       hide-delimiters
       touch
       class="px-sm-4"
-      height="195"
+      :height="responsiveHeight"
     >
       <v-carousel-item v-for="(videoInfo, index) in videoInfos" :key="index">
         <v-sheet height="100%" tile>
@@ -28,7 +31,8 @@
               <youtube
                 :video-id="video.vid"
                 :player-width="'100%'"
-                :player-height="'100%'"
+                :player-height="responsiveHeight * 0.85"
+                class="d-flex justify-center mb-2"
               />
               <!-- End : Embeded Youtube Video (vue-youtube-embed) -->
               <p class="text-caption text-center">
@@ -70,6 +74,12 @@ class ComponentsIndexMainYoutubeVideo extends Vue {
       { vid: 'E36MpUg5M54', desc: '다크웹' },
     ],
   ]
+
+  /* computed */
+  private get responsiveHeight() {
+    const height: number = this.$vuetify.breakpoint.lgAndUp === true ? 300 : 195
+    return height
+  }
 }
 
 export default ComponentsIndexMainYoutubeVideo

@@ -34,10 +34,11 @@ import { Component, Prop, Provide, Vue } from 'nuxt-property-decorator'
 
 @Component({
   computed: {
-    handlingMinHeight(): number | undefined {
-      const height: number | undefined = this.$vuetify.breakpoint.xsOnly
+    handlingMinHeight(): number | undefined | string {
+      const height: number | undefined | string = this.$vuetify.breakpoint
+        .xsOnly
         ? 250
-        : undefined
+        : '100%'
       return height
     },
   },

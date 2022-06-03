@@ -1,7 +1,13 @@
 <template>
   <v-card id="carreer" tile flat>
     <!-- ### Start : title name ### -->
-    <p class="main-title d-flex justify-center mb-8 px-6" v-html="title" />
+    <v-card-title class="d-flex justify-center">
+      <p class="text-center text-h4 font-weight-black" v-html="title" />
+    </v-card-title>
+
+    <v-card-subtitle class="text-center">
+      <p class="text-center" v-html="desc" />
+    </v-card-subtitle>
 
     <!-- ### Start : Timeline ### -->
     <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="mx-4">
@@ -61,12 +67,15 @@
 </template>
 
 <script lang="ts">
-import { Component, Provide, Vue } from 'nuxt-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({})
 class ComponentsIndexCarreer extends Vue {
-  @Provide() title: string = '전체 이력'
-  @Provide() items: Array<{
+  private title: string = '전체 이력'
+  private desc: string =
+    '다양한 활동 중에서도 다른 많은 분들과<br>함께 할 수 있었던 모든 기록입니다'
+
+  private items: Array<{
     src: null | string
     title: string
     time: string
@@ -82,9 +91,9 @@ class ComponentsIndexCarreer extends Vue {
     }
   }> = [
     {
-      title: '「디지털 화폐의 유형과 원리」 출연',
-      time: '2022.1',
-      content: '케이브레인 주관, 진행 및 내용전문가 참여 8차시',
+      title: '「마이데이터 비즈니스 전략」 출연',
+      time: '2022.5',
+      content: '마이데이터 시대 비즈니스 전략 강의 촬영, 현대C&R 주관',
       color: 'blue lighten-1',
       src: null,
       left: true,
@@ -93,7 +102,68 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href: '',
         text: '(예정)',
-        color: 'grey lighten-2',
+        color: 'grey lighten-1',
+      },
+    },
+    {
+      title: '「디지털 시대에 살아남는 IT 지식」 특강',
+      time: '2022.5',
+      content: "'임직원 동행' 세미나 일환으로 (주)GS E&R 사내강연 제공",
+      color: 'blue lighten-1',
+      src: null,
+      left: true,
+      hideDot: true,
+      btn: {
+        bool: false,
+        href: '',
+        text: '',
+        color: 'blue lighten-2',
+      },
+    },
+    {
+      title: '신규 입사자「디지털 전환」 특강',
+      time: '2022.3',
+      content: '신규 입사자 위한 DT 세미나로서 (주)대동 출강',
+      color: 'blue lighten-1',
+      src: null,
+      left: true,
+      hideDot: true,
+      btn: {
+        bool: false,
+        href: '',
+        text: '',
+        color: 'blue lighten-2',
+      },
+    },
+    {
+      title: '「비전공 직원 코딩하게 만들기」, 전기신문',
+      time: '2022.3',
+      content: '전기신문 오피니언 <금요아침> 4회',
+      color: 'blue lighten-1',
+      src: null,
+      left: false,
+      hideDot: true,
+      btn: {
+        bool: true,
+        href: 'https://www.electimes.com/news/articleView.html?idxno=302019',
+        text: '읽기 →',
+        color: 'blue lighten-2',
+      },
+    },
+    {
+      title: '「디지털 화폐의 유형과 원리」출연',
+      time: '2022.1',
+      content: '케이브레인 주관, 진행 및 내용전문가 참여 8차시',
+      color: 'blue lighten-1',
+      src: '/carreer/digital_currency.png',
+      left: true,
+      hideDot: false,
+      btn: {
+        bool: true,
+        href:
+          'https://e-koreatech.step.or.kr/page/lms?m1=course&m2=course_detail&course_id=222837',
+        text: '확인 →',
+        color: 'blue lighten-2',
       },
     },
     {
@@ -102,7 +172,7 @@ class ComponentsIndexCarreer extends Vue {
       content: '전기신문 오피니언 <금요아침> 3회',
       color: 'blue lighten-1',
       src: null,
-      left: true,
+      left: false,
       hideDot: true,
       btn: {
         bool: true,
@@ -133,7 +203,7 @@ class ComponentsIndexCarreer extends Vue {
       content: '전기신문 오피니언 <금요아침> 2회',
       color: 'blue lighten-1',
       src: null,
-      left: true,
+      left: false,
       hideDot: true,
       btn: {
         bool: true,
@@ -180,7 +250,7 @@ class ComponentsIndexCarreer extends Vue {
       content: '전기신문 오피니언 <금요아침> 1회',
       color: 'blue lighten-1',
       src: null,
-      left: true,
+      left: false,
       hideDot: true,
       btn: {
         bool: true,

@@ -1,49 +1,59 @@
 <template>
-  <v-lazy
-    v-model="isActive"
-    :options="{
-      threshold: 0.5,
-    }"
-    min-height="200"
-    transition="fade-transition"
-  >
-    <v-card :width="width" flat tile>
-      <p class="main-title d-flex justify-center mb-8 px-6" v-html="title" />
+  <v-card flat tile>
+    <!-- ### Start : title name ### -->
+    <v-card-title class="d-flex justify-center">
+      <p class="text-center text-h4 font-weight-black" v-html="title" />
+    </v-card-title>
 
-      <v-img
-        v-for="(project, index) in projects"
-        :key="index"
-        :src="project.src"
-        :gradient="project.color.backgroundGradient"
-        :height="heightInXS"
-        :contain="containInXS"
-        class="align-center"
-      >
-        <v-card-subtitle class="project-subtitle">
-          {{ project.text.subtitle }}
-        </v-card-subtitle>
+    <v-card-subtitle class="text-center">
+      <p class="text-center" v-html="desc" />
+    </v-card-subtitle>
 
-        <v-card-title class="project-title">
-          {{ project.text.title }}
-        </v-card-title>
-
-        <v-card-text
-          class="project-content white--text"
-          v-html="project.text.content"
-        />
-
-        <v-btn
-          outlined
-          depressed
-          :color="project.btn.color"
-          :href="project.btn.href"
-          class="mt-6 ml-5"
+    <!-- Start : Contents -->
+    <v-container fluid class="px-0">
+      <v-row no-gutters>
+        <v-col
+          v-for="(project, index) in projects"
+          :key="index"
+          cols="12"
+          md="6"
         >
-          {{ project.btn.name }}
-        </v-btn>
-      </v-img>
-    </v-card>
-  </v-lazy>
+          <v-card :width="width" flat tile>
+            <v-img
+              :src="project.src"
+              :gradient="project.color.backgroundGradient"
+              :height="heightInXS"
+              :contain="containInXS"
+              class="align-center"
+            >
+              <v-card-subtitle class="project-subtitle">
+                {{ project.text.subtitle }}
+              </v-card-subtitle>
+
+              <v-card-title class="project-title">
+                {{ project.text.title }}
+              </v-card-title>
+
+              <v-card-text
+                class="project-content white--text"
+                v-html="project.text.content"
+              />
+
+              <v-btn
+                outlined
+                depressed
+                :color="project.btn.color"
+                :href="project.btn.href"
+                class="mt-6 ml-5"
+              >
+                {{ project.btn.name }}
+              </v-btn>
+            </v-img>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-card>
 </template>
 
 <script lang="ts">
@@ -62,7 +72,11 @@ import { Component, Provide, Vue } from 'nuxt-property-decorator'
   },
 })
 class ComponentsIndexMainProject extends Vue {
-  @Provide() title: string = '주요 진행 프로젝트'
+  /* data */
+  private title: string = '진행 프로젝트'
+  private desc: string =
+    '현재 진행중인 주요 프로젝트입니다<br />주로 쉬운 설명을 보다 빠르고 정확하게 제공하는 프로젝트들입니다'
+
   @Provide() isActive: boolean = false
   @Provide() width: string = '100%'
   @Provide() projects: Array<{
@@ -84,7 +98,7 @@ class ComponentsIndexMainProject extends Vue {
   }> = [
     {
       text: {
-        subtitle: '「EASYXPLAIN」 - Web Service',
+        subtitle: '「미닛」 - Meaniit, Web Service',
         title: '쉬운 설명을 제공하거나, 얻으세요',
         content:
           "사람들이 작성하는 용어 설명 및 가이드, 이곳에서 그 평가기준은 오직 '쉽다'는 것. " +

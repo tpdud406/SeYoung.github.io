@@ -18,7 +18,7 @@
           :cols="colsPositioning"
           class="d-flex justify-center"
         >
-          <v-card width="300" height="350" outlined flat class="justify-center">
+          <v-card outlined flat class="justify-center">
             <v-img :src="item.src" />
             <v-card-title class="justify-center" v-html="item.title" />
             <v-card-text class="d-flex justify-center" v-html="item.text" />
