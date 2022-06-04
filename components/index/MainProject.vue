@@ -28,9 +28,9 @@
               :height="heightInXS"
               :contain="containInXS"
               :max-width="
-                $vuetify.breakpoint.xsOnly
-                  ? $vuetify.breakpoint.width
-                  : 'undefined'
+                $vuetify.breakpoint.mdAndUp
+                  ? $vuetify.breakpoint.width / 2
+                  : $vuetify.breakpoint.width - 17
               "
               class="align-center"
             >
