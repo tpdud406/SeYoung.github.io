@@ -32,20 +32,7 @@
 <script lang="ts">
 import { Component, Provide, Vue } from 'nuxt-property-decorator'
 
-@Component({
-  computed: {
-    colsPositioning(): number {
-      const cols: number = this.$vuetify.breakpoint.xsOnly ? 12 : 4
-      return cols
-    },
-    printTitle(): string {
-      const title: string = this.$vuetify.breakpoint.xsOnly
-        ? '신속한 착수,<br />신규 시장/기술 이해 및 설명 특화'
-        : '신속한 착수, 신규 시장/기술 이해 및 설명 특화'
-      return title
-    },
-  },
-})
+@Component({})
 class ComponentsIndexSkills extends Vue {
   private parentTitle: string = '주요 역량'
   private parentDesc: string =
@@ -77,6 +64,12 @@ class ComponentsIndexSkills extends Vue {
       src: '/skills/dual-screen-1745705_640.png',
     },
   ]
+
+  /* computed */
+  private get colsPositioning(): number {
+    const cols: number = this.$vuetify.breakpoint.xsOnly ? 12 : 4
+    return cols
+  }
 }
 
 export default ComponentsIndexSkills

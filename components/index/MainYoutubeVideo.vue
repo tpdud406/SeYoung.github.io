@@ -30,8 +30,8 @@
               <!-- Start : Embeded Youtube Video (vue-youtube-embed) -->
               <youtube
                 :video-id="video.vid"
-                :player-width="'100%'"
-                :player-height="responsiveHeight * 0.85"
+                :player-width="responsiveWidth"
+                :player-height="responsiveHeight"
                 class="d-flex justify-center mb-2"
               />
               <!-- End : Embeded Youtube Video (vue-youtube-embed) -->
@@ -76,8 +76,16 @@ class ComponentsIndexMainYoutubeVideo extends Vue {
   ]
 
   /* computed */
-  private get responsiveHeight() {
-    const height: number = this.$vuetify.breakpoint.lgAndUp === true ? 300 : 195
+  private get responsiveWidth(): number {
+    const currentWidth: number = this.$vuetify.breakpoint.lgAndUp
+      ? 1264
+      : this.$vuetify.breakpoint.width
+    const cardWidth: number = currentWidth / 3 - 16
+    return cardWidth
+  }
+
+  private get responsiveHeight(): number {
+    const height: number = (this.responsiveWidth / 16) * 9
     return height
   }
 }

@@ -8,6 +8,7 @@ module.exports = {
   extends: [
     '@nuxtjs',
     'prettier',
+    'prettier/prettier',
     'prettier/vue',
     'plugin:prettier/recommended',
     'plugin:nuxt/recommended',
@@ -23,5 +24,6 @@ module.exports = {
     'comma-dangle': ['error', 'only-multiline'], // *conlict prettier, ref : https://eslint.org/docs/rules/comma-dangle
     'space-before-function-paren': ['error', 'never'], // *conlict prettier, ref : https://eslint.org/docs/rules/space-before-function-paren
     'prettier/prettier': ['error', { endOfLine: 'auto' }], // ref: https://velog.io/@realsong/VS-Delete-prettierprettier-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95
+    indent: 'off', // error  Delete `··`  prettier/prettier
   },
 }

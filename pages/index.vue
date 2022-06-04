@@ -4,30 +4,36 @@
     <index-top :class="marginBtwComponents" />
     <!-- End : Key Point -->
 
-    <!-- Start : Skills -->
-    <index-skills :class="marginBtwComponents" />
-    <!-- End : Skills -->
+    <!-- ### Start: Content ### -->
+    <v-row justify="center" class="ma-0 pa-0">
+      <v-sheet :max-width="maxWidth">
+        <!-- Start : Skills -->
+        <index-skills :class="marginBtwComponents" />
+        <!-- End : Skills -->
 
-    <!-- Start : Key Number -->
-    <index-counters :class="marginBtwComponents" />
-    <!-- End : Key Number -->
+        <!-- Start : Key Number -->
+        <index-counters :class="marginBtwComponents" />
+        <!-- End : Key Number -->
 
-    <!-- Start : Skills -->
-    <index-main-project :class="marginBtwComponents" />
-    <!-- End : Skills -->
+        <!-- Start : Skills -->
+        <index-main-project :class="marginBtwComponents" />
+        <!-- End : Skills -->
 
-    <!-- Start : Best Video -->
-    <index-main-youtube-video :class="marginBtwComponents" />
-    <!-- End : Best Video -->
+        <!-- Start : Best Video -->
+        <index-main-youtube-video :class="marginBtwComponents" />
+        <!-- End : Best Video -->
 
-    <!-- Start : Photos -->
-    <index-photos :class="marginBtwComponents" />
-    <!-- End : Photos -->
+        <!-- Start : Photos -->
+        <index-photos :class="marginBtwComponents" />
+        <!-- End : Photos -->
 
-    <!--
+        <!--
     <v-divider class="my-2" />
     -->
-    <index-carreer :class="marginBtwComponents" />
+        <index-carreer :class="marginBtwComponents" />
+      </v-sheet>
+    </v-row>
+    <!-- ### End: Content ### -->
   </div>
 </template>
 
@@ -55,6 +61,7 @@ import IndexCarreer from '@/components/index/Carreer.vue'
 class PagesIndex extends Vue {
   /* data */
   private marginBtwComponents: string = 'mb-4 mb-sm-10 mb-md-8'
+  private maxWidth: number = 1264
 }
 
 export default PagesIndex

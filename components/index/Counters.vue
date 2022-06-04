@@ -12,13 +12,7 @@
     <!-- ### Start : Numbers ### -->
     <v-container fluid>
       <v-row justify="center">
-        <v-col
-          v-for="(item, index) in items"
-          :key="index"
-          cols="6"
-          md="3"
-          class="d-flex justify-center"
-        >
+        <v-col v-for="(item, index) in items" :key="index" cols="6" md="3">
           <counter :upper-item="item" />
         </v-col>
       </v-row>
@@ -53,7 +47,7 @@ class ComponentsIndexCounters extends Vue {
       text:
         '함께 학습, 교육용 자료로써 Youtube 업로드한 강의 영상의 총 수, ' +
         '2016년 4월 ~ 2022년 5월 31일까지 업로드 분량 기준',
-      color: 'blue accent-3',
+      color: 'dark grey',
     },
     {
       icon: 'mdi-clock-start',
@@ -62,7 +56,7 @@ class ComponentsIndexCounters extends Vue {
       text:
         'Youtube 채널에서 약 22,400명의 구독자가 210만 회 조회하며 ' +
         '실제 시청한 시간의 2022년 5월 31일 기준 총합 (단위: 시간)',
-      color: 'blue accent-3',
+      color: 'dark grey',
     },
     {
       icon: 'mdi-television-classic',
@@ -71,7 +65,7 @@ class ComponentsIndexCounters extends Vue {
       text:
         '<해외투자 따라잡기>, <글로벌 이슈5>를 통해 금융 투자 및 이슈 분석 ' +
         '관련으로 매일경제TV M머니에 약 7개월 동안 출연한 총 횟수',
-      color: 'blue accent-3',
+      color: 'dark grey',
     },
     {
       icon: 'mdi-keyboard',
@@ -81,7 +75,7 @@ class ComponentsIndexCounters extends Vue {
         'Github에서 프로젝트 참여(Commits, Issues, Pull ' +
         'requests, Discussions)통한 집계 기여 수의 ' +
         '2021년 기준 총합',
-      color: 'blue accent-4',
+      color: 'black',
     },
   ]
 }
