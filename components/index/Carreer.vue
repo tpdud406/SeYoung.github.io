@@ -13,7 +13,7 @@
     </v-card-subtitle>
 
     <!-- ### Start : Timeline ### -->
-    <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="mx-4">
+    <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="px-md-10 px-4">
       <v-timeline-item
         v-for="(item, index) in items"
         :key="index"
@@ -30,14 +30,15 @@
         </template>
 
         <!-- Start : Content -->
-        <v-card>
+        <v-card
+          :max-width="
+            $vuetify.breakpoint.xsOnly
+              ? $vuetify.breakpoint.width - 102
+              : $vuetify.breakpoint.width / 2 - 62
+          "
+        >
           <!-- Start : Image -->
-          <v-img
-            v-if="!!item.src"
-            :src="item.src"
-            :max-width="$vuetify.breakpoint.width - 102"
-            contain
-          />
+          <v-img v-if="!!item.src" :src="item.src" contain />
 
           <!-- Start : Text -->
           <template #placeholder>
