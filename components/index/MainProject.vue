@@ -105,13 +105,12 @@ class ComponentsIndexMainProject extends Vue {
           '<br>쉽게 설명하는 능력을 인정받는 공간이기도 합니다',
       },
       color: {
-        backgroundGradient:
-          'to left bottom, rgba(30,36,77,.8), rgba(30,36,77,1)',
+        backgroundGradient: 'to left, rgba(41, 121, 255,.7), rgba(30,36,77,1)',
       },
       src: '/background/office-1209640_1920.jpg',
       btn: {
-        name: '서비스 소개 ▶',
-        href: 'https://knowease-inc.github.io/service/easyxplain/introduce',
+        name: '바로가기 ▶',
+        href: 'https://ko.meaniit.com/main',
         color: 'blue lighten-4',
       },
       cardClass: 'align-center',
