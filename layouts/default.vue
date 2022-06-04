@@ -1,15 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar :color="appBar.color" dense flat>
-      <v-spacer />
-      <v-app-bar-title class="white--text">
-        <small class="font-weight-bold">{{ appBar.title }}</small>
-      </v-app-bar-title>
-      <v-spacer />
-    </v-app-bar>
-    <v-container class="mb-4">
-      <nuxt />
-    </v-container>
+    <nuxt />
     <main-footer />
   </v-app>
 </template>
@@ -24,9 +15,8 @@ import MainFooter from '@/components/default/MainFooter.vue'
   },
 })
 class LayoutDefault extends Vue {
-  @Provide() appBar: { title: string; color: string } = {
-    title: 'TMook',
-    color: 'rgba(21,31,32,1)',
+  @Provide() ids: { containerOfTop: string } = {
+    containerOfTop: 'containerOfTop',
   }
 }
 

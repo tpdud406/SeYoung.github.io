@@ -1,154 +1,162 @@
 <template>
-  <v-card :width="width" flat tile>
-    <v-img
-      src="/background/starry-night-1149815_vertical.jpg"
-      :gradient="color.backgroundGradient"
-      :height="heightInXS"
-      :contain="containInXS"
-      class="align-center"
-    >
-      <v-card-subtitle
-        class="main-subtitle blue--text text--lighten-1"
-        v-html="text.subtitle"
-      />
-      <v-card-title class="main-title white--text" v-html="text.title" />
-      <v-menu offset-x rounded :close-on-click="closeOnClick">
-        <template #activator="{ on, attrs }">
-          <v-btn
-            color="blue darken-1"
-            class="mt-0 ml-5"
-            dark
-            rounded
-            v-bind="attrs"
-            v-on="on"
-          >
-            <span>목록 ▼</span>
-          </v-btn>
-        </template>
+  <v-card id="card-outline" flat outlined tile class="ma-0 pa-0">
+    <v-container fluid class="ma-0 pa-0">
+      <v-row no-gutters align="center">
+        <!-- Start : Key Text -->
+        <v-col
+          :sm="12 - colOfImg.cols"
+          cols="12"
+          :order="$vuetify.breakpoint.xsOnly ? 2 : undefined"
+        >
+          <v-card flat tile class="fill-height">
+            <v-card-title v-if="$vuetify.breakpoint.smAndUp">
+              <p
+                class="text-left text-lg-h1 text-sm-h2 text-h3 font-weight-black"
+                :style="responsiveStyle"
+                v-html="introduceOnTop.head"
+              />
+            </v-card-title>
 
-        <v-list dense>
-          <v-list-item v-for="(menu, index) in menus" :key="index" class="pa-0">
-            <v-list-item-content class="pa-0">
-              <v-btn :to="menu.to" :href="menu.href" tile flat text>
-                <span>{{ menu.name }}</span>
+            <v-card-subtitle class="pl-5">
+              <p class="text-left" v-html="introduceOnTop.body" />
+              <p class="text-left" v-html="introduceOnTop.bodyExample" />
+            </v-card-subtitle>
+
+            <!-- Start : Page Move Buttons -->
+            <v-card-actions class="d-flex justify-start pl-4">
+              <v-btn
+                v-for="(linkBtn, index) in linkBtns"
+                :key="index"
+                :href="linkBtn.url"
+                icon
+                target="_blank"
+              >
+                <v-icon>{{ linkBtn.icon }}</v-icon>
               </v-btn>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+              <v-btn text color="grey" small style="text-transform: none">
+                msp770@gmail.com
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
 
-      <v-btn
-        :color="btns.youtube.color"
-        :to="btns.youtube.to"
-        :href="btns.youtube.href"
-        :small="$vuetify.breakpoint.xsOnly"
-        class="mt-0 ml-2"
-        icon
-      >
-        <v-icon>mdi-youtube</v-icon>
-      </v-btn>
-    </v-img>
+        <!-- Start : Image -->
+        <v-col
+          :sm="colOfImg.cols"
+          cols="12"
+          :order="$vuetify.breakpoint.xsOnly ? 1 : undefined"
+        >
+          <v-img
+            :src="topImage"
+            class="d-flex text-right align-end fill-height"
+            :aspect-ratio="$vuetify.breakpoint.xsOnly ? 3 / 4 : undefined"
+          >
+            <template #placeholder>
+              <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-progress-circular indeterminate color="grey lighten-5" />
+              </v-row>
+            </template>
+
+            <!-- Start : Content -->
+            <v-card-title v-if="$vuetify.breakpoint.xsOnly">
+              <p
+                class="text-left text-lg-h1 text-sm-h2 text-h3 font-weight-black"
+                :style="responsiveStyle"
+                v-html="introduceOnTop.head"
+              />
+            </v-card-title>
+            <p
+              :class="`text-subtitle-1 text-sm-h5 text-sm-right text-left font-weight-bold pr-4 pl-4`"
+              style="color: white"
+              v-html="name"
+            />
+          </v-img>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-card>
 </template>
 
 <script lang="ts">
-import { Component, Provide, Vue } from 'nuxt-property-decorator'
-import MainFooter from '@/components/default/MainFooter.vue'
+import { Component, Vue } from 'nuxt-property-decorator'
 
-@Component({
-  components: {
-    MainFooter,
-  },
-  computed: {
-    heightInXS(): any {
-      const height = this.$vuetify.breakpoint.xsOnly ? 500 : undefined
-      return height
-    },
-    containInXS(): boolean {
-      const contain = !this.$vuetify.breakpoint.xsOnly
-      return contain
-    },
-  },
-})
+@Component({})
 class ComponentsIndexTop extends Vue {
-  @Provide() width: string = '100%'
-  @Provide() text: { subtitle: string; title: string } = {
-    subtitle: 'READ AND LEAD THE WORLD',
-    title:
-      '희망하기 보다' +
-      '<span class="ml-sm-2" style="font-weight: 500;">행동하는 매니저</span>',
+  /* data() */
+  private colOfImg: { cols: number } = {
+    cols: 5,
   }
 
-  @Provide() appBar: { title: string; color: string } = {
-    title: 'TMook',
-    color: 'rgba(21,31,32,1)',
+  private name: string = '<small>쉬운지식 대표</small><br />박성묵'
+  private ids: { total: string; key: string } = {
+    total: 'top',
+    key: 'key',
   }
 
-  @Provide() menus: Array<{
-    name: string
-    to: string
-    href: undefined
-    color: string
-  }> = [
+  private colorOfTotalCard: { color: string; gradient: string } = {
+    color: String(this.$vuetify.theme.themes.light.accent),
+    gradient: '',
+  }
+
+  private images: { imageOfTop: string; imageOfTop2: string } = {
+    imageOfTop: '/index/mygithubpages_img_20220528.png',
+    imageOfTop2: '/index/pangyo_image.jpg',
+  }
+
+  private introduceOnTop: {
+    head: string
+    body: string
+    bodyExample: string
+  } = {
+    head: `<span style="color: ${
+      this.$vuetify.breakpoint.xsOnly
+        ? 'white'
+        : this.$vuetify.theme.themes.light.primary
+    }">쉽게,</span><br />주요한 개념<small>을</small><br />설명<small>합니다</small>`,
+    body:
+      '경제/금융, 정보기술(IT) 분야에서<br />어려운 개념과 구조들을 이해하기 쉽게 설명하고 있습니다',
+    bodyExample: '(예시. 채권, 가상화폐, 블록체인, 디지털 전환, 마이데이터 등)',
+  }
+
+  private linkBtns: Array<{ url: string; color: string; icon: string }> = [
     {
-      name: '특징',
-      to: '/#skills',
-      href: undefined,
-      color: 'blue darken-3',
+      url: 'https://www.youtube.com/c/TMook',
+      color: 'black',
+      icon: 'mdi-youtube',
     },
     {
-      name: '주요 숫자',
-      to: '/#skills',
-      href: undefined,
-      color: 'blue darken-3',
-    },
-    {
-      name: '진행 프로젝트',
-      to: '/#skills',
-      href: undefined,
-      color: 'blue darken-3',
-    },
-    {
-      name: '이력',
-      to: '/#carreer',
-      href: undefined,
-      color: 'blue darken-3',
+      url: 'https://www.linkedin.com/in/mook-t-34a0a2135/',
+      color: 'black',
+      icon: 'mdi-linkedin',
     },
   ]
 
-  @Provide() btns: {
-    youtube: { name: string; to: undefined; href: string; color: string }
-  } = {
-    youtube: {
-      name: 'YOUTUBE 채널 ▶',
-      to: undefined,
-      href: 'https://youtube.com/c/TMook',
-      color: 'red',
-    },
+  /* computed */
+  private get topImage(): string {
+    const src: string = this.$vuetify.breakpoint.xsOnly
+      ? '/index/pangyo_image.jpg'
+      : '/index/mygithubpages_img_20220528.png'
+    return src
   }
 
-  @Provide() color: { backgroundGradient: string } = {
-    backgroundGradient: 'to right bottom, rgba(0,0,0,.1), rgba(11,12,23,.8)',
+  private get responsiveStyle(): {} {
+    const result: { lineHeight: string; color: string } = {
+      lineHeight: this.$vuetify.breakpoint.lgAndUp
+        ? '6.45rem'
+        : this.$vuetify.breakpoint.smAndUp
+        ? '4.45rem'
+        : '3.15rem',
+      color: this.$vuetify.breakpoint.smAndUp ? 'dark grey' : 'white',
+    }
+    return result
   }
 }
 
 export default ComponentsIndexTop
 </script>
 
-<style scoped>
-.main-subtitle {
-  font-size: 1.1rem !important;
-  font-weight: 500;
-  padding-bottom: 4px;
-}
-.main-title {
-  font-size: 2rem !important;
-  font-weight: 300;
-  padding-top: 0px;
-}
-
-/* menu */
-.v-application .rounded {
-  border-radius: 40px !important;
+<style lang="scss">
+#no-background-hover::before {
+  background-color: transparent !important;
 }
 </style>

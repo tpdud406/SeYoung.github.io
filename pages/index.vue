@@ -1,57 +1,68 @@
 <template>
-  <v-row name="top" justify="center" align="center">
-    <v-card :max-width="mainCardMaxWidth" flat tile color="rgba(0,0,0,0)">
-      <top class="mb-12" />
-      <skills name="skills" class="mb-4" />
-      <counters name="counters" class="mb-12" />
-      <main-project name="main-project" class="mb-12" />
-      <carreer name="carreer" />
-    </v-card>
-  </v-row>
+  <div>
+    <!-- Start : Key Point -->
+    <index-top :class="marginBtwComponents" />
+    <!-- End : Key Point -->
+
+    <!-- ### Start: Content ### -->
+    <v-row justify="center" class="ma-0 pa-0">
+      <v-sheet :max-width="maxWidth">
+        <!-- Start : Skills -->
+        <index-skills :class="marginBtwComponents" />
+        <!-- End : Skills -->
+
+        <!-- Start : Key Number -->
+        <index-counters :class="marginBtwComponents" />
+        <!-- End : Key Number -->
+
+        <!-- Start : Skills -->
+        <index-main-project :class="marginBtwComponents" />
+        <!-- End : Skills -->
+
+        <!-- Start : Best Video -->
+        <index-main-youtube-video :class="marginBtwComponents" />
+        <!-- End : Best Video -->
+
+        <!-- Start : Photos -->
+        <index-photos :class="marginBtwComponents" />
+        <!-- End : Photos -->
+
+        <!--
+    <v-divider class="my-2" />
+    -->
+        <index-carreer :class="marginBtwComponents" />
+      </v-sheet>
+    </v-row>
+    <!-- ### End: Content ### -->
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import Top from '@/components/index/Top.vue'
-import Counters from '@/components/index/Counters.vue'
-import Carreer from '@/components/index/Carreer.vue'
-import MainProject from '@/components/index/MainProject.vue'
-import Skills from '@/components/index/Skills.vue'
+import IndexTop from '@/components/index/Top.vue'
+import IndexPhotos from '@/components/index/Photos.vue'
+import IndexCounters from '@/components/index/Counters.vue'
+import IndexSkills from '@/components/index/Skills.vue'
+import IndexMainYoutubeVideo from '@/components/index/MainYoutubeVideo.vue'
+import IndexMainProject from '@/components/index/MainProject.vue'
+import IndexCarreer from '@/components/index/Carreer.vue'
 
 @Component({
   components: {
-    Top,
-    Counters,
-    Carreer,
-    MainProject,
-    Skills,
-  },
-  computed: {
-    mainCardMaxWidth(): number {
-      const maxWidth: number =
-        this.$vuetify.breakpoint.width < 860
-          ? this.$vuetify.breakpoint.width
-          : 860
-      return maxWidth
-    },
+    IndexTop,
+    IndexPhotos,
+    IndexCounters,
+    IndexSkills,
+    IndexMainProject,
+    IndexMainYoutubeVideo,
+    IndexCarreer,
   },
 })
-class PagesIndex extends Vue {}
+class PagesIndex extends Vue {
+  /* data */
+  private marginBtwComponents: string = 'mb-8 mb-sm-10 mb-md-8'
+  private maxWidth: number = 1264
+}
 
 export default PagesIndex
 </script>
-
-<style scoped>
-#app
-  > div
-  > div
-  > div
-  > div
-  > div
-  > div:nth-child(1)
-  > div
-  > div.v-card__actions
-  > a {
-  text-transform: none;
-}
-</style>

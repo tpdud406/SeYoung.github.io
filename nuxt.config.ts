@@ -40,7 +40,10 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    // ref : https://github.com/kaorun343/vue-youtube-embed/issues/44
+    { src: '@/plugins/youtube.js', ssr: false },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -72,10 +75,19 @@ export default {
     theme: {
       dark: false,
       themes: {
+        light: {
+          primary: colors.blue.accent3,
+          accent: colors.blue.accent4,
+          secondary: colors.yellow.lighten1,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3,
+        },
         dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
+          primary: colors.blue.accent3,
+          accent: colors.blue.accent4,
+          secondary: colors.yellow.lighten1,
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
@@ -86,5 +98,7 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    transpile: ['vue-youtube-embed'],
+  },
 }
