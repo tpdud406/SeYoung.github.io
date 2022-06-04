@@ -2,7 +2,10 @@
   <v-card id="carreer" tile flat>
     <!-- ### Start : title name ### -->
     <v-card-title class="d-flex justify-center">
-      <p class="text-center text-h4 font-weight-black" v-html="title" />
+      <p
+        class="text-center text-h3 text-sm-h2 font-weight-black"
+        v-html="title"
+      />
     </v-card-title>
 
     <v-card-subtitle class="text-center">
@@ -29,7 +32,12 @@
         <!-- Start : Content -->
         <v-card>
           <!-- Start : Image -->
-          <v-img v-if="!!item.src" :src="item.src" max-width="640" contain />
+          <v-img
+            v-if="!!item.src"
+            :src="item.src"
+            :max-width="$vuetify.breakpoint.width - 102"
+            contain
+          />
 
           <!-- Start : Text -->
           <template #placeholder>

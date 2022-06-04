@@ -2,11 +2,14 @@
   <v-card :id="tagid" flat tile>
     <!-- Start : Title & Description -->
     <v-card-title class="d-flex justify-center">
-      <p class="text-center text-h4 font-weight-black" v-html="parentTitle" />
+      <p
+        class="text-center text-h3 text-sm-h2 font-weight-black"
+        v-html="title"
+      />
     </v-card-title>
 
     <v-card-subtitle class="text-center">
-      <p class="text-center" v-html="parentDesc" />
+      <p class="text-center" v-html="desc" />
     </v-card-subtitle>
 
     <!-- Start : Contents -->
@@ -21,11 +24,17 @@
     >
       <v-carousel-item v-for="(videoInfo, index) in videoInfos" :key="index">
         <v-sheet height="100%" tile>
-          <v-row class="fill-height" align="center" justify="center">
+          <v-row
+            class="fill-height"
+            align="center"
+            justify="center"
+            :no-gutters="$vuetify.breakpoint.xsOnly"
+          >
             <v-col
               v-for="(video, childIndex) in videoInfo"
               :key="childIndex"
-              cols="4"
+              cols="6"
+              sm="4"
             >
               <!-- Start : Embeded Youtube Video (vue-youtube-embed) -->
               <youtube
@@ -52,8 +61,8 @@ import { Component, Vue } from 'nuxt-property-decorator'
 @Component({})
 class ComponentsIndexMainYoutubeVideo extends Vue {
   /* data */
-  private parentTitle: string = '인기 영상'
-  private parentDesc: string =
+  private title: string = '인기 영상'
+  private desc: string =
     'Youtube를 통해서 많은 분들이<br>시청해주신 영상들 중 일부입니다'
 
   private tagid: string = 'top-view-youtube'
@@ -80,7 +89,10 @@ class ComponentsIndexMainYoutubeVideo extends Vue {
     const currentWidth: number = this.$vuetify.breakpoint.lgAndUp
       ? 1264
       : this.$vuetify.breakpoint.width
-    const cardWidth: number = currentWidth / 3 - 16
+    const dividNumber: number = this.$vuetify.breakpoint.xsOnly ? 2 : 3
+    const minusNumber: number = this.$vuetify.breakpoint.xsOnly ? 8 : 16
+
+    const cardWidth: number = currentWidth / dividNumber - minusNumber
     return cardWidth
   }
 

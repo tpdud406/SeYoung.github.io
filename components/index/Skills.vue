@@ -2,11 +2,14 @@
   <v-card id="skills" flat class="py-8">
     <!-- Start : Title & Description -->
     <v-card-title class="d-flex justify-center">
-      <p class="text-center text-h4 font-weight-black" v-html="parentTitle" />
+      <p
+        class="text-center text-h3 text-sm-h2 font-weight-black"
+        v-html="title"
+      />
     </v-card-title>
 
     <v-card-subtitle class="text-center">
-      <p class="text-center" v-html="parentDesc" />
+      <p class="text-center" v-html="desc" />
     </v-card-subtitle>
 
     <!-- Start : Contents -->
@@ -19,7 +22,14 @@
           class="d-flex justify-center"
         >
           <v-card outlined flat class="justify-center">
-            <v-img :src="item.src" />
+            <v-img
+              :src="item.src"
+              :max-width="
+                $vuetify.breakpoint.xsOnly
+                  ? $vuetify.breakpoint.width
+                  : undefined
+              "
+            />
             <v-card-title class="justify-center" v-html="item.title" />
             <v-card-text class="d-flex justify-center" v-html="item.text" />
           </v-card>
@@ -34,9 +44,9 @@ import { Component, Provide, Vue } from 'nuxt-property-decorator'
 
 @Component({})
 class ComponentsIndexSkills extends Vue {
-  private parentTitle: string = '주요 역량'
-  private parentDesc: string =
-    '증권사 & IT스타트업의 금융 및 IT서비스 개발 경험 통한<br />비즈니스, 강연/정보 시각화, 개발/분석 업무 역량'
+  private title: string = '주요 역량'
+  private desc: string =
+    '증권사 & IT스타트업의 금융 및 IT서비스 경험 통한<br />비즈니스, 강연/정보 시각화, 개발/분석 업무 역량'
 
   @Provide() items: Array<{ title: string; text: string; src: string }> = [
     {

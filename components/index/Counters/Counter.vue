@@ -7,7 +7,9 @@
     </v-toolbar>
 
     <!-- Start : Key Number -->
-    <v-card-title class="d-flex justify-center text-h2 font-weight-black pb-0">
+    <v-card-title
+      class="d-flex justify-center text-sm-h2 text-h3 font-weight-black pb-0"
+    >
       {{ item.number }}
     </v-card-title>
 

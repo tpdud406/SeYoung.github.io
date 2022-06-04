@@ -2,7 +2,10 @@
   <v-container fluid class="pa-0">
     <!-- ### Start : title name ### -->
     <v-card-title class="d-flex justify-center">
-      <p class="text-center text-h4 font-weight-black" v-html="title" />
+      <p
+        class="text-center text-h3 text-sm-h2 font-weight-black"
+        v-html="title"
+      />
     </v-card-title>
 
     <v-card-subtitle class="text-center">
@@ -14,9 +17,10 @@
       <v-col
         v-for="(item, index) in items"
         :key="index"
-        cols="12"
+        cols="6"
         sm="4"
         class="child-flex"
+        :order="index === 2 ? 3 : index === 3 ? 2 : index"
       >
         <v-hover>
           <template #default="{ hover }">
@@ -120,7 +124,7 @@ class ComponentsIndexPhotos extends Vue {
     {
       src: '/photos/1.jpg',
       alt: '마이데이터 촬영 현장',
-      desc: '다양한 활동들이<br />있었습니다 <',
+      desc: '다양한 활동들 <',
       color: 'dark grey',
     },
     {
@@ -132,7 +136,7 @@ class ComponentsIndexPhotos extends Vue {
     {
       src: '/photos/3.jpg',
       alt: '판교의 젊은 기획자들 촬영',
-      desc: '진행 역을 맡으며<br />직접 강연도 가능합니다 <',
+      desc: '진행 역을 맡으며<br />직접 강연 가능 <',
       color: 'black',
     },
     {
@@ -144,7 +148,7 @@ class ComponentsIndexPhotos extends Vue {
     {
       src: '/photos/5.jpg',
       alt: '프로필 사진',
-      desc: '스튜디오에서 다소의<br />임기응변에 능합니다 <',
+      desc: '스튜디오에서<br />빠른 임기응변 <',
       color: 'dark grey',
     },
     {

@@ -60,7 +60,7 @@ import IndexCarreer from '@/components/index/Carreer.vue'
 })
 class PagesIndex extends Vue {
   /* data */
-  private marginBtwComponents: string = 'mb-4 mb-sm-10 mb-md-8'
+  private marginBtwComponents: string = 'mb-8 mb-sm-10 mb-md-8'
   private maxWidth: number = 1264
 }
 

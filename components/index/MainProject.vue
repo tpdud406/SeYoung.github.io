@@ -2,7 +2,10 @@
   <v-card flat tile>
     <!-- ### Start : title name ### -->
     <v-card-title class="d-flex justify-center">
-      <p class="text-center text-h4 font-weight-black" v-html="title" />
+      <p
+        class="text-center text-h3 text-sm-h2 font-weight-black"
+        v-html="title"
+      />
     </v-card-title>
 
     <v-card-subtitle class="text-center">
@@ -24,6 +27,11 @@
               :gradient="project.color.backgroundGradient"
               :height="heightInXS"
               :contain="containInXS"
+              :max-width="
+                $vuetify.breakpoint.xsOnly
+                  ? $vuetify.breakpoint.width
+                  : 'undefined'
+              "
               class="align-center"
             >
               <v-card-subtitle class="project-subtitle">

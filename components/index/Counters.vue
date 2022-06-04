@@ -2,7 +2,10 @@
   <v-card flat tile>
     <!-- ### Start : title name ### -->
     <v-card-title class="d-flex justify-center">
-      <p class="text-center text-h4 font-weight-black" v-html="title" />
+      <p
+        class="text-center text-h3 text-sm-h2 font-weight-black"
+        v-html="title"
+      />
     </v-card-title>
 
     <v-card-subtitle class="text-center">
@@ -12,7 +15,13 @@
     <!-- ### Start : Numbers ### -->
     <v-container fluid>
       <v-row justify="center">
-        <v-col v-for="(item, index) in items" :key="index" cols="6" md="3">
+        <v-col
+          v-for="(item, index) in items"
+          :key="index"
+          cols="12"
+          sm="6"
+          md="3"
+        >
           <counter :upper-item="item" />
         </v-col>
       </v-row>
