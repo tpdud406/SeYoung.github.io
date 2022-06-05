@@ -1,6 +1,6 @@
 <template>
   <v-card id="card-outline" flat outlined tile class="ma-0 pa-0">
-    <v-container fluid class="ma-0 pa-0">
+    <v-container fluid class="pa-0">
       <v-row no-gutters align="center">
         <!-- Start : Key Text -->
         <v-col

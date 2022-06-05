@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="pa-0">
+  <v-container fluid>
     <!-- ### Start : title name ### -->
     <v-card-title class="d-flex justify-center">
       <p
