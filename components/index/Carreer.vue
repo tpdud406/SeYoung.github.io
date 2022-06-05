@@ -13,7 +13,7 @@
     </v-card-subtitle>
 
     <!-- ### Start : Timeline ### -->
-    <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="px-md-10 px-4">
+    <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="px-md-10 px-sm-4">
       <v-timeline-item
         v-for="(item, index) in items"
         :key="index"

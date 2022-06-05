@@ -13,7 +13,7 @@
     </v-card-subtitle>
 
     <!-- Start : Contents -->
-    <v-container fluid class="px-0">
+    <v-container fluid>
       <v-row no-gutters>
         <v-col
           v-for="(project, index) in projects"
@@ -26,11 +26,10 @@
               :src="project.src"
               :gradient="project.color.backgroundGradient"
               :height="heightInXS"
-              :contain="containInXS"
               :max-width="
                 $vuetify.breakpoint.mdAndUp
                   ? $vuetify.breakpoint.width / 2
-                  : $vuetify.breakpoint.width - 17
+                  : $vuetify.breakpoint.width
               "
               class="align-center"
             >
@@ -72,10 +71,6 @@ import { Component, Provide, Vue } from 'nuxt-property-decorator'
     heightInXS(): number | undefined {
       const height = this.$vuetify.breakpoint.xsOnly ? 500 : 400
       return height
-    },
-    containInXS(): boolean {
-      const contain = false
-      return contain
     },
   },
 })
