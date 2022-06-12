@@ -1,24 +1,14 @@
 <template>
   <v-app>
     <nuxt />
-    <main-footer />
   </v-app>
 </template>
 
 <script lang="ts">
-import { Component, Provide, Vue } from 'nuxt-property-decorator'
-import MainFooter from '@/components/default/MainFooter.vue'
+import { Component, Vue } from 'nuxt-property-decorator'
 
-@Component({
-  components: {
-    MainFooter,
-  },
-})
-class LayoutDefault extends Vue {
-  @Provide() ids: { containerOfTop: string } = {
-    containerOfTop: 'containerOfTop',
-  }
-}
+@Component({})
+class LayoutDefault extends Vue {}
 
 export default LayoutDefault
 </script>

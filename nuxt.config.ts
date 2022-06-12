@@ -12,15 +12,19 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - TMook Page',
-    title: 'TMook Page',
+    title: '박성묵 - 소개 페이지',
     htmlAttrs: {
       lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          '경제&#183;금융 및 IT 트렌드 용어 강사 활동을 하고 있으며 작가입니다. 전략/기획, 데이터 분석 및 웹 개발 경험을 가졌고 증권사 및 IT스타트업 경력을 보유하고 있습니다.',
+      },
     ],
     link: [
       /* How to use Web Font (Spoka Sans) in Nuxt

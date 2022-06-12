@@ -1,67 +1,36 @@
 <template>
-  <div>
-    <!-- Start : Key Point -->
-    <index-top :class="marginBtwComponents" />
-    <!-- End : Key Point -->
-
-    <!-- ### Start: Content ### -->
-    <v-row justify="center" class="ma-0 pa-0">
-      <v-sheet :max-width="maxWidth">
-        <!-- Start : Skills -->
-        <index-skills :class="marginBtwComponents" />
-        <!-- End : Skills -->
-
-        <!-- Start : Key Number -->
-        <index-counters :class="marginBtwComponents" />
-        <!-- End : Key Number -->
-
-        <!-- Start : Skills -->
-        <index-main-project :class="marginBtwComponents" />
-        <!-- End : Skills -->
-
-        <!-- Start : Best Video -->
-        <index-main-youtube-video :class="marginBtwComponents" />
-        <!-- End : Best Video -->
-
-        <!-- Start : Photos -->
-        <index-photos :class="marginBtwComponents" />
-        <!-- End : Photos -->
-
-        <!--
-    <v-divider class="my-2" />
-    -->
-        <index-carreer :class="marginBtwComponents" />
-      </v-sheet>
+  <v-container id="top-container" fluid>
+    <!-- ### Start : Top Title ### -->
+    <v-row justify="center">
+      <p
+        :class="'text-sm-h2 font-weight-light text-center ' + classOfComponent"
+        :style="{ lineHeight: '4.9rem' }"
+        v-html="titleOfTop"
+      />
     </v-row>
-    <!-- ### End: Content ### -->
-  </div>
+
+    <!-- ### Start : Top Component ### -->
+    <top-introduce :class="classOfComponent" />
+  </v-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import IndexTop from '@/components/index/Top.vue'
-import IndexPhotos from '@/components/index/Photos.vue'
-import IndexCounters from '@/components/index/Counters.vue'
-import IndexSkills from '@/components/index/Skills.vue'
-import IndexMainYoutubeVideo from '@/components/index/MainYoutubeVideo.vue'
-import IndexMainProject from '@/components/index/MainProject.vue'
-import IndexCarreer from '@/components/index/Carreer.vue'
+import TopIntroduce from '@/components/index/TopIntroduce.vue'
 
 @Component({
   components: {
-    IndexTop,
-    IndexPhotos,
-    IndexCounters,
-    IndexSkills,
-    IndexMainProject,
-    IndexMainYoutubeVideo,
-    IndexCarreer,
+    TopIntroduce,
   },
 })
 class PagesIndex extends Vue {
   /* data */
-  private marginBtwComponents: string = 'mb-8 mb-sm-10 mb-md-8'
-  private maxWidth: number = 1264
+  private titleOfTop: string =
+    '쉬운 설명을 제공하는 사람' +
+    '<br /><small>경제&#183;금융 <small>및</small> 비개발직군<small>과</small> 개발직군 사이 커뮤니케이터</small>' +
+    '<br /><small>박성묵</small>'
+
+  private classOfComponent: string = 'mb-10'
 }
 
 export default PagesIndex
