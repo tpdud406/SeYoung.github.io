@@ -1,79 +1,70 @@
 <template>
-  <v-card id="carreer" tile flat>
-    <!-- ### Start : title name ### -->
-    <v-card-title class="d-flex justify-center">
-      <p
-        class="text-center text-h3 text-sm-h2 font-weight-black"
-        v-html="title"
-      />
-    </v-card-title>
-
-    <v-card-subtitle class="text-center">
-      <p class="text-center" v-html="desc" />
-    </v-card-subtitle>
-
-    <!-- ### Start : Timeline ### -->
-    <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="px-md-10 px-sm-4">
-      <v-timeline-item
-        v-for="(item, index) in items"
-        :key="index"
-        :color="item.color"
-        :left="item.left"
-        :right="!item.left"
-        :hide-dot="item.hideDot"
-        small
-        :class="item.left == true ? 'd-flex justify-end' : ''"
-      >
-        <!-- Start : Time -->
-        <template #opposite>
-          <span>{{ item.time }}</span>
-        </template>
-
-        <!-- Start : Content -->
-        <v-card
-          :max-width="
-            $vuetify.breakpoint.xsOnly
-              ? $vuetify.breakpoint.width - 102
-              : $vuetify.breakpoint.width / 2 - 62
-          "
+  <v-row justify="center">
+    <v-col cols="12" md="10">
+      <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="px-md-10 px-sm-4">
+        <v-timeline-item
+          v-for="(item, index) in items"
+          :key="index"
+          :color="item.color"
+          :left="item.left"
+          :right="!item.left"
+          :hide-dot="item.hideDot"
+          small
+          :class="item.left == true ? 'd-flex justify-end' : ''"
         >
-          <!-- Start : Image -->
-          <v-img v-if="!!item.src" :src="item.src" contain />
-
-          <!-- Start : Text -->
-          <template #placeholder>
-            <v-row class="fill-height ma-0" align="center" justify="center">
-              <v-progress-circular indeterminate color="grey lighten-5" />
-            </v-row>
+          <!-- Start : Time -->
+          <template #opposite>
+            <span>{{ item.time }}</span>
           </template>
-          <v-card-title class="headline pb-2">
-            {{ item.title }}
-          </v-card-title>
-          <v-card-text
-            v-if="item.content.length !== 0"
-            :class="item.btn.bool === true ? 'pb-sm-0' : ''"
-          >
-            {{ item.content }}
-          </v-card-text>
-          <v-card-text v-if="$vuetify.breakpoint.xsOnly" class="mt-0 pt-0">
-            <small>{{ item.time }}</small>
-          </v-card-text>
 
-          <v-card-actions v-if="item.btn.bool" class="d-flex justify-end pr-3">
-            <v-btn
-              text
-              small
-              :color="item.btn.color"
-              :href="item.btn.href"
-              :disabled="item.btn.href === ''"
+          <!-- Start : Content -->
+          <v-card>
+            <!-- Start : Image -->
+            <v-img
+              v-if="!!item.src"
+              id="carreer-card-image"
+              :src="item.src"
+              contain
+            />
+            <template #placeholder>
+              <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-progress-circular indeterminate color="grey lighten-5" />
+              </v-row>
+            </template>
+
+            <!-- Start : Text -->
+            <v-card-title class="text-md-h5 pb-2">
+              {{ item.title }}
+            </v-card-title>
+            <v-card-text
+              v-if="item.content.length !== 0"
+              :class="item.btn.bool === true ? 'pb-sm-0' : ''"
             >
-              {{ item.btn.text }}
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-timeline-item>
-    </v-timeline>
-  </v-card>
+              {{ item.content }}
+            </v-card-text>
+            <v-card-text v-if="$vuetify.breakpoint.xsOnly" class="mt-0 pt-0">
+              <small>{{ item.time }}</small>
+            </v-card-text>
+
+            <v-card-actions
+              v-if="item.btn.bool"
+              class="d-flex justify-end pr-3"
+            >
+              <v-btn
+                text
+                small
+                :color="item.btn.color"
+                :href="item.btn.href"
+                :disabled="item.btn.href === ''"
+              >
+                {{ item.btn.text }}
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-timeline-item>
+      </v-timeline>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="ts">
@@ -290,7 +281,7 @@ class ComponentsIndexCarreer extends Vue {
       time: '2020.7',
       content:
         '지식의 저주를 해소하는 서비스 집합을 위한 회사 설립. 쉬운지식의 서비스로써 <미닛> 지속 개발 및 관련 서비스 준비',
-      color: 'blue accent-3',
+      color: 'grey darken-4',
       src: null,
       left: false,
       hideDot: false,
@@ -321,7 +312,7 @@ class ComponentsIndexCarreer extends Vue {
       title: '「미닛」 웹서비스 개발(중)',
       time: '2019.7',
       content: '쉬운 지식을 모으는 웹서비스 직접 개발 시작',
-      color: 'blue accent-3',
+      color: 'grey darken-4',
       src: '/carreer/easyxplain_og.png',
       left: false,
       hideDot: false,
@@ -384,7 +375,7 @@ class ComponentsIndexCarreer extends Vue {
       time: '2018.7',
       content:
         '블록체인에 대해 쉽게 설명하는 내용으로 책 집필 및 발간 (photo by Doori Kim)',
-      color: 'blue accent-3',
+      color: 'grey darken-4',
       src: '/carreer/mybook_doori_20181102_025716376.jpg',
       left: true,
       hideDot: false,
@@ -415,7 +406,7 @@ class ComponentsIndexCarreer extends Vue {
       title: 'Channel『TMook』',
       time: '2016.4',
       content: '어려운 용어에 대한 쉬운 설명을 제공하는 채널 운영 시작',
-      color: 'blue accent-3',
+      color: 'grey darken-4',
       src: '/carreer/2021-01-29 135905.png',
       left: true,
       hideDot: false,
@@ -445,7 +436,7 @@ class ComponentsIndexCarreer extends Vue {
       title: '(주)유안타증권',
       time: '2014.7 - 2017.7',
       content: 'PB(지점영업), Retail전략팀 근무',
-      color: 'blue accent-3',
+      color: 'grey darken-4',
       src: '/carreer/stock-1863880_1920.jpg',
       left: true,
       hideDot: false,
@@ -463,12 +454,15 @@ export default ComponentsIndexCarreer
 </script>
 
 <style scoped>
-.main-title {
-  font-size: 1.6rem !important;
-  font-weight: 500;
+#carreer-card-image {
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
 }
-.v-card__title.headline {
-  font-size: 1rem !important;
-  font-weight: 600;
+
+/* Disable grayscale on hover */
+#carreer-card-image:hover {
+  -webkit-filter: grayscale(0);
+  filter: none;
 }
 </style>

@@ -49,6 +49,20 @@
       :class="classOfComponent + ' pt-md-10'"
     />
     <main-youtube-video :class="classOfComponent" />
+
+    <!-- Start : Carreer Detail -->
+    <sub-title
+      :parent-items="objectOfParentItems.carreer"
+      :class="classOfComponent + ' pt-md-10'"
+    />
+    <carreer :class="classOfComponent" />
+
+    <!-- Start : Photos -->
+    <sub-title
+      :parent-items="objectOfParentItems.photos"
+      :class="classOfComponent + ' pt-md-10'"
+    />
+    <photos :class="classOfComponent" />
   </v-container>
 </template>
 
@@ -60,6 +74,8 @@ import Advantages from '@/components/index/Advantages.vue'
 import Memories from '@/components/index/Memories.vue'
 import MainProject from '@/components/index/MainProject.vue'
 import MainYoutubeVideo from '@/components/index/MainYoutubeVideo.vue'
+import Carreer from '@/components/index/Carreer.vue'
+import Photos from '@/components/index/Photos.vue'
 
 @Component({
   components: {
@@ -69,6 +85,8 @@ import MainYoutubeVideo from '@/components/index/MainYoutubeVideo.vue'
     Memories,
     MainProject,
     MainYoutubeVideo,
+    Carreer,
+    Photos,
   },
 })
 class PagesIndex extends Vue {
@@ -86,6 +104,8 @@ class PagesIndex extends Vue {
     memory: { title: string; content: string }
     mainProject: { title: string; content: string }
     mainYoutubeVideo: { title: string; content: string }
+    carreer: { title: string; content: string }
+    photos: { title: string; content: string }
   } = {
     advantages: {
       title: 'Advantages',
@@ -104,6 +124,14 @@ class PagesIndex extends Vue {
       title: 'Best Youtube',
       content:
         '경제&#183;금융&#183;IT 분야에서 많은 분들이 시청해주신 영상들이에요',
+    },
+    carreer: {
+      title: 'Carreer',
+      content: '다양한 활동들을 시간 순으로 천천히 살펴볼 수 있어요',
+    },
+    photos: {
+      title: 'Photos',
+      content: '감사하게도 남겨주신 사진을 모아놓아 보았습니다',
     },
   }
 }
