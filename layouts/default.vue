@@ -1,23 +1,24 @@
 <template>
   <v-app>
-    <nuxt />
-    <main-footer />
+    <v-sheet :color="color">
+      <v-container fluid>
+        <v-row justify="center">
+          <v-sheet :max-width="maxWidth">
+            <nuxt />
+          </v-sheet>
+        </v-row>
+      </v-container>
+    </v-sheet>
   </v-app>
 </template>
 
 <script lang="ts">
-import { Component, Provide, Vue } from 'nuxt-property-decorator'
-import MainFooter from '@/components/default/MainFooter.vue'
+import { Component, Vue } from 'nuxt-property-decorator'
 
-@Component({
-  components: {
-    MainFooter,
-  },
-})
+@Component({})
 class LayoutDefault extends Vue {
-  @Provide() ids: { containerOfTop: string } = {
-    containerOfTop: 'containerOfTop',
-  }
+  private color: string = 'grey lighten-4'
+  private maxWidth: number = 1264
 }
 
 export default LayoutDefault

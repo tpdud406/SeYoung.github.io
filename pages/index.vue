@@ -1,67 +1,147 @@
 <template>
-  <div>
-    <!-- Start : Key Point -->
-    <index-top :class="marginBtwComponents" />
-    <!-- End : Key Point -->
+  <v-container id="top-container" fluid>
+    <!-- ### Start : Top Title ### -->
+    <v-row justify="center">
+      <v-col cols="8" sm="6">
+        <!-- Start : title -->
+        <p
+          :class="'text-sm-h4 text-h6 font-weight-bold text-center'"
+          :style="{
+            lineHeight: $vuetify.breakpoint.smAndUp ? '2.9rem' : '2rem',
+          }"
+          v-html="titleOfTop"
+        />
 
-    <!-- ### Start: Content ### -->
-    <v-row justify="center" class="ma-0 pa-0">
-      <v-sheet :max-width="maxWidth">
-        <!-- Start : Skills -->
-        <index-skills :class="marginBtwComponents" />
-        <!-- End : Skills -->
-
-        <!-- Start : Key Number -->
-        <index-counters :class="marginBtwComponents" />
-        <!-- End : Key Number -->
-
-        <!-- Start : Skills -->
-        <index-main-project :class="marginBtwComponents" />
-        <!-- End : Skills -->
-
-        <!-- Start : Best Video -->
-        <index-main-youtube-video :class="marginBtwComponents" />
-        <!-- End : Best Video -->
-
-        <!-- Start : Photos -->
-        <index-photos :class="marginBtwComponents" />
-        <!-- End : Photos -->
-
-        <!--
-    <v-divider class="my-2" />
-    -->
-        <index-carreer :class="marginBtwComponents" />
-      </v-sheet>
+        <!-- Start : subtitle -->
+        <p
+          :class="'text-sm-h6 font-weight-light text-center'"
+          :style="{ lineHeight: '1.2rem' }"
+          v-html="subTitleOfTop"
+        />
+      </v-col>
     </v-row>
-    <!-- ### End: Content ### -->
-  </div>
+
+    <!-- ### Start : Components ### -->
+    <top-introduce :class="classOfComponent" />
+
+    <!-- Start : Skills -->
+    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
+    <sub-title
+      :parent-items="objectOfParentItems.advantages"
+      :class="classOfComponent + ' pt-md-10'"
+    />
+    <advantages :class="classOfComponent" />
+
+    <!-- Start : Memory -->
+    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
+    <sub-title
+      :parent-items="objectOfParentItems.memory"
+      :class="classOfComponent + ' pt-md-10'"
+    />
+    <memories :class="classOfComponent" />
+
+    <!-- Start : Main Project -->
+    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
+    <sub-title
+      :parent-items="objectOfParentItems.mainProject"
+      :class="classOfComponent + ' pt-md-10'"
+    />
+    <main-project :class="classOfComponent" />
+
+    <!-- Start : Main Youtube Video -->
+    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
+    <sub-title
+      :parent-items="objectOfParentItems.mainYoutubeVideo"
+      :class="classOfComponent + ' pt-md-10'"
+    />
+    <main-youtube-video :class="classOfComponent" />
+
+    <!-- Start : Carreer Detail -->
+    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
+    <sub-title
+      :parent-items="objectOfParentItems.carreer"
+      :class="classOfComponent + ' pt-md-10'"
+    />
+    <carreer :class="classOfComponent" />
+
+    <!-- Start : Photos -->
+    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
+    <sub-title
+      :parent-items="objectOfParentItems.photos"
+      :class="classOfComponent + ' pt-md-10'"
+    />
+    <photos :class="classOfComponent" />
+  </v-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import IndexTop from '@/components/index/Top.vue'
-import IndexPhotos from '@/components/index/Photos.vue'
-import IndexCounters from '@/components/index/Counters.vue'
-import IndexSkills from '@/components/index/Skills.vue'
-import IndexMainYoutubeVideo from '@/components/index/MainYoutubeVideo.vue'
-import IndexMainProject from '@/components/index/MainProject.vue'
-import IndexCarreer from '@/components/index/Carreer.vue'
+import TopIntroduce from '@/components/index/TopIntroduce.vue'
+import SubTitle from '@/components/index/SubTitle.vue'
+import Advantages from '@/components/index/Advantages.vue'
+import Memories from '@/components/index/Memories.vue'
+import MainProject from '@/components/index/MainProject.vue'
+import MainYoutubeVideo from '@/components/index/MainYoutubeVideo.vue'
+import Carreer from '@/components/index/Carreer.vue'
+import Photos from '@/components/index/Photos.vue'
 
 @Component({
   components: {
-    IndexTop,
-    IndexPhotos,
-    IndexCounters,
-    IndexSkills,
-    IndexMainProject,
-    IndexMainYoutubeVideo,
-    IndexCarreer,
+    TopIntroduce,
+    SubTitle,
+    Advantages,
+    Memories,
+    MainProject,
+    MainYoutubeVideo,
+    Carreer,
+    Photos,
   },
 })
 class PagesIndex extends Vue {
   /* data */
-  private marginBtwComponents: string = 'mb-8 mb-sm-10 mb-md-8'
-  private maxWidth: number = 1264
+  private titleOfTop: string =
+    'Park Sung-mouk' + '<br />Presenter <small>&</small> Strategist'
+
+  private subTitleOfTop: string = '경제&#183;금융&#183;IT 트렌드 쉬운 설명'
+
+  private classOfComponent: string = 'my-md-10'
+
+  // sub titles //
+  private objectOfParentItems: {
+    advantages: { title: string; content: string }
+    memory: { title: string; content: string }
+    mainProject: { title: string; content: string }
+    mainYoutubeVideo: { title: string; content: string }
+    carreer: { title: string; content: string }
+    photos: { title: string; content: string }
+  } = {
+    advantages: {
+      title: 'Advantages',
+      content:
+        '이런 업무를 하거나, 프로그램&#183;툴&#183;언어를 다룰 수 있어요',
+    },
+    memory: {
+      title: 'Memories',
+      content: '경제&#183;금융&#183;IT 분야 주요 트렌드와 함께했던 기억이에요',
+    },
+    mainProject: {
+      title: 'Main Project',
+      content: '최근 많은 분들과 함께 진행되고 있는 주요 프로젝트입니다',
+    },
+    mainYoutubeVideo: {
+      title: 'Best Youtube',
+      content:
+        '경제&#183;금융&#183;IT 분야에서 많은 분들이 시청해주신 영상들이에요',
+    },
+    carreer: {
+      title: 'Carreer',
+      content: '다양한 활동들을 시간 순으로 천천히 살펴볼 수 있어요',
+    },
+    photos: {
+      title: 'Photos',
+      content: '감사하게도 남겨주신 사진을 모아놓아 보았습니다',
+    },
+  }
 }
 
 export default PagesIndex

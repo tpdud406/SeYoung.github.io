@@ -1,79 +1,74 @@
 <template>
-  <v-card id="carreer" tile flat>
-    <!-- ### Start : title name ### -->
-    <v-card-title class="d-flex justify-center">
-      <p
-        class="text-center text-h3 text-sm-h2 font-weight-black"
-        v-html="title"
-      />
-    </v-card-title>
-
-    <v-card-subtitle class="text-center">
-      <p class="text-center" v-html="desc" />
-    </v-card-subtitle>
-
-    <!-- ### Start : Timeline ### -->
-    <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="px-md-10 px-sm-4">
-      <v-timeline-item
-        v-for="(item, index) in items"
-        :key="index"
-        :color="item.color"
-        :left="item.left"
-        :right="!item.left"
-        :hide-dot="item.hideDot"
-        small
-        :class="item.left == true ? 'd-flex justify-end' : ''"
-      >
-        <!-- Start : Time -->
-        <template #opposite>
-          <span>{{ item.time }}</span>
-        </template>
-
-        <!-- Start : Content -->
-        <v-card
-          :max-width="
-            $vuetify.breakpoint.xsOnly
-              ? $vuetify.breakpoint.width - 102
-              : $vuetify.breakpoint.width / 2 - 62
-          "
+  <v-row justify="center">
+    <v-col cols="12" md="10">
+      <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="px-md-10 px-sm-4">
+        <v-timeline-item
+          v-for="(item, index) in items"
+          :key="index"
+          :color="item.color"
+          :left="item.left"
+          :right="!item.left"
+          :hide-dot="item.hideDot"
+          small
+          :class="item.left == true ? 'd-flex justify-end' : ''"
         >
-          <!-- Start : Image -->
-          <v-img v-if="!!item.src" :src="item.src" contain />
-
-          <!-- Start : Text -->
-          <template #placeholder>
-            <v-row class="fill-height ma-0" align="center" justify="center">
-              <v-progress-circular indeterminate color="grey lighten-5" />
-            </v-row>
+          <!-- Start : Time -->
+          <template #opposite>
+            <span>{{ item.time }}</span>
           </template>
-          <v-card-title class="headline pb-2">
-            {{ item.title }}
-          </v-card-title>
-          <v-card-text
-            v-if="item.content.length !== 0"
-            :class="item.btn.bool === true ? 'pb-sm-0' : ''"
-          >
-            {{ item.content }}
-          </v-card-text>
-          <v-card-text v-if="$vuetify.breakpoint.xsOnly" class="mt-0 pt-0">
-            <small>{{ item.time }}</small>
-          </v-card-text>
 
-          <v-card-actions v-if="item.btn.bool" class="d-flex justify-end pr-3">
-            <v-btn
-              text
-              small
-              :color="item.btn.color"
-              :href="item.btn.href"
-              :disabled="item.btn.href === ''"
+          <!-- Start : Content -->
+          <v-card>
+            <!-- Start : Image -->
+            <v-img
+              v-if="!!item.src"
+              id="carreer-card-image"
+              :src="item.src"
+              :max-width="imageSizeOfsmAndDown"
+              contain
+            />
+            <template #placeholder>
+              <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-progress-circular indeterminate color="grey lighten-5" />
+              </v-row>
+            </template>
+
+            <!-- Start : Text -->
+            <v-card-title
+              class="text-md-body-1 text-sm-body-2 text-body-2 font-weight-bold pb-2"
             >
-              {{ item.btn.text }}
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-timeline-item>
-    </v-timeline>
-  </v-card>
+              {{ item.title }}
+            </v-card-title>
+            <v-card-text
+              v-if="item.content.length !== 0"
+              :class="item.btn.bool === true ? 'pb-sm-0' : ''"
+            >
+              {{ item.content }}
+            </v-card-text>
+            <v-card-text v-if="$vuetify.breakpoint.xsOnly" class="mt-0 pt-0">
+              <small>{{ item.time }}</small>
+            </v-card-text>
+
+            <v-card-actions
+              v-if="item.btn.bool"
+              class="d-flex justify-end pr-3"
+            >
+              <v-btn
+                text
+                small
+                :color="item.btn.color"
+                :href="item.btn.href"
+                :disabled="item.btn.href === ''"
+                class="font-weight-light"
+              >
+                {{ item.btn.text }}
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-timeline-item>
+      </v-timeline>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="ts">
@@ -127,7 +122,7 @@ class ComponentsIndexCarreer extends Vue {
         bool: false,
         href: '',
         text: '',
-        color: 'blue lighten-2',
+        color: 'grey',
       },
     },
     {
@@ -142,7 +137,7 @@ class ComponentsIndexCarreer extends Vue {
         bool: false,
         href: '',
         text: '',
-        color: 'blue lighten-2',
+        color: 'grey',
       },
     },
     {
@@ -156,8 +151,8 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: true,
         href: 'https://www.electimes.com/news/articleView.html?idxno=302019',
-        text: '읽기 →',
-        color: 'blue lighten-2',
+        text: '읽기 >',
+        color: 'grey',
       },
     },
     {
@@ -172,8 +167,8 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href:
           'https://e-koreatech.step.or.kr/page/lms?m1=course&m2=course_detail&course_id=222837',
-        text: '확인 →',
-        color: 'blue lighten-2',
+        text: '확인 >',
+        color: 'grey',
       },
     },
     {
@@ -187,8 +182,8 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: true,
         href: 'https://electimes.com/article.php?aid=1641165264227348050',
-        text: '읽기 →',
-        color: 'blue lighten-2',
+        text: '읽기 >',
+        color: 'grey',
       },
     },
     {
@@ -203,8 +198,8 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href:
           'https://www.hihrd.co.kr/usrs/eduRegMgnt/crsInfoDetailForm.do;jsessionid=Gpu1FTByGHBTRRrDsXOeP0FCDPaVEa37tHt2n0NYPamUJEAwp0avVbR2kH7kWlFM.LMS_WAS_002_servlet_engine2?p_crscd=9782&CRSCD=9782&p_hmpgcd=38&p_listType=N&mkey=6442',
-        text: '확인 →',
-        color: 'blue lighten-2',
+        text: '확인 >',
+        color: 'grey',
       },
     },
     {
@@ -218,8 +213,8 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: true,
         href: 'http://www.electimes.com/article.php?aid=1634703205224009050',
-        text: '읽기 →',
-        color: 'blue lighten-2',
+        text: '읽기 >',
+        color: 'grey',
       },
     },
     {
@@ -234,8 +229,8 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href:
           'http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&linkClass=330201&barcode=9788956749112',
-        text: '확인 →',
-        color: 'blue lighten-2',
+        text: '확인 >',
+        color: 'grey',
       },
     },
     {
@@ -250,8 +245,8 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: false,
         href: '',
-        text: '읽기 →',
-        color: 'blue lighten-2',
+        text: '읽기 >',
+        color: 'grey',
       },
     },
     {
@@ -265,8 +260,8 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: true,
         href: 'https://electimes.com/article.php?aid=1628558190221243050',
-        text: '읽기 →',
-        color: 'blue lighten-2',
+        text: '읽기 >',
+        color: 'grey',
       },
     },
     {
@@ -281,8 +276,8 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href:
           'https://hrd.hihrd.co.kr/usrs/eduRegMgnt/crsInfoDetailForm.do?p_crscd=8875',
-        text: '확인 →',
-        color: 'blue lighten-2',
+        text: '확인 >',
+        color: 'grey',
       },
     },
     {
@@ -290,15 +285,15 @@ class ComponentsIndexCarreer extends Vue {
       time: '2020.7',
       content:
         '지식의 저주를 해소하는 서비스 집합을 위한 회사 설립. 쉬운지식의 서비스로써 <미닛> 지속 개발 및 관련 서비스 준비',
-      color: 'blue accent-3',
+      color: 'grey darken-4',
       src: null,
       left: false,
       hideDot: false,
       btn: {
         bool: true,
         href: 'https://knowease-inc.github.io',
-        text: '회사 소개 →',
-        color: 'blue lighten-2',
+        text: '회사 소개 >',
+        color: 'grey',
       },
     },
     {
@@ -313,23 +308,23 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href:
           'https://hrd.hihrd.co.kr/usrs/eduRegMgnt/crsInfoDetailForm.do?p_crscd=5804&CRSCD=5804&p_listType=N&purl=/usrs/crsItdce/newCrsListForm.do',
-        text: '확인 →',
-        color: 'blue lighten-2',
+        text: '확인 >',
+        color: 'grey',
       },
     },
     {
       title: '「미닛」 웹서비스 개발(중)',
       time: '2019.7',
       content: '쉬운 지식을 모으는 웹서비스 직접 개발 시작',
-      color: 'blue accent-3',
+      color: 'grey darken-4',
       src: '/carreer/easyxplain_og.png',
       left: false,
       hideDot: false,
       btn: {
         bool: true,
         href: 'https://ko.meaniit.com/main',
-        text: '서비스 소개 →',
-        color: 'blue lighten-2',
+        text: '서비스 소개 >',
+        color: 'grey',
       },
     },
     {
@@ -343,8 +338,8 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: true,
         href: 'https://youtu.be/QzrIBsod1_A',
-        text: '보기 →',
-        color: 'blue lighten-2',
+        text: '보기 >',
+        color: 'grey',
       },
     },
     {
@@ -359,8 +354,8 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href:
           'http://bm.kyobobook.co.kr/course/active/detail.do?currentPage=1&perPage=10&orderby=-4&srchKey=title&srchWord=%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8&srchMenuParentSeq=1838&courseMasterSeq=703&courseActiveSeq=5170&newWin=N&currentMenuId=900',
-        text: '확인 →',
-        color: 'blue lighten-2',
+        text: '확인 >',
+        color: 'grey',
       },
     },
     {
@@ -375,8 +370,8 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href:
           'https://www.k-startup.go.kr/edu/home/package/PTYPE_002/PTYPE_00205/PKG_0000000874/detail',
-        text: '확인 →',
-        color: 'blue lighten-2',
+        text: '확인 >',
+        color: 'grey',
       },
     },
     {
@@ -384,7 +379,7 @@ class ComponentsIndexCarreer extends Vue {
       time: '2018.7',
       content:
         '블록체인에 대해 쉽게 설명하는 내용으로 책 집필 및 발간 (photo by Doori Kim)',
-      color: 'blue accent-3',
+      color: 'grey darken-4',
       src: '/carreer/mybook_doori_20181102_025716376.jpg',
       left: true,
       hideDot: false,
@@ -392,8 +387,8 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href:
           'https://search.naver.com/search.naver?where=nexearch&sm=top_sug.pre&fbm=1&acr=1&acq=%EB%B3%B4%EB%A9%B4+%EC%95%84%EB%8A%94+%EB%B8%94%E3%84%B9&qdt=0&ie=utf8&query=%EB%B3%B4%EB%A9%B4+%EC%95%84%EB%8A%94+%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8',
-        text: '확인 →',
-        color: 'blue lighten-2',
+        text: '확인 >',
+        color: 'grey',
       },
     },
     {
@@ -407,23 +402,23 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: true,
         href: 'https://youtu.be/662wnupQ8fg',
-        text: '보기 →',
-        color: 'blue lighten-2',
+        text: '보기 >',
+        color: 'grey',
       },
     },
     {
       title: 'Channel『TMook』',
       time: '2016.4',
       content: '어려운 용어에 대한 쉬운 설명을 제공하는 채널 운영 시작',
-      color: 'blue accent-3',
+      color: 'grey darken-4',
       src: '/carreer/2021-01-29 135905.png',
       left: true,
       hideDot: false,
       btn: {
         bool: true,
         href: 'https://www.youtube.com/c/TMook',
-        text: '보기 →',
-        color: 'blue lighten-2',
+        text: '보기 >',
+        color: 'grey',
       },
     },
     {
@@ -438,14 +433,14 @@ class ComponentsIndexCarreer extends Vue {
         bool: false,
         href: '',
         text: '소개',
-        color: 'blue lighten-2',
+        color: 'grey',
       },
     },
     {
       title: '(주)유안타증권',
       time: '2014.7 - 2017.7',
       content: 'PB(지점영업), Retail전략팀 근무',
-      color: 'blue accent-3',
+      color: 'grey darken-4',
       src: '/carreer/stock-1863880_1920.jpg',
       left: true,
       hideDot: false,
@@ -453,22 +448,35 @@ class ComponentsIndexCarreer extends Vue {
         bool: false,
         href: '',
         text: '소개',
-        color: 'blue lighten-2',
+        color: 'grey',
       },
     },
   ]
+
+  /* computed */
+  private get imageSizeOfsmAndDown(): number | undefined {
+    const width: number | undefined = this.$vuetify.breakpoint.smOnly
+      ? this.$vuetify.breakpoint.width / 2 - 40
+      : this.$vuetify.breakpoint.xsOnly
+      ? this.$vuetify.breakpoint.width - 130
+      : undefined
+    return width
+  }
 }
 
 export default ComponentsIndexCarreer
 </script>
 
 <style scoped>
-.main-title {
-  font-size: 1.6rem !important;
-  font-weight: 500;
+#carreer-card-image {
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
 }
-.v-card__title.headline {
-  font-size: 1rem !important;
-  font-weight: 600;
+
+/* Disable grayscale on hover */
+#carreer-card-image:hover {
+  -webkit-filter: grayscale(0);
+  filter: none;
 }
 </style>

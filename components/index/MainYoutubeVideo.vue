@@ -1,58 +1,47 @@
 <template>
-  <v-card :id="tagid" flat tile>
-    <!-- Start : Title & Description -->
-    <v-card-title class="d-flex justify-center">
-      <p
-        class="text-center text-h3 text-sm-h2 font-weight-black"
-        v-html="title"
-      />
-    </v-card-title>
-
-    <v-card-subtitle class="text-center">
-      <p class="text-center" v-html="desc" />
-    </v-card-subtitle>
-
-    <!-- Start : Contents -->
-    <v-carousel
-      cycle
-      interval="8000"
-      show-arrows-on-hover
-      hide-delimiters
-      touch
-      class="px-sm-4"
-      :height="responsiveHeight"
-    >
-      <v-carousel-item v-for="(videoInfo, index) in videoInfos" :key="index">
-        <v-sheet height="100%" tile>
-          <v-row
-            class="fill-height"
-            align="center"
-            justify="center"
-            :no-gutters="$vuetify.breakpoint.xsOnly"
-          >
-            <v-col
-              v-for="(video, childIndex) in videoInfo"
-              :key="childIndex"
-              cols="6"
-              sm="4"
+  <v-row no-gutters>
+    <v-col cols="12">
+      <!-- Start : Contents -->
+      <v-carousel
+        cycle
+        interval="8000"
+        show-arrows-on-hover
+        hide-delimiters
+        touch
+        :height="responsiveHeight"
+      >
+        <v-carousel-item v-for="(videoInfo, index) in videoInfos" :key="index">
+          <v-sheet height="100%" tile>
+            <v-row
+              class="fill-height"
+              align="center"
+              justify="center"
+              :no-gutters="$vuetify.breakpoint.xsOnly"
             >
-              <!-- Start : Embeded Youtube Video (vue-youtube-embed) -->
-              <youtube
-                :video-id="video.vid"
-                :player-width="responsiveWidth"
-                :player-height="responsiveHeight"
-                class="d-flex justify-center mb-2"
-              />
-              <!-- End : Embeded Youtube Video (vue-youtube-embed) -->
-              <p class="text-caption text-center">
-                {{ video.desc }}
-              </p>
-            </v-col>
-          </v-row>
-        </v-sheet>
-      </v-carousel-item>
-    </v-carousel>
-  </v-card>
+              <v-col
+                v-for="(video, childIndex) in videoInfo"
+                :key="childIndex"
+                cols="6"
+                sm="4"
+              >
+                <!-- Start : Embeded Youtube Video (vue-youtube-embed) -->
+                <youtube
+                  :video-id="video.vid"
+                  :player-width="responsiveWidth"
+                  :player-height="responsiveHeight"
+                  class="d-flex justify-center mb-2"
+                />
+                <!-- End : Embeded Youtube Video (vue-youtube-embed) -->
+                <p class="text-caption text-center">
+                  {{ video.desc }}
+                </p>
+              </v-col>
+            </v-row>
+          </v-sheet>
+        </v-carousel-item>
+      </v-carousel>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="ts">
