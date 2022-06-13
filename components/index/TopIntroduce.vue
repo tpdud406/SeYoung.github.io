@@ -1,18 +1,18 @@
 <template>
-  <v-row id="top-introduce-row" align="center">
+  <v-row id="top-introduce-row" align="center" justify="center">
     <!-- ### Start : column 1 ### -->
     <v-col
       id="top-introduce-col-1"
       cols="12"
       :sm="otherColsThanCenter"
-      :order="$vuetify.breakpoint.xsOnly ? 2 : 1"
+      :order="reordering(0)"
       class="fill-height"
     >
       <v-container fluid class="fill-height">
         <!-- Start : left cards -->
         <v-row v-for="(item, index) in leftItems" :key="index" no-gutters>
           <v-sheet :height="heightOfCols / leftItems.length">
-            <v-card-subtitle>
+            <v-card-subtitle class="pb-0">
               <p :class="leftInfosOption.class.title" v-html="item.title" />
             </v-card-subtitle>
 
@@ -41,12 +41,16 @@
       id="top-introduce-col-2"
       cols="12"
       :sm="centerCols"
-      :order="$vuetify.breakpoint.xsOnly ? 1 : 2"
+      :order="reordering(1)"
       class="fill-height"
     >
       <v-card rounded="pill" outlined class="pa-sm-8">
         <v-card rounded="pill" outlined>
-          <v-img :src="profilePhoto" :aspect-ratio="aspectRatioOfImg">
+          <v-img
+            :id="$vuetify.breakpoint.mdAndUp ? 'top-image' : 'top-image-color'"
+            :src="profilePhoto"
+            :aspect-ratio="aspectRatioOfImg"
+          >
             <!-- Start : Loading Template -->
             <template #placeholder>
               <v-row class="fill-height ma-0" align="center" justify="center">
@@ -63,7 +67,7 @@
       id="top-introduce-col-3"
       cols="12"
       :sm="otherColsThanCenter"
-      order="3"
+      :order="reordering(2)"
       class="fill-height"
     >
       <v-container fluid class="fill-height">
@@ -75,7 +79,7 @@
           no-gutters
         >
           <v-sheet :height="heightOfCols / rightItems.length">
-            <v-card-subtitle class="d-flex justify-end">
+            <v-card-subtitle class="d-flex justify-end pb-0">
               <p :class="rightInfosOption.class.title" v-html="item.title" />
             </v-card-subtitle>
 
@@ -89,6 +93,22 @@
         </v-row>
       </v-container>
     </v-col>
+
+    <!-- ### Start : Empty columns (for smOnly) ### -->
+    <v-col
+      v-if="$vuetify.breakpoint.smOnly"
+      id="top-introduce-empty-col0"
+      sm="2"
+      order="0"
+      class="fill-height"
+    />
+    <v-col
+      v-if="$vuetify.breakpoint.smOnly"
+      id="top-introduce-empty-col1"
+      sm="2"
+      order="2"
+      class="fill-height"
+    />
   </v-row>
 </template>
 
@@ -98,23 +118,27 @@ import { Component, Vue } from 'nuxt-property-decorator'
 @Component({})
 class ComponentsIndexTopIntroduce extends Vue {
   /* data */
-  private profilePhoto: string = '/index/5.jpg'
-  private centerCols: number = 4
+  private profilePhoto: string = '/index/top_image.jpg'
+  private centerCols: number = this.$vuetify.breakpoint.mdAndUp ? 4 : 8
 
   private aspectRatioOfImg: number = 67 / 100
-  private heightOfCols: number = (this.$vuetify.breakpoint.width / 3 / 5) * 7 // ((window width / cols) * photo ratio
+  private heightOfCols: number = this.$vuetify.breakpoint.mdAndUp
+    ? (this.$vuetify.breakpoint.width / 3 / 5) * 5
+    : this.$vuetify.breakpoint.smOnly
+    ? (this.$vuetify.breakpoint.width / 3 / 5) * 9.5 // ((window width / cols) * photo ratio
+    : (this.$vuetify.breakpoint.width / 3 / 5) * 4.6
 
   private leftInfosOption: {} = {
     class: {
-      title: 'grey--text mb-0',
-      content: 'text-sm-h6 text-md-h6 text-lg-h5 font-weight-light',
+      title: 'text-sm-body-2 grey--text mb-0',
+      content: 'text-sm-body-1 font-weight-normal grey--text text--darken-3',
     },
   }
 
   private rightInfosOption: {} = {
     class: {
-      title: 'grey--text mb-0',
-      content: 'text-sm-h6 text-md-h4 text-lg-h3 font-weight-medium',
+      title: 'text-sm-body-2 grey--text mb-0',
+      content: 'text-sm-h5 text-md-h4 font-weight-medium',
     },
   }
 
@@ -139,9 +163,9 @@ class ComponentsIndexTopIntroduce extends Vue {
 
   private rightItems: Array<{ title: string; content: string }> = [
     { title: '총 경력(년)', content: '6' },
-    { title: '시청된 시간', content: '176,000' },
-    { title: '경제/금융/IT 영상수', content: '492' },
-    { title: 'Github Contrivution (2022)', content: '1,917' },
+    { title: '시청된 강의 시간', content: '176,000' },
+    { title: '경제/금융/IT 영상 수', content: '492' },
+    { title: 'Github Contribution (2022)', content: '1,917' },
   ]
 
   private linkBtns: Array<{ url: string; color: string; icon: string }> = [
@@ -159,10 +183,43 @@ class ComponentsIndexTopIntroduce extends Vue {
 
   /* computed */
   private get otherColsThanCenter(): number {
-    const result: number = (12 - this.centerCols) / 2
-    return result
+    if (this.$vuetify.breakpoint.mdAndUp) {
+      const result: number = (12 - this.centerCols) / 2
+      return result
+    } else if (this.$vuetify.breakpoint.smOnly) {
+      return 5
+    } else {
+      return 8
+    }
+  }
+
+  /* methods */
+  private reordering(idx: number): number {
+    if (this.$vuetify.breakpoint.smOnly) {
+      const reidx: number = idx === 0 ? 3 : idx === 1 ? 1 : 4
+      return reidx
+    } else if (this.$vuetify.breakpoint.xsOnly) {
+      const reidx: number = idx === 0 ? 1 : idx === 1 ? 0 : 2
+      return reidx
+    } else {
+      return idx
+    }
   }
 }
 
 export default ComponentsIndexTopIntroduce
 </script>
+
+<style scoped>
+#top-image {
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+}
+
+/* Disable grayscale on hover */
+#top-image:hover {
+  -webkit-filter: grayscale(0);
+  filter: none;
+}
+</style>

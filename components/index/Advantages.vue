@@ -1,10 +1,11 @@
 <template>
   <v-row>
-    <v-col v-for="(item, index) in items" :key="index" cols="12" md="2">
+    <v-col v-for="(item, index) in items" :key="index" cols="4" sm="2">
       <v-card
         :rounded="optionOfCards.rounded"
         flat
-        class="mb-2 mx-md-3 py-10"
+        outlined
+        class="mb-2 mx-md-3 py-md-10 py-sm-4"
         :style="setGradient(item.number)"
       >
         <v-card-actions class="justify-center">

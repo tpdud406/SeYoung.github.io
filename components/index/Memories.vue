@@ -27,9 +27,9 @@ import { Component, Vue } from 'nuxt-property-decorator'
 class ComponentsIndexMemory extends Vue {
   /* data */
   private cols: number = 4
-  private classOfTop: string = 'text-md-subtitle-2 grey--text'
+  private classOfTop: string = 'text-md-subtitle-2 text-sm-overline grey--text'
   private classOfText: {} = {
-    title: 'text-md-h5 font-weight-normal',
+    title: 'text-md-h5 text-sm-body-1 font-weight-normal',
     description:
       'text-md-subtitle-1 font-weight-light grey--text text--darken-2',
   }

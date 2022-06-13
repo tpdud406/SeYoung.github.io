@@ -24,6 +24,7 @@
               v-if="!!item.src"
               id="carreer-card-image"
               :src="item.src"
+              :max-width="imageSizeOfsmAndDown"
               contain
             />
             <template #placeholder>
@@ -33,7 +34,9 @@
             </template>
 
             <!-- Start : Text -->
-            <v-card-title class="text-md-h5 pb-2">
+            <v-card-title
+              class="text-md-body-1 text-sm-body-2 font-weight-bold pb-2"
+            >
               {{ item.title }}
             </v-card-title>
             <v-card-text
@@ -56,6 +59,7 @@
                 :color="item.btn.color"
                 :href="item.btn.href"
                 :disabled="item.btn.href === ''"
+                class="font-weight-light"
               >
                 {{ item.btn.text }}
               </v-btn>
@@ -118,7 +122,7 @@ class ComponentsIndexCarreer extends Vue {
         bool: false,
         href: '',
         text: '',
-        color: 'blue lighten-2',
+        color: 'grey',
       },
     },
     {
@@ -133,7 +137,7 @@ class ComponentsIndexCarreer extends Vue {
         bool: false,
         href: '',
         text: '',
-        color: 'blue lighten-2',
+        color: 'grey',
       },
     },
     {
@@ -147,8 +151,8 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: true,
         href: 'https://www.electimes.com/news/articleView.html?idxno=302019',
-        text: '읽기 →',
-        color: 'blue lighten-2',
+        text: '읽기 >',
+        color: 'grey',
       },
     },
     {
@@ -163,8 +167,8 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href:
           'https://e-koreatech.step.or.kr/page/lms?m1=course&m2=course_detail&course_id=222837',
-        text: '확인 →',
-        color: 'blue lighten-2',
+        text: '확인 >',
+        color: 'grey',
       },
     },
     {
@@ -178,8 +182,8 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: true,
         href: 'https://electimes.com/article.php?aid=1641165264227348050',
-        text: '읽기 →',
-        color: 'blue lighten-2',
+        text: '읽기 >',
+        color: 'grey',
       },
     },
     {
@@ -194,8 +198,8 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href:
           'https://www.hihrd.co.kr/usrs/eduRegMgnt/crsInfoDetailForm.do;jsessionid=Gpu1FTByGHBTRRrDsXOeP0FCDPaVEa37tHt2n0NYPamUJEAwp0avVbR2kH7kWlFM.LMS_WAS_002_servlet_engine2?p_crscd=9782&CRSCD=9782&p_hmpgcd=38&p_listType=N&mkey=6442',
-        text: '확인 →',
-        color: 'blue lighten-2',
+        text: '확인 >',
+        color: 'grey',
       },
     },
     {
@@ -209,8 +213,8 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: true,
         href: 'http://www.electimes.com/article.php?aid=1634703205224009050',
-        text: '읽기 →',
-        color: 'blue lighten-2',
+        text: '읽기 >',
+        color: 'grey',
       },
     },
     {
@@ -225,8 +229,8 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href:
           'http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&linkClass=330201&barcode=9788956749112',
-        text: '확인 →',
-        color: 'blue lighten-2',
+        text: '확인 >',
+        color: 'grey',
       },
     },
     {
@@ -241,8 +245,8 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: false,
         href: '',
-        text: '읽기 →',
-        color: 'blue lighten-2',
+        text: '읽기 >',
+        color: 'grey',
       },
     },
     {
@@ -256,8 +260,8 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: true,
         href: 'https://electimes.com/article.php?aid=1628558190221243050',
-        text: '읽기 →',
-        color: 'blue lighten-2',
+        text: '읽기 >',
+        color: 'grey',
       },
     },
     {
@@ -272,8 +276,8 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href:
           'https://hrd.hihrd.co.kr/usrs/eduRegMgnt/crsInfoDetailForm.do?p_crscd=8875',
-        text: '확인 →',
-        color: 'blue lighten-2',
+        text: '확인 >',
+        color: 'grey',
       },
     },
     {
@@ -288,8 +292,8 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: true,
         href: 'https://knowease-inc.github.io',
-        text: '회사 소개 →',
-        color: 'blue lighten-2',
+        text: '회사 소개 >',
+        color: 'grey',
       },
     },
     {
@@ -304,8 +308,8 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href:
           'https://hrd.hihrd.co.kr/usrs/eduRegMgnt/crsInfoDetailForm.do?p_crscd=5804&CRSCD=5804&p_listType=N&purl=/usrs/crsItdce/newCrsListForm.do',
-        text: '확인 →',
-        color: 'blue lighten-2',
+        text: '확인 >',
+        color: 'grey',
       },
     },
     {
@@ -319,8 +323,8 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: true,
         href: 'https://ko.meaniit.com/main',
-        text: '서비스 소개 →',
-        color: 'blue lighten-2',
+        text: '서비스 소개 >',
+        color: 'grey',
       },
     },
     {
@@ -334,8 +338,8 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: true,
         href: 'https://youtu.be/QzrIBsod1_A',
-        text: '보기 →',
-        color: 'blue lighten-2',
+        text: '보기 >',
+        color: 'grey',
       },
     },
     {
@@ -350,8 +354,8 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href:
           'http://bm.kyobobook.co.kr/course/active/detail.do?currentPage=1&perPage=10&orderby=-4&srchKey=title&srchWord=%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8&srchMenuParentSeq=1838&courseMasterSeq=703&courseActiveSeq=5170&newWin=N&currentMenuId=900',
-        text: '확인 →',
-        color: 'blue lighten-2',
+        text: '확인 >',
+        color: 'grey',
       },
     },
     {
@@ -366,8 +370,8 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href:
           'https://www.k-startup.go.kr/edu/home/package/PTYPE_002/PTYPE_00205/PKG_0000000874/detail',
-        text: '확인 →',
-        color: 'blue lighten-2',
+        text: '확인 >',
+        color: 'grey',
       },
     },
     {
@@ -383,8 +387,8 @@ class ComponentsIndexCarreer extends Vue {
         bool: true,
         href:
           'https://search.naver.com/search.naver?where=nexearch&sm=top_sug.pre&fbm=1&acr=1&acq=%EB%B3%B4%EB%A9%B4+%EC%95%84%EB%8A%94+%EB%B8%94%E3%84%B9&qdt=0&ie=utf8&query=%EB%B3%B4%EB%A9%B4+%EC%95%84%EB%8A%94+%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8',
-        text: '확인 →',
-        color: 'blue lighten-2',
+        text: '확인 >',
+        color: 'grey',
       },
     },
     {
@@ -398,8 +402,8 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: true,
         href: 'https://youtu.be/662wnupQ8fg',
-        text: '보기 →',
-        color: 'blue lighten-2',
+        text: '보기 >',
+        color: 'grey',
       },
     },
     {
@@ -413,8 +417,8 @@ class ComponentsIndexCarreer extends Vue {
       btn: {
         bool: true,
         href: 'https://www.youtube.com/c/TMook',
-        text: '보기 →',
-        color: 'blue lighten-2',
+        text: '보기 >',
+        color: 'grey',
       },
     },
     {
@@ -429,7 +433,7 @@ class ComponentsIndexCarreer extends Vue {
         bool: false,
         href: '',
         text: '소개',
-        color: 'blue lighten-2',
+        color: 'grey',
       },
     },
     {
@@ -444,10 +448,18 @@ class ComponentsIndexCarreer extends Vue {
         bool: false,
         href: '',
         text: '소개',
-        color: 'blue lighten-2',
+        color: 'grey',
       },
     },
   ]
+
+  /* computed */
+  private get imageSizeOfsmAndDown(): number | undefined {
+    const width: number | undefined = this.$vuetify.breakpoint.smOnly
+      ? this.$vuetify.breakpoint.width / 2 - 40
+      : undefined
+    return width
+  }
 }
 
 export default ComponentsIndexCarreer

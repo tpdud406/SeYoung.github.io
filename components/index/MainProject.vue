@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center">
+  <v-row justify="center" no-gutters>
     <v-col v-for="(project, index) in projects" :key="index" cols="12" md="5">
       <v-card :width="width" flat tile dark>
         <v-img
@@ -45,14 +45,7 @@
 <script lang="ts">
 import { Component, Provide, Vue } from 'nuxt-property-decorator'
 
-@Component({
-  computed: {
-    heightInXS(): number | undefined {
-      const height = this.$vuetify.breakpoint.xsOnly ? 500 : 400
-      return height
-    },
-  },
-})
+@Component({})
 class ComponentsIndexMainProject extends Vue {
   /* data */
   private title: string = '진행 프로젝트'
@@ -60,7 +53,7 @@ class ComponentsIndexMainProject extends Vue {
     '현재 진행중인 주요 프로젝트입니다<br />주로 쉬운 설명을 보다 빠르고 정확하게 제공하는 프로젝트들입니다'
 
   @Provide() isActive: boolean = false
-  @Provide() width: string = '100%'
+  @Provide() width: number = this.$vuetify.breakpoint.width - 40
   @Provide() projects: Array<{
     text: {
       subtitle: string
@@ -117,6 +110,12 @@ class ComponentsIndexMainProject extends Vue {
       cardClass: 'justify-end align-center',
     },
   ]
+
+  /* computed */
+  private get heightInXS(): number | undefined {
+    const height = this.$vuetify.breakpoint.xsOnly ? 500 : 400
+    return height
+  }
 }
 
 export default ComponentsIndexMainProject

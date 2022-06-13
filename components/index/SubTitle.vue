@@ -2,11 +2,11 @@
   <v-row justify="center">
     <v-col cols="4">
       <p
-        class="text-center text-md-h2 font-weight-normal pb-0"
+        class="text-center text-sm-h4 font-weight-normal pb-0"
         v-html="items.title"
       />
       <p
-        class="text-center text-md-h4 font-weight-light pb-0"
+        class="text-center text-md-h6 text-sm-subtitle-1 font-weight-light pb-0"
         v-html="items.content"
       />
     </v-col>

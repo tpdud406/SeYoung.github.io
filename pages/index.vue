@@ -5,15 +5,15 @@
       <v-col cols="6">
         <!-- Start : title -->
         <p
-          :class="'text-md-h2 font-weight-bold text-center'"
-          :style="{ lineHeight: '4.9rem' }"
+          :class="'text-sm-h4 font-weight-bold text-center'"
+          :style="{ lineHeight: '2.9rem' }"
           v-html="titleOfTop"
         />
 
         <!-- Start : subtitle -->
         <p
-          :class="'text-md-h4 font-weight-light text-center'"
-          :style="{ lineHeight: '4.0rem' }"
+          :class="'text-sm-h6 font-weight-light text-center'"
+          :style="{ lineHeight: '1.2rem' }"
           v-html="subTitleOfTop"
         />
       </v-col>
@@ -23,6 +23,7 @@
     <top-introduce :class="classOfComponent" />
 
     <!-- Start : Skills -->
+    <v-divider class="mx-10 px-10 my-sm-15" />
     <sub-title
       :parent-items="objectOfParentItems.advantages"
       :class="classOfComponent + ' pt-md-10'"
@@ -30,6 +31,7 @@
     <advantages :class="classOfComponent" />
 
     <!-- Start : Memory -->
+    <v-divider class="mx-10 px-10 my-sm-15" />
     <sub-title
       :parent-items="objectOfParentItems.memory"
       :class="classOfComponent + ' pt-md-10'"
@@ -37,6 +39,7 @@
     <memories :class="classOfComponent" />
 
     <!-- Start : Main Project -->
+    <v-divider class="mx-10 px-10 my-sm-15" />
     <sub-title
       :parent-items="objectOfParentItems.mainProject"
       :class="classOfComponent + ' pt-md-10'"
@@ -44,6 +47,7 @@
     <main-project :class="classOfComponent" />
 
     <!-- Start : Main Youtube Video -->
+    <v-divider class="mx-10 px-10 my-sm-15" />
     <sub-title
       :parent-items="objectOfParentItems.mainYoutubeVideo"
       :class="classOfComponent + ' pt-md-10'"
@@ -51,6 +55,7 @@
     <main-youtube-video :class="classOfComponent" />
 
     <!-- Start : Carreer Detail -->
+    <v-divider class="mx-10 px-10 my-sm-15" />
     <sub-title
       :parent-items="objectOfParentItems.carreer"
       :class="classOfComponent + ' pt-md-10'"
@@ -58,6 +63,7 @@
     <carreer :class="classOfComponent" />
 
     <!-- Start : Photos -->
+    <v-divider class="mx-10 px-10 my-sm-15" />
     <sub-title
       :parent-items="objectOfParentItems.photos"
       :class="classOfComponent + ' pt-md-10'"
