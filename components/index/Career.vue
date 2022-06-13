@@ -22,7 +22,7 @@
             <!-- Start : Image -->
             <v-img
               v-if="!!item.src"
-              id="carreer-card-image"
+              id="career-card-image"
               :src="item.src"
               :max-width="imageSizeOfsmAndDown"
               contain
@@ -75,7 +75,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({})
-class ComponentsIndexCarreer extends Vue {
+class ComponentsIndexCareer extends Vue {
   private title: string = '전체 이력'
   private desc: string =
     '다양한 활동 중에서도 다른 많은 분들과<br>함께 할 수 있었던 모든 기록입니다'
@@ -160,7 +160,7 @@ class ComponentsIndexCarreer extends Vue {
       time: '2022.1',
       content: '케이브레인 주관, 진행 및 내용전문가 참여 8차시',
       color: 'dark grey',
-      src: '/carreer/digital_currency.png',
+      src: '/career/digital_currency.png',
       left: true,
       hideDot: false,
       btn: {
@@ -191,7 +191,7 @@ class ComponentsIndexCarreer extends Vue {
       time: '2021.12',
       content: '현대C&R 주관, 진행 및 내용전문가 참여 4차시',
       color: 'dark grey',
-      src: '/carreer/pangyo_2021.jpeg',
+      src: '/career/pangyo_2021.jpeg',
       left: true,
       hideDot: false,
       btn: {
@@ -222,7 +222,7 @@ class ComponentsIndexCarreer extends Vue {
       time: '2021.8',
       content: '전공/직무 무관 잇(IT)세계 입문서 내용의 책 집필 및 발간',
       color: 'dark grey',
-      src: '/carreer/mybook_musthaveit_20210813.jpg',
+      src: '/career/mybook_musthaveit_20210813.jpg',
       left: false,
       hideDot: false,
       btn: {
@@ -269,7 +269,7 @@ class ComponentsIndexCarreer extends Vue {
       time: '2021.7',
       content: '현대C&R 주관, 진행 및 내용전문가 참여 8차시',
       color: 'dark grey',
-      src: '/carreer/20210716_metaverse.png',
+      src: '/career/20210716_metaverse.png',
       left: true,
       hideDot: false,
       btn: {
@@ -301,7 +301,7 @@ class ComponentsIndexCarreer extends Vue {
       time: '2019.8',
       content: '현대C&R 주관, 내용전문가 참여 및 출연 8차시',
       color: 'dark grey',
-      src: '/carreer/digital8.png',
+      src: '/career/digital8.png',
       left: true,
       hideDot: false,
       btn: {
@@ -317,7 +317,7 @@ class ComponentsIndexCarreer extends Vue {
       time: '2019.7',
       content: '쉬운 지식을 모으는 웹서비스 직접 개발 시작',
       color: 'grey darken-4',
-      src: '/carreer/easyxplain_og.png',
+      src: '/career/easyxplain_og.png',
       left: false,
       hideDot: false,
       btn: {
@@ -347,7 +347,7 @@ class ComponentsIndexCarreer extends Vue {
       time: '2019.2',
       content: '블록체인의 모든 것 출연 및 진행',
       color: 'dark grey',
-      src: '/carreer/2019-02-13_15;45;26.png',
+      src: '/career/2019-02-13_15;45;26.png',
       left: true,
       hideDot: false,
       btn: {
@@ -363,7 +363,7 @@ class ComponentsIndexCarreer extends Vue {
       time: '2019.1',
       content: '블록체인 종류, 암호화폐 등 8차시 내용전문가(SME)',
       color: 'dark grey',
-      src: '/carreer/edu_blockchain.png',
+      src: '/career/edu_blockchain.png',
       left: true,
       hideDot: false,
       btn: {
@@ -380,7 +380,7 @@ class ComponentsIndexCarreer extends Vue {
       content:
         '블록체인에 대해 쉽게 설명하는 내용으로 책 집필 및 발간 (photo by Doori Kim)',
       color: 'grey darken-4',
-      src: '/carreer/mybook_doori_20181102_025716376.jpg',
+      src: '/career/mybook_doori_20181102_025716376.jpg',
       left: true,
       hideDot: false,
       btn: {
@@ -411,7 +411,7 @@ class ComponentsIndexCarreer extends Vue {
       time: '2016.4',
       content: '어려운 용어에 대한 쉬운 설명을 제공하는 채널 운영 시작',
       color: 'grey darken-4',
-      src: '/carreer/2021-01-29 135905.png',
+      src: '/career/2021-01-29 135905.png',
       left: true,
       hideDot: false,
       btn: {
@@ -441,7 +441,7 @@ class ComponentsIndexCarreer extends Vue {
       time: '2014.7 - 2017.7',
       content: 'PB(지점영업), Retail전략팀 근무',
       color: 'grey darken-4',
-      src: '/carreer/stock-1863880_1920.jpg',
+      src: '/career/stock-1863880_1920.jpg',
       left: true,
       hideDot: false,
       btn: {
@@ -464,18 +464,18 @@ class ComponentsIndexCarreer extends Vue {
   }
 }
 
-export default ComponentsIndexCarreer
+export default ComponentsIndexCareer
 </script>
 
 <style scoped>
-#carreer-card-image {
+#career-card-image {
   filter: gray; /* IE6-9 */
   -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
   filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
 }
 
 /* Disable grayscale on hover */
-#carreer-card-image:hover {
+#career-card-image:hover {
   -webkit-filter: grayscale(0);
   filter: none;
 }
