@@ -5,7 +5,7 @@
         :rounded="optionOfCards.rounded"
         flat
         outlined
-        class="mb-2 mx-md-3 py-md-10 py-sm-4"
+        class="mb-2 mx-md-3 py-3 py-md-10 py-sm-4"
         :style="setGradient(item.number)"
       >
         <v-card-actions class="justify-center">
@@ -21,7 +21,9 @@
         </v-card-title>
       </v-card>
 
-      <v-card-subtitle class="text-center grey--text">
+      <v-card-subtitle
+        class="text-center text-sm-caption text-caption grey--text"
+      >
         {{ item.title }}
       </v-card-subtitle>
     </v-col>
@@ -41,7 +43,9 @@ class ComponentsIndexAdvantages extends Vue {
   } = {
     color: 'grey lighten-4',
     rounded: 'pill',
-    iconSize: this.$vuetify.breakpoint.width / 20,
+    iconSize: this.$vuetify.breakpoint.smAndUp
+      ? this.$vuetify.breakpoint.width / 20
+      : this.$vuetify.breakpoint.width / 10,
   }
 
   // My Advantages, 6개 최적화

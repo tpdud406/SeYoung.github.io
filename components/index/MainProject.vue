@@ -30,6 +30,7 @@
             outlined
             rounded="pill"
             depressed
+            :x-small="$vuetify.breakpoint.xsOnly"
             :color="project.btn.color"
             :href="project.btn.href"
             class="mt-6 ml-5"

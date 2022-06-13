@@ -1,8 +1,11 @@
 <template>
   <v-row>
-    <v-col v-for="(item, index) in items" :key="index" cols="cols">
+    <v-col v-for="(item, index) in items" :key="index" :cols="cols">
       <v-card flat tile>
-        <v-card-title :class="classOfTop" v-html="item.title" />
+        <v-card-title
+          :class="index !== 1 ? classOfTop : classOfTopXsOnlyJustifyEnd"
+          v-html="item.title"
+        />
       </v-card>
       <v-card
         v-for="(content, cindex) in item.contents"
@@ -10,9 +13,18 @@
         flat
         tile
       >
-        <v-card-title :class="classOfText.title" v-html="content.title" />
+        <v-card-title
+          :class="
+            index !== 1 ? classOfText.title : classOfTextXsOnlyJustifyEnd.title
+          "
+          v-html="content.title"
+        />
         <v-card-text
-          :class="classOfText.description"
+          :class="
+            index !== 1
+              ? classOfText.description
+              : classOfTextXsOnlyJustifyEnd.description
+          "
           v-html="content.description"
         />
       </v-card>
@@ -26,12 +38,24 @@ import { Component, Vue } from 'nuxt-property-decorator'
 @Component({})
 class ComponentsIndexMemory extends Vue {
   /* data */
-  private cols: number = 4
-  private classOfTop: string = 'text-md-subtitle-2 text-sm-overline grey--text'
+  private cols: number = this.$vuetify.breakpoint.xsOnly ? 12 : 4
+
+  private classOfTop: string =
+    'text-md-subtitle-2 text-sm-overline text-overline grey--text'
+
   private classOfText: {} = {
-    title: 'text-md-h5 text-sm-body-1 font-weight-normal',
+    title: 'text-md-h5 text-sm-body-1 text-body-2 font-weight-normal',
     description:
-      'text-md-subtitle-1 font-weight-light grey--text text--darken-2',
+      'text-md-subtitle-1 text-caption font-weight-light grey--text text--darken-2',
+  }
+
+  private classOfTopXsOnlyJustifyEnd: string =
+    'd-flex justify-end text-md-subtitle-2 text-sm-overline text-overline grey--text'
+
+  private classOfTextXsOnlyJustifyEnd: {} = {
+    title: 'd-flex justify-end text-body-2 font-weight-normal',
+    description:
+      'd-flex justify-end text-caption font-weight-light grey--text text--darken-2',
   }
 
   private items: Array<{

@@ -44,7 +44,7 @@
       :order="reordering(1)"
       class="fill-height"
     >
-      <v-card rounded="pill" outlined class="pa-sm-8">
+      <v-card rounded="pill" outlined class="pa-4 pa-sm-8">
         <v-card rounded="pill" outlined>
           <v-img
             :id="$vuetify.breakpoint.mdAndUp ? 'top-image' : 'top-image-color'"
@@ -76,6 +76,7 @@
           v-for="(item, index) in rightItems"
           :key="index"
           justify-sm="end"
+          justify="end"
           no-gutters
         >
           <v-sheet :height="heightOfCols / rightItems.length">
@@ -126,19 +127,20 @@ class ComponentsIndexTopIntroduce extends Vue {
     ? (this.$vuetify.breakpoint.width / 3 / 5) * 5
     : this.$vuetify.breakpoint.smOnly
     ? (this.$vuetify.breakpoint.width / 3 / 5) * 9.5 // ((window width / cols) * photo ratio
-    : (this.$vuetify.breakpoint.width / 3 / 5) * 4.6
+    : (this.$vuetify.breakpoint.width / 3 / 5) * 18
 
   private leftInfosOption: {} = {
     class: {
-      title: 'text-sm-body-2 grey--text mb-0',
-      content: 'text-sm-body-1 font-weight-normal grey--text text--darken-3',
+      title: 'text-sm-body-2 text-overline grey--text mb-0',
+      content:
+        'text-sm-body-1 text-body-2 font-weight-normal grey--text text--darken-3',
     },
   }
 
   private rightInfosOption: {} = {
     class: {
-      title: 'text-sm-body-2 grey--text mb-0',
-      content: 'text-sm-h5 text-md-h4 font-weight-medium',
+      title: 'text-sm-body-2 text-overline grey--text mb-0',
+      content: 'text-sm-h5 text-md-h4 text-h6 font-weight-medium',
     },
   }
 

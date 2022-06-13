@@ -35,7 +35,7 @@
 
             <!-- Start : Text -->
             <v-card-title
-              class="text-md-body-1 text-sm-body-2 font-weight-bold pb-2"
+              class="text-md-body-1 text-sm-body-2 text-body-2 font-weight-bold pb-2"
             >
               {{ item.title }}
             </v-card-title>
@@ -457,6 +457,8 @@ class ComponentsIndexCarreer extends Vue {
   private get imageSizeOfsmAndDown(): number | undefined {
     const width: number | undefined = this.$vuetify.breakpoint.smOnly
       ? this.$vuetify.breakpoint.width / 2 - 40
+      : this.$vuetify.breakpoint.xsOnly
+      ? this.$vuetify.breakpoint.width - 130
       : undefined
     return width
   }
