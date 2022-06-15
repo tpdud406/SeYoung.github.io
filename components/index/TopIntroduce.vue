@@ -158,7 +158,7 @@ class ComponentsIndexTopIntroduce extends Vue {
         '경제&#183;금융&#183;IT 분야 강의 & 발표' +
         '<br />영업 전략 기획 및 데이터 분석' +
         '<br />웹서비스 개발 (Cloud Native)' +
-        '<br />Python, JavaScript, SQL 경험',
+        '<br />Python, JavaScript, SQL',
     },
     { title: 'contact', content: 'msp770@gmail.com' },
   ]
