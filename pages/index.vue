@@ -82,8 +82,8 @@ import Advantages from '@/components/index/Advantages.vue'
 import Memories from '@/components/index/Memories.vue'
 import MainProject from '@/components/index/MainProject.vue'
 import MainYoutubeVideo from '@/components/index/MainYoutubeVideo.vue'
-import Career from '~/components/index/Career.vue'
 import Photos from '@/components/index/Photos.vue'
+import Career from '@/components/index/Career.vue'
 
 @Component({
   components: {
