@@ -44,7 +44,7 @@ class ComponentsIndexMemory extends Vue {
     'text-md-subtitle-2 text-sm-overline text-overline grey--text'
 
   private classOfText: {} = {
-    title: 'text-md-h5 text-sm-body-1 text-body-2 font-weight-normal',
+    title: 'text-md-h6 text-sm-body-1 text-body-2 font-weight-normal',
     description:
       'text-md-subtitle-1 text-caption font-weight-light grey--text text--darken-2',
   }
@@ -53,7 +53,8 @@ class ComponentsIndexMemory extends Vue {
     'd-flex justify-end text-md-subtitle-2 text-sm-overline text-overline grey--text'
 
   private classOfTextXsOnlyJustifyEnd: {} = {
-    title: 'd-flex justify-end text-body-2 font-weight-normal',
+    title:
+      'd-flex justify-end text-md-h6 text-sm-body-1 text-body-2 font-weight-normal',
     description:
       'd-flex justify-end text-caption font-weight-light grey--text text--darken-2',
   }
