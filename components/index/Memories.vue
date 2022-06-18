@@ -50,13 +50,13 @@ class ComponentsIndexMemory extends Vue {
   }
 
   private classOfTopXsOnlyJustifyEnd: string =
-    'd-flex justify-end text-md-subtitle-2 text-sm-overline text-overline grey--text'
+    'd-flex justify-end justify-sm-start text-md-subtitle-2 text-sm-overline text-overline grey--text'
 
   private classOfTextXsOnlyJustifyEnd: {} = {
     title:
-      'd-flex justify-end text-md-h6 text-sm-body-1 text-body-2 font-weight-normal',
+      'd-flex justify-end justify-sm-start text-sm-left text-right text-md-h6 text-sm-body-1 text-body-2 font-weight-normal',
     description:
-      'd-flex justify-end text-caption font-weight-light grey--text text--darken-2',
+      'd-flex justify-end justify-sm-start text-sm-left text-right text-caption font-weight-light grey--text text--darken-2',
   }
 
   private items: Array<{

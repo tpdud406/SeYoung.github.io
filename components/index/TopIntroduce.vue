@@ -44,7 +44,7 @@
       :order="reordering(1)"
       class="fill-height"
     >
-      <v-card rounded="pill" outlined class="pa-4 pa-sm-8">
+      <v-card rounded="pill" outlined class="pa-4 pa-sm-8 pa-md-4">
         <v-card rounded="pill" outlined>
           <v-img
             :id="$vuetify.breakpoint.mdAndUp ? 'top-image' : 'top-image-color'"
