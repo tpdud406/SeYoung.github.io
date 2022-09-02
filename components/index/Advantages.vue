@@ -50,7 +50,7 @@ class ComponentsIndexAdvantages extends Vue {
 
   // My Advantages, 6개 최적화
   private items: Array<{ icon: string; number: number; title: string }> = [
-    { icon: 'mdi-text-to-speech', number: 95, title: 'Speach' },
+    { icon: 'mdi-comment-text', number: 95, title: 'Speech' },
     { icon: 'mdi-file-powerpoint', number: 90, title: 'MS PowerPoint' },
     { icon: 'mdi-file-word', number: 75, title: 'MS Word' },
     { icon: 'mdi-language-python', number: 70, title: 'Python' },
