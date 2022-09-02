@@ -96,17 +96,17 @@ class ComponentsIndexCareer extends Vue {
     }
   }> = [
     {
-      title: '「마이데이터 비즈니스 전략」 출연',
-      time: '2022.5',
+      title: '「마이데이터 비즈니스 전략」 강의',
+      time: '2023',
       content: '마이데이터 시대 비즈니스 전략 강의 촬영, 현대C&R 주관',
       color: 'dark grey',
-      src: null,
+      src: "/career/MyData_TMook_temp_202205.jpg",
       left: true,
       hideDot: false,
       btn: {
         bool: true,
         href: '',
-        text: '(예정)',
+        text: '(출시 예정)',
         color: 'grey lighten-1',
       },
     },
