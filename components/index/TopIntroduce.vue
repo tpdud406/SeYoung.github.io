@@ -48,7 +48,7 @@
         <v-card rounded="pill" outlined>
           <v-img
             :id="$vuetify.breakpoint.mdAndUp ? 'top-image' : 'top-image-color'"
-            :src="profilePhoto"
+            :src="tempPhoto"
             :aspect-ratio="aspectRatioOfImg"
           >
             <!-- Start : Loading Template -->
@@ -119,7 +119,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 @Component({})
 class ComponentsIndexTopIntroduce extends Vue {
   /* data */
-  private profilePhoto: string = '/index/top_image.jpg'
+  private tempPhoto: string = '/index/temp.jpg'
   private centerCols: number = this.$vuetify.breakpoint.mdAndUp ? 4 : 8
 
   private aspectRatioOfImg: number = 67 / 100
@@ -160,7 +160,7 @@ class ComponentsIndexTopIntroduce extends Vue {
         '<br />웹서비스 개발 (Cloud Native)' +
         '<br />Python, JavaScript, SQL',
     },
-    { title: 'contact', content: 'msp770@gmail.com' },
+    { title: 'contact', content: 'tpdud406@gmail.com' },
   ]
 
   private rightItems: Array<{ title: string; content: string }> = [

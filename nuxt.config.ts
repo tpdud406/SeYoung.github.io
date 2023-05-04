@@ -12,7 +12,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: '박성묵 - 소개 페이지',
+    title: '이세영 - 소개 페이지',
     htmlAttrs: {
       lang: 'en',
     },
@@ -22,8 +22,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content:
-          '경제&#183;금융 및 IT 트렌드 용어 강사 활동을 하고 있으며 작가입니다. 전략/기획, 데이터 분석 및 웹 개발 경험을 가졌고 증권사 및 IT스타트업 경력을 보유하고 있습니다.',
+        content: '프론트엔드 개발자입니다.',
       },
     ],
     link: [
@@ -44,10 +43,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    // ref : https://github.com/kaorun343/vue-youtube-embed/issues/44
-    { src: '@/plugins/youtube.js', ssr: false },
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -66,11 +62,6 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
-
-  // Modules: https://google-analytics.nuxtjs.org/
-  googleAnalytics: {
-    id: 'UA-121779163-2',
-  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -102,7 +93,5 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    transpile: ['vue-youtube-embed'],
-  },
+  build: {},
 }

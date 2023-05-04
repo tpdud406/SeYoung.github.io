@@ -1,14 +1,30 @@
 <template>
   <v-app>
-    <v-sheet :color="color">
+    <v-navigation-drawer app permanent>
+      <v-list>
+        <v-list-item nuxt :to="'/'">
+          <v-list-item-action>
+            <v-icon>mdi-home</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item nuxt :to="'/about'">
+          <v-list-item-action>
+            <v-icon>mdi-information-outline</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>About</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+    <v-content>
       <v-container fluid>
-        <v-row justify="center">
-          <v-sheet :max-width="maxWidth">
-            <nuxt />
-          </v-sheet>
-        </v-row>
+        <Nuxt />
       </v-container>
-    </v-sheet>
+    </v-content>
   </v-app>
 </template>
 
