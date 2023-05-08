@@ -22,7 +22,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: '프론트엔드 개발자입니다.',
+        content: '프론트엔드 개발자 이세영입니다.',
       },
     ],
     link: [
@@ -35,7 +35,7 @@ export default {
         type: 'text/css',
         href: '//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css',
       },
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
   },
 

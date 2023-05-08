@@ -1,46 +1,38 @@
 <template>
-  <v-row justify="center" no-gutters>
-    <v-col v-for="(project, index) in projects" :key="index" cols="12" md="5">
-      <v-card :width="width" flat tile dark>
-        <v-img
-          :src="project.src"
-          :gradient="project.color.backgroundGradient"
-          :height="heightInXS"
-          :max-width="
-            $vuetify.breakpoint.mdAndUp
-              ? $vuetify.breakpoint.width / 2
-              : $vuetify.breakpoint.width
-          "
-          class="align-center"
-        >
-          <v-card-subtitle class="text-md-h6 grey--text text--lighten-2 pb-0">
-            {{ project.text.subtitle }}
-          </v-card-subtitle>
-
-          <v-card-title class="text-md-h4 white--text">
-            {{ project.text.title }}
-          </v-card-title>
-
-          <v-card-text
-            class="text-md-body-2 grey--text text--lighten-2"
-            v-html="project.text.content"
-          />
+  <v-container>
+    <v-row>
+      <v-col v-for="project in projects" :key="project.id" cols="6">
+        <v-card style="height: 300px; overflow-y: auto">
+          <v-card-title>{{ project.text.title }}</v-card-title>
+          <v-card-text v-html="project.text.content" />
 
           <v-btn
             outlined
             rounded="pill"
             depressed
             :x-small="$vuetify.breakpoint.xsOnly"
-            :color="project.btn.color"
-            :href="project.btn.href"
+            :color="project.ghBtn.color"
+            :href="project.ghBtn.href"
             class="mt-6 ml-5"
           >
-            {{ project.btn.name }}
+            {{ project.ghBtn.name }}
           </v-btn>
-        </v-img>
-      </v-card>
-    </v-col>
-  </v-row>
+
+          <v-btn
+            outlined
+            rounded="pill"
+            depressed
+            :x-small="$vuetify.breakpoint.xsOnly"
+            :color="project.demoBtn.color"
+            :href="project.demoBtn.href"
+            class="mt-6 ml-5"
+          >
+            {{ project.demoBtn.name }}
+          </v-btn>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -48,24 +40,18 @@ import { Component, Provide, Vue } from 'nuxt-property-decorator'
 
 @Component({})
 class ComponentsIndexMainProject extends Vue {
-  /* data */
-  private title: string = '진행 프로젝트'
-  private desc: string =
-    '현재 진행중인 주요 프로젝트입니다<br />주로 쉬운 설명을 보다 빠르고 정확하게 제공하는 프로젝트들입니다'
-
   @Provide() isActive: boolean = false
-  @Provide() width: number = this.$vuetify.breakpoint.width - 40
   @Provide() projects: Array<{
     text: {
-      subtitle: string
       title: string
       content: string
     }
-    color: {
-      backgroundGradient: string
+    ghBtn: {
+      name: string
+      href: string | undefined
+      color: string
     }
-    src: string
-    btn: {
+    demoBtn: {
       name: string
       href: string | undefined
       color: string
@@ -74,49 +60,41 @@ class ComponentsIndexMainProject extends Vue {
   }> = [
     {
       text: {
-        subtitle: '「미닛」 - Meaniit, Web Service',
-        title: '쉬운 설명을 제공하거나, 얻으세요',
+        title: 'Stack A Day',
         content:
-          "사람들이 작성하는 용어 설명 및 가이드, 이곳에서 그 평가기준은 오직 '쉽다'는 것. " +
-          '쉽게 설명하는 능력을 인정받는 공간이기도 합니다',
+          '사용자 인터랙션에 따른 게시물 CRUD, 자유로운 이동 및 히스토리 관리와 그룹별 권한에 따른 공지 송수신 기능이 있는 대시보드',
       },
-      color: {
-        backgroundGradient: 'to left, rgba(0, 0, 0,.7), rgba(0,0,0,1)',
+      ghBtn: {
+        name: 'Github ▶',
+        href: 'https://github.com/tpdud406/stackADay-client',
+        color: 'grey',
       },
-      src: '/background/office-1209640_1920.jpg',
-      btn: {
-        name: '바로가기 ▶',
-        href: 'https://ko.meaniit.com/main',
-        color: 'grey lighten-2',
+      demoBtn: {
+        name: 'Demo ▶',
+        href: 'https://www.slh-dashboard.online',
+        color: 'grey',
       },
       cardClass: 'align-center',
     },
     {
       text: {
-        subtitle: '「TMook」 - Youtube Channel',
-        title: '금융/경제/IT 설명 쉽게 듣고 보세요',
+        title: 'Algorithm Master',
         content:
-          '실시간 소통 또는 편집영상을 통해 관심있는, 또는 화제의 어려운 용어들을 다룹니다. ' +
-          '매주 수요일 저녁 9시 LIVE 진행됩니다',
+          '알고리즘 문제를 풀어보며 문제해결 능력을 키우고, 코드의 효율 측정 및 순위를 확인할 수 있는 웹 애플리케이션',
       },
-      color: {
-        backgroundGradient: 'to left bottom, rgba(0,0,0,1), rgba(0,0,0,.3)',
+      ghBtn: {
+        name: 'Github ▶',
+        href: 'https://github.com/tpdud406/algorithm-master-client',
+        color: 'grey',
       },
-      src: '/background/radio-2722271_1920.jpg',
-      btn: {
-        name: 'Youtube ▶',
-        href: 'https://youtube.com/c/TMook',
-        color: 'grey lighten-2',
+      demoBtn: {
+        name: 'Demo ▶',
+        href: 'https://www.algorithmweb.site',
+        color: 'grey',
       },
       cardClass: 'justify-end align-center',
     },
   ]
-
-  /* computed */
-  private get heightInXS(): number | undefined {
-    const height = this.$vuetify.breakpoint.xsOnly ? 500 : 400
-    return height
-  }
 }
 
 export default ComponentsIndexMainProject
