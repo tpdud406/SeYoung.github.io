@@ -48,14 +48,6 @@
     />
     <main-project :class="classOfComponent" />
 
-    <!-- Start : Main Youtube Video -->
-    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
-    <sub-title
-      :parent-items="objectOfParentItems.mainYoutubeVideo"
-      :class="classOfComponent + ' pt-md-10'"
-    />
-    <main-youtube-video :class="classOfComponent" />
-
     <!-- Start : Career Detail -->
     <v-divider class="mx-10 px-10 my-sm-15 my-15" />
     <sub-title
@@ -81,7 +73,6 @@ import SubTitle from '@/components/index/SubTitle.vue'
 import Advantages from '@/components/index/Advantages.vue'
 import Memories from '@/components/index/Memories.vue'
 import MainProject from '@/components/index/MainProject.vue'
-import MainYoutubeVideo from '@/components/index/MainYoutubeVideo.vue'
 import Photos from '@/components/index/Photos.vue'
 import Career from '@/components/index/Career.vue'
 
@@ -92,17 +83,15 @@ import Career from '@/components/index/Career.vue'
     Advantages,
     Memories,
     MainProject,
-    MainYoutubeVideo,
     Career,
     Photos,
   },
 })
 class PagesIndex extends Vue {
   /* data */
-  private titleOfTop: string =
-    'Park Sung-mouk' + '<br />Presenter <small>&</small> Strategist'
+  private titleOfTop: string = 'Lee Se Young'
 
-  private subTitleOfTop: string = '경제&#183;금융&#183;IT 트렌드 쉬운 설명'
+  private subTitleOfTop: string = 'Frontend Developer'
 
   private classOfComponent: string = 'my-md-10'
 
