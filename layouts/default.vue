@@ -12,21 +12,21 @@
         </v-list-item>
         <v-list-item nuxt :to="'/about'">
           <v-list-item-action>
-            <v-icon>mdi-information-outline</v-icon>
+            <v-icon>mdi-code-braces</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Projects</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item nuxt :to="'/'">
+        <v-list-item nuxt :to="'/about'">
           <v-list-item-action>
-            <v-icon>mdi-home</v-icon>
+            <v-icon>mdi-briefcase</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Experience</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item nuxt :to="'/'">
+        <v-list-item nuxt :to="'/about'">
           <v-list-item-action>
             <v-icon>mdi-home</v-icon>
           </v-list-item-action>
