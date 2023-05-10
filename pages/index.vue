@@ -47,27 +47,36 @@
     />
     <main-project :class="classOfComponent" />
 
-    <!-- Start : experience Detail -->
+    <!-- Start : work Detail -->
     <v-divider class="mx-10 px-10 my-sm-15 my-15" />
     <sub-title
-      :parent-items="objectOfParentItems.experience"
+      :parent-items="objectOfParentItems.work"
       :class="classOfComponent + ' pt-md-10'"
     />
-    <experience :class="classOfComponent" />
+    <work :class="classOfComponent" />
+    <!-- Start : education Detail -->
+    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
+    <sub-title
+      :parent-items="objectOfParentItems.education"
+      :class="classOfComponent + ' pt-md-10'"
+    />
+    <education :class="classOfComponent" />
   </v-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import SubTitle from '@/components/index/SubTitle.vue'
-import MainProject from '@/components/index/MainProject.vue'
-import Experience from '@/components/index/Experience.vue'
+import SubTitle from '../components/index/SubTitle.vue'
+import MainProject from '../components/index/MainProject.vue'
+import Work from '../components/index/Work.vue'
+import Education from '../components/index/Education.vue'
 
 @Component({
   components: {
     SubTitle,
     MainProject,
-    Experience,
+    Work,
+    Education,
   },
 })
 class PagesIndex extends Vue {
@@ -96,20 +105,19 @@ class PagesIndex extends Vue {
   // sub titles //
   private objectOfParentItems: {
     mainProject: { title: string; content: string }
-    mainYoutubeVideo: { title: string; content: string }
-    experience: { title: string; content: string }
+    work: { title: string; content: string }
+    education: { title: string; content: string }
   } = {
     mainProject: {
       title: 'Projects',
       content: '',
     },
-    mainYoutubeVideo: {
-      title: 'Best Youtube',
-      content:
-        '경제&#183;금융&#183;IT 분야에서 많은 분들이 시청해주신 영상들이에요',
+    work: {
+      title: 'Work',
+      content: '',
     },
-    experience: {
-      title: 'Experience',
+    education: {
+      title: 'Education',
       content: '',
     },
   }
