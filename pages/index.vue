@@ -21,6 +21,15 @@
         <p>{{ contentOfTop }}</p>
       </v-col>
     </v-row>
+    <v-row justify="center">
+      <v-col cols="8" sm="6">
+        <img
+          src="../static/index/temp.jpg"
+          alt=""
+          style="width: 100%; height: 55vh"
+        />
+      </v-col>
+    </v-row>
     <v-row>
       <v-col class="d-flex justify-center">
         <v-card-actions>
@@ -48,14 +57,15 @@
     <main-project :class="classOfComponent" />
 
     <!-- Start : work Detail -->
-    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
+    <v-divider class="mx-10 px-10" />
     <sub-title
       :parent-items="objectOfParentItems.work"
       :class="classOfComponent + ' pt-md-10'"
     />
     <work :class="classOfComponent" />
+
     <!-- Start : education Detail -->
-    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
+    <v-divider class="mx-10 px-10" />
     <sub-title
       :parent-items="objectOfParentItems.education"
       :class="classOfComponent + ' pt-md-10'"
@@ -85,7 +95,8 @@ class PagesIndex extends Vue {
 
   private subTitleOfTop: string = 'Frontend Developer'
 
-  private contentOfTop: string = 'ㅇㅇㅇㅇ하는 개발자이고 싶습니다 블라블라~~~'
+  private contentOfTop: string =
+    '블라블라~~~ ㅇㅇㅇㅇ하는 개발자이고 싶습니다 블라블라~~~'
 
   private linkBtns: Array<{ url: string; color: string; icon: string }> = [
     {

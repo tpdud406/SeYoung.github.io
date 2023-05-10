@@ -26,16 +26,14 @@
             <v-list-item-title>Work</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <nuxt-link nuxt :to="'#education'">
-          <v-list-item nuxt>
-            <v-list-item-action>
-              <v-icon>mdi-home</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Education</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </nuxt-link>
+        <v-list-item nuxt :to="'#education'">
+          <v-list-item-action>
+            <v-icon>mdi-home</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Education</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-content>

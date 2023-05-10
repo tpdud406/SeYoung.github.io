@@ -25,9 +25,8 @@
             >
               {{ item.title }}
             </v-card-title>
-            {{ item.content }}
-            <v-card-text v-if="$vuetify.breakpoint.xsOnly" class="mt-0 pt-0">
-              <small>{{ item.time }}</small>
+            <v-card-text class="mt-0 pt-0">
+              {{ item.content }}
             </v-card-text>
           </v-card>
         </v-timeline-item>

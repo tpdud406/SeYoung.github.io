@@ -1,95 +1,27 @@
 <template>
-  <v-row no-gutters id="education">
-    <v-col
-      v-for="(item, index) in items"
-      :key="index"
-      cols="6"
-      sm="4"
-      class="child-flex"
-      :order="reordering(index)"
+  <v-row id="education" justify="center">
+    <v-card
+      v-for="item in items"
+      width="100%"
+      class="card-no-border"
+      :key="item.title"
     >
-      <v-hover>
-        <template #default="{ hover }">
-          <!-- Start : Photo (Odd) -->
-          <v-img
-            v-if="index % 2 === 1"
-            id="photos-card-image"
-            :src="item.src"
-            aspect-ratio="1"
-            class="grey lighten-2"
-          >
-            <template #placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular indeterminate color="grey lighten-5" />
-              </v-row>
-            </template>
-            <v-fade-transition>
-              <v-overlay v-if="hover" absolute :color="item.color">
-                <p class="text-subtitle-1" v-html="item.desc" />
-              </v-overlay>
-            </v-fade-transition>
-          </v-img>
+      <v-card-title
+        class="title-background"
+        :class="{ 'text-center': $vuetify.breakpoint.smAndDown }"
+      >
+        {{ item.title }}
+      </v-card-title>
+      <v-card-subtitle>{{ item.period }}</v-card-subtitle>
+      <v-card-text class="text--primary">
+        <div v-html="item.desc"></div>
+      </v-card-text>
 
-          <!-- Start : Color Board (Even)-->
-          <v-card
-            v-else
-            width="100%"
-            height="100%"
-            :color="item.color"
-            dark
-            tile
-            flat
-            class="d-flex justify-start align-center"
-          >
-            <v-card-title>
-              <p class="text-subtitle-1" v-html="item.desc" />
-            </v-card-title>
-
-            <!-- Start : Progress circular -->
-            <template #placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular indeterminate color="grey lighten-5" />
-              </v-row>
-            </template>
-
-            <!-- Start : Overlay Img-->
-            <v-fade-transition>
-              <v-overlay v-if="hover" absolute opacity="0%">
-                <v-card min-width="100%" min-height="100%" tile>
-                  <v-img
-                    width="100%"
-                    height="100%"
-                    :src="item.src"
-                    aspect-ratio="1"
-                  >
-                    <template #placeholder>
-                      <v-row
-                        class="fill-height ma-0"
-                        align="center"
-                        justify="center"
-                      >
-                        <v-progress-circular
-                          indeterminate
-                          color="grey lighten-5"
-                        />
-                      </v-row>
-                    </template>
-
-                    <v-card-title>
-                      <p
-                        class="text-h3"
-                        style="color: rgba(0, 0, 0, 0)"
-                        v-html="item.alt"
-                      />
-                    </v-card-title>
-                  </v-img>
-                </v-card>
-              </v-overlay>
-            </v-fade-transition>
-          </v-card>
-        </template>
-      </v-hover>
-    </v-col>
+      <v-card-actions v-if="item.href">
+        <v-btn :href="item.href" variant="outlined"> 바로가기 </v-btn>
+      </v-card-actions>
+      <v-col cols="12" sm="6" md="4" lg="3" />
+    </v-card>
   </v-row>
 </template>
 
@@ -99,55 +31,38 @@ import { Component, Vue } from 'nuxt-property-decorator'
 @Component({})
 class ComponentsIndexEducations extends Vue {
   /* data */
-  private title: string = '사진들'
-  private desc: string =
-    '강연 촬영 및 외부 활동에서<br />촬영해주신 사진들입니다'
 
   private items: Array<{
-    src: string
-    alt: string
-    desc: string
-    color: string
+    title: string
+    desc: string | null
+    period: string
+    href: string | null
   }> = [
     {
-      src: '/education/temp.jpg',
-      alt: '사진1',
-      desc: '다양한 활동들 <',
-      color: 'dark grey',
+      title: '바닐라코딩 부트캠프',
+      desc:
+        '* 자료구조, 정렬 알고리즘, 객체 지향/함수형 프로그래밍, Computer Science 등의 학습을 통해 컴퓨팅 사고력 함양<br>' +
+        '* 데일리 알고리즘과 매주 주어지는 프로젝트 형식의 과제, 팀 프로젝트 통해 협업 및 문제 해결 능력 함양<br>',
+      period: '2022.3 ~ 2022.12(수료)',
+      href: 'https://www.vanillacoding.co/',
     },
     {
-      src: '/education/temp.jpg',
-      alt: '사진2',
-      desc: '메타버스 촬영 현장<br />(w. 김상균 교수님)',
-      color: 'black',
+      title: '한국방송통신대학교 회계금융전공',
+      desc: null,
+      period: '2015.3 ~ 2018.08 (졸업)',
+      href: null,
     },
   ]
-
-  /* method */
-  private reordering(index: number): number {
-    const reidx: number =
-      this.$vuetify.breakpoint.xsOnly && index === 2
-        ? 3
-        : this.$vuetify.breakpoint.xsOnly && index === 3
-        ? 2
-        : index
-    return reidx
-  }
 }
 
 export default ComponentsIndexEducations
 </script>
 
 <style scoped>
-#photos-card-image {
-  filter: gray; /* IE6-9 */
-  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
-  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
-}
-
-/* Disable grayscale on hover */
-#photos-card-image:hover {
-  -webkit-filter: grayscale(0);
-  filter: none;
+.card-no-border {
+  border: none !important; /* border 제거 */
+  box-shadow: none !important; /* 그림자 제거 */
+  padding: 0 !important; /* padding 제거 */
+  margin: 0 !important; /* margin 제거 */
 }
 </style>
