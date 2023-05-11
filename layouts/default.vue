@@ -1,6 +1,12 @@
 <template>
   <v-app>
-    <v-navigation-drawer app permanent>
+    <v-navigation-drawer
+      app
+      permanent
+      v-model="isDrawerOpen"
+      :mini-variant="isDesktop ? false : true"
+      :clipped="clipped"
+    >
       <v-list>
         <v-list-item nuxt :to="'/'">
           <v-list-item-action>
@@ -36,7 +42,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-content>
+    <v-content style="height: 100vh">
       <v-container fluid>
         <Nuxt />
       </v-container>
@@ -51,7 +57,22 @@ import { Component, Vue } from 'nuxt-property-decorator'
   data() {
     return {
       items: ['Introduction', 'Projects', 'Experience', 'Education'],
+      isDesktop: true, // 이 값을 브라우저 유형에 따라 적절하게 변경해주세요.
+      isDrawerOpen: true,
+      clipped: true,
     }
+  },
+  mounted() {
+    this.checkScreenSize()
+    window.addEventListener('resize', this.checkScreenSize)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.checkScreenSize)
+  },
+  methods: {
+    checkScreenSize() {
+      this.isDesktop = window.innerWidth > 960
+    },
   },
 })
 export default class LayoutDefault extends Vue {}
